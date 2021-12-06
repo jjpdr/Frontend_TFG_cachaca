@@ -1,7 +1,25 @@
 .header-container {
     display: flex;
     background-color: #1D6E39;
-
+    align-items: center;
+    justify-content: center;
+    
     width: 100vw;
     height: 100px;
+    
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        width: 80vw;
+
+        .logo {
+            cursor: pointer;
+            
+            width: 90px;
+            height: 100%;
+        }
+    }
 }
