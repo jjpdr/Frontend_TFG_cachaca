@@ -1,9 +1,12 @@
 import React from 'react';
-import './style.css';
+import './style.scss';
+
+import Header from '../Header';
 
 export default function Home() {
     return (
-        <div className="container">
+        <div className="home-container">
+            <Header />
             Home
         </div>
     )
