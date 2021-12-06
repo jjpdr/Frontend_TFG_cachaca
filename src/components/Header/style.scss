@@ -17,9 +17,28 @@
 
         .logo {
             cursor: pointer;
-            
+
             width: 90px;
             height: 100%;
+        }
+
+        .btn {
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+
+            font-size: 18px;
+
+            &.btn-primary {
+                background-color: #15A146;
+                border: none;
+
+                border-radius: 8px;
+                max-width: 200px;
+                padding: 5px 10px;
+            }
         }
     }
 }

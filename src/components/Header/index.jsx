@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './style.scss';
 
 import { ReactComponent as LogoCdc } from '../../assets/img/logo-cdc.svg';
@@ -8,7 +9,11 @@ export default function Header() {
         <div className="header-container">
             <div className="header">
                 <LogoCdc className="logo" />
-                Header
+                <button className="btn btn-primary">FAÇA PARTE DO CLUBE!</button>
+                <Link to="/produtos" className="btn">PRODUTOS</Link>
+                <Link to="/categorias" className="btn">CATEGORIAS</Link>
+                <Link to="/login" className="btn">LOGIN</Link>
+                <button className="btn btn-primary">CRIAR CONTA</button>
             </div>
         </div>
     )
