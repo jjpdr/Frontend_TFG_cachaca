@@ -65,6 +65,12 @@
                             border-radius: 12px;
                             max-width: 200px;
                             padding: 5px 10px;
+
+                            transition: all 0.2s;
+
+                            &:hover {
+                                background-color: #149441;
+                            }
                         }
                     }
                 }
