@@ -16,6 +16,8 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                clear: both;
+                overflow: hidden;
 
                 width: 40vw;
                 margin-left: 10vw;
@@ -24,25 +26,28 @@
                 h1 {
                     font-style: normal;
                     font-weight: bold;
-                    font-size: 58px;
-                    line-height: 68px;
+                    font-family: 'Zilla Slab Highlight', sans-serif;
+                    color: #15A146;
 
-                    text-decoration: dashed;
-                    text-decoration-color: #15A146;
+                    font-size: 64px;
+                    line-height: 77px;
                 }
 
                 h3 {
                     font-style: normal;
                     font-weight: bold;
-                    font-size: 32px;
-                    line-height: 36px;
+                    font-family: 'Zilla Slab Highlight', sans-serif;
+                    color: #fff;
 
-                    color: #FFFFFF
+                    font-size: 36px;
+                    line-height: 43px;
+
                 }
 
                 .btn-container {
                     display: flex;
                     justify-content: flex-end;
+
                     width: 100%;
 
                     .btn {
@@ -52,7 +57,7 @@
                         color: #fff;
                         text-decoration: none;
             
-                        font-size: 18px;
+                        font-size: 22px;
             
                         &.btn-primary {
                             background-color: #15A146;
