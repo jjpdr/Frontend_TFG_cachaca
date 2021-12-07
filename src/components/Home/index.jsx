@@ -19,7 +19,12 @@ export default function Home() {
                 </div>
             </div>
             <div className="page no-two">
-
+                <div className="content">
+                    <h2>Conheça alguns de nossos produtos!</h2>
+                    <div className="product">
+                        
+                    </div>
+                </div>
             </div>
         </div>
     )
