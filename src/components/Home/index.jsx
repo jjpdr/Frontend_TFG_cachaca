@@ -26,6 +26,39 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+            <div className="page no-three">
+                <div className="content">
+                    <h1>Faça parte do Clube!</h1>
+                    <div className="plans">
+                        <div>
+                            <div className="plan">
+                                <h2>PLANO GOLD</h2>
+                                <ul>
+                                    <li>infos infos infos i</li>
+                                    <li>infos infos infos i</li>
+                                    <li>infos infos infos i</li>
+                                    <li>infos infos infos i</li>
+                                    <li>infos infos infos i</li>
+                                    <li>infos infos infos i</li>
+                                </ul>
+                                <h2>R$ 75,90<span>/mês</span></h2>
+                            </div>
+                        </div>
+                        <div>
+                            <div className="selection">
+                                <div className="plans-selection">
+                                    <button className="btn-plan">Regular</button>
+                                    <button className="btn-plan selected">Gold</button>
+                                    <button className="btn-plan">Extreme</button>
+                                </div>
+                                <div className="btn-container">
+                                    <button>Saiba mais</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
