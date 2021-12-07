@@ -1,6 +1,5 @@
 .home-container {
-    display: flex;
-    flex-direction: column;
+    display: block;
     width: 100vw;
     height: 100vh;
 
@@ -8,11 +7,10 @@
         background-color: #000;
 
         width: 100vw;
-        height: calc(100vh - 100px);
-
-        &.no-one{
+        height: 100vh;
+        
+        &.no-one {
             background-image: url('../../assets/img/wallpaper-landing-page.svg');
-            background-position-y: calc(100vh - 100px);
 
             .content {
                 display: flex;
@@ -68,6 +66,10 @@
                 }
 
             }
+        }
+
+        &.no-two {
+            background-color: #1D6E39;
         }
     }
 }
