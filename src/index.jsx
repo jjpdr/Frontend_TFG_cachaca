@@ -5,12 +5,16 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
 import Home from './components/Home';
+import Login from './components/Login';
+import Cadastro from './components/Cadastro';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
         <Routes>
-            <Route path="/" exact element={<Home />} /> 
+            <Route path="/" exact element={<Home />} />
+            <Route path="/login" element={ <Login />} />
+            <Route path="/cadastro" element={ <Cadastro />}/>
         </Routes>
     </BrowserRouter>
   </React.StrictMode>,
