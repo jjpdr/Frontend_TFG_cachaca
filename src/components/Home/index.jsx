@@ -4,11 +4,12 @@ import "./style.scss";
 import Header from "../Header";
 import { plans } from "../../constants/plans";
 
+import iconWPP from "../../assets/img/icon-wpp.png"
+import iconFB from "../../assets/img/icon-fb.png"
+import iconINSTA from "../../assets/img/icon-insta.png"
+import iconTEL from "../../assets/img/icon-tel.png"
+
 import { ReactComponent as LogoCdc } from "../../assets/img/logo-cdc.svg";
-import { ReactComponent as LogoFB } from "../../assets/img/logo-fb.svg";
-import { ReactComponent as LogoWPP } from "../../assets/img/logo-wpp.svg";
-import { ReactComponent as LogoINSTA } from "../../assets/img/logo-insta.svg";
-import { ReactComponent as LogoTIKTOK } from "../../assets/img/logo-tiktok.svg";
 
 export default function Home() {
   const [selectedPlan, setSelectedPlan] = useState(1);
@@ -112,10 +113,11 @@ export default function Home() {
             <div className="social-media">
               <h2>Mídias sociais</h2>
               <div className="icon-container">
-                <LogoWPP className="social-media-icon" />
-                <LogoINSTA className="social-media-icon" />
-                <LogoFB className="social-media-icon" />
-                <LogoTIKTOK className="social-media-icon" />
+                <img src={iconWPP} className="social-media-icon" alt="WhatsApp" />
+                <img src={iconINSTA} className="social-media-icon" alt="Instagram" />
+                <img src={iconFB} className="social-media-icon" alt="Facebook" />
+                <img src={iconTEL} className="social-media-icon" alt="Telefone" />
+
               </div>
             </div>
           </div>
