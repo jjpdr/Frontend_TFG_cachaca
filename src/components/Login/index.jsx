@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Link } from 'react-router-dom';
 
@@ -12,6 +12,26 @@ import { ReactComponent as LogoFb } from "../../assets/img/logo-fb.svg";
 import { ReactComponent as LogoGoogle } from "../../assets/img/logo-google.svg";
 
 export default function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleChange = (value, field) => {
+    switch (field) {
+      case 'email':
+        setEmail(value);
+        break;
+      case 'password':
+        setPassword(value);
+        break;
+      default:
+        break;
+    }
+  }
+
+  const handleSubmit = () => {
+    console.log(email, password);
+  }
+
   return (
     <div className="page-container">
       <div className="info-container">
@@ -49,11 +69,11 @@ export default function Login() {
           </div>
         </div>
         <div className="middle-container">
-          <input type="text" className="field" placeholder="Email" />
-          <input type="password" className="field" placeholder="Senha" />
+          <input onChange={(event) => handleChange(event.target.value, 'email')} value={email} type="text" className="field" placeholder="Email" />
+          <input onChange={(event) => handleChange(event.target.value, 'password')} value={password} type="password" className="field" placeholder="Senha" />
           <p><Link to="/forgot-password">ESQUECEU A SENHA?</Link></p>
           <div className="button-enter">
-            <button className="btn btn-enter">ENTRAR</button>
+            <button onClick={handleSubmit} className="btn btn-enter">ENTRAR</button>
             <div className="button-socialMedia">
                 <button className="btn btn-google"><LogoGoogle className="icon-button google"/>ENTRAR COM GOOGLE</button>
                 <button className="btn btn-facebook"><LogoFb className="icon-button"/>ENTRAR COM FACEBOOK</button>
