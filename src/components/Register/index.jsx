@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import "./style.scss";
 
@@ -8,10 +8,8 @@ import altLogo from "../../assets/img/alt-logo.png";
 import loginIcon from "../../assets/img/login-icon.png";
 
 import { ReactComponent as LogoCdc } from "../../assets/img/logo-cdc.svg";
-import { ReactComponent as LogoFb } from "../../assets/img/logo-fb.svg";
-import { ReactComponent as LogoGoogle } from "../../assets/img/logo-google.svg";
 
-export default function Login() {
+export default function Register() {
   return (
     <div className="page-container">
       <div className="info-container">
@@ -29,7 +27,9 @@ export default function Login() {
           <p>Reposições de estoque e novos produtos toda semana!</p>
         </div>
         <div className="alternative-logo">
-         <Link to="/" className="btn"><img src={altLogo} alt="Clube da Cachaça" /></Link>
+          <Link to="/" className="btn">
+            <img src={altLogo} alt="Clube da Cachaça" />
+          </Link>
         </div>
         <div className="footer-container">
           <p>
@@ -42,26 +42,40 @@ export default function Login() {
       <div className="login-container">
         <div className="top-container">
           <div className="login-text">
-            <h2>LOGIN</h2>
+            <h2>CADASTRE-SE</h2>
           </div>
           <div className="login-icon">
             <img className="img" src={loginIcon} alt="Icone de login" />
           </div>
         </div>
         <div className="middle-container">
-          <input type="text" className="field" placeholder="Email" />
-          <input type="password" className="field" placeholder="Senha" />
-          <p><Link to="/forgot-password">ESQUECEU A SENHA?</Link></p>
-          <div className="button-enter">
-            <button className="btn btn-enter">ENTRAR</button>
-            <div className="button-socialMedia">
-                <button className="btn btn-google"><LogoGoogle className="icon-button google"/>ENTRAR COM GOOGLE</button>
-                <button className="btn btn-facebook"><LogoFb className="icon-button"/>ENTRAR COM FACEBOOK</button>
-            </div>
-          </div>
+          <input type="text" className="field" placeholder="Nome completo*" />
+          <input type="text" className="field" placeholder="Email*" />
+          <input type="text" className="field" placeholder="CPF*" />
+          <input
+            type="date"
+            className="field"
+            placeholder="Data de nascimento*"
+          />
+          <input type="password" className="field" placeholder="Senha*" />
+          <input
+            type="password"
+            className="field"
+            placeholder="Confirmar senha*"
+          />
         </div>
         <div className="bottom-container">
-            <h4>Ainda não tem conta? <Link to="/register" className="register">Faça seu cadastro.</Link></h4>
+          <h4>
+            <input type="checkbox"></input>Li e aceito os{" "}
+            <Link to="/use-terms" className="register">
+              Termos de Uso.
+            </Link>
+          </h4>
+        </div>
+        <div className="bottom-container">
+          <div className="button-enter">
+            <button className="btn btn-enter">CADASTRAR</button>
+          </div>
         </div>
       </div>
     </div>

@@ -6,7 +6,8 @@ import reportWebVitals from './reportWebVitals';
 
 import Home from './components/Home';
 import Login from './components/Login';
-import Cadastro from './components/Cadastro';
+import Register from './components/Register';
+import ForgotPassword from './components/ForgotPassword';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,7 +15,8 @@ ReactDOM.render(
         <Routes>
             <Route path="/" exact element={<Home />} />
             <Route path="/login" element={ <Login />} />
-            <Route path="/cadastro" element={ <Cadastro />}/>
+            <Route path="/register" element={ <Register />}/>
+            <Route path="/forgot-password" element={ <ForgotPassword />} />
         </Routes>
     </BrowserRouter>
   </React.StrictMode>,

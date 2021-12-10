@@ -9,7 +9,7 @@ import loginIcon from "../../assets/img/login-icon.png";
 
 import { ReactComponent as LogoCdc } from "../../assets/img/logo-cdc.svg";
 
-export default function Cadastro() {
+export default function ForgotPassword() {
   return (
     <div className="page-container">
       <div className="info-container">
@@ -42,39 +42,19 @@ export default function Cadastro() {
       <div className="login-container">
         <div className="top-container">
           <div className="login-text">
-            <h2>CADASTRE-SE</h2>
+            <h2>RECUPERAR SENHA</h2>
           </div>
           <div className="login-icon">
             <img className="img" src={loginIcon} alt="Icone de login" />
           </div>
         </div>
         <div className="middle-container">
-          <input type="text" className="field" placeholder="Nome completo*" />
-          <input type="text" className="field" placeholder="Email*" />
-          <input type="text" className="field" placeholder="CPF*" />
-          <input
-            type="text"
-            className="field"
-            placeholder="Data de nascimento*"
-          />
-          <input type="password" className="field" placeholder="Senha*" />
-          <input
-            type="password"
-            className="field"
-            placeholder="Confirmar senha*"
-          />
-        </div>
-        <div className="bottom-container">
-          <h4>
-            <input type="checkbox"></input>Li e aceito os{" "}
-            <Link to="/use-terms" className="register">
-              Termos de Uso.
-            </Link>
-          </h4>
-        </div>
-        <div className="bottom-container">
+          <input type="text" className="field" placeholder="Email" />
+          <div className="help-text">
+              <p>Será enviado um link de recuperação da senha para a sua caixa de entrada, caso não encontre, verifique a caixa de SPAM.</p>
+          </div>
           <div className="button-enter">
-            <button className="btn btn-enter">CADASTRAR</button>
+            <button className="btn btn-send">ENVIAR</button>
           </div>
         </div>
       </div>
