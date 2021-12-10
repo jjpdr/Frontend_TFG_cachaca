@@ -46,7 +46,7 @@ export default function Login() {
   }
 
   return (
-    <div className="page-container">
+    <div className="page-container-login">
       <div className="info-container">
         <div className="logo-container">
           <LogoCdc className="logo" />

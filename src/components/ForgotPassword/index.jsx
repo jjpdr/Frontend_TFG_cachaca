@@ -11,7 +11,7 @@ import { ReactComponent as LogoCdc } from "../../assets/img/logo-cdc.svg";
 
 export default function ForgotPassword() {
   return (
-    <div className="page-container">
+    <div className="page-container-forgot-password">
       <div className="info-container">
         <div className="logo-container">
           <LogoCdc className="logo" />

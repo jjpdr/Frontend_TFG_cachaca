@@ -18,6 +18,8 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmPassword] = useState("");
 
+  const [isChecked, setIsChecked] = useState(false);
+
   const handleChange = (value, field) => {
     switch (field) {
       case "name":
@@ -44,6 +46,9 @@ export default function Register() {
   };
 
   const handleSubmit = () => {
+    if (!isChecked) {
+      return alert("Por favor, concorde com os termos");
+    }
     api
       .post("/users/register", {
         name,
@@ -64,7 +69,7 @@ export default function Register() {
   };
 
   return (
-    <div className="page-container">
+    <div className="page-container-register">
       <div className="info-container">
         <div className="logo-container">
           <LogoCdc className="logo" />
@@ -149,7 +154,7 @@ export default function Register() {
         </div>
         <div className="bottom-container">
           <h4>
-            <input type="checkbox"></input>Li e aceito os{" "}
+            <input onClick={() => setIsChecked(!isChecked)} type="checkbox"></input>Li e aceito os{" "}
             <Link to="/use-terms" className="register">
               Termos de Uso.
             </Link>

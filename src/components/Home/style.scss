@@ -2,6 +2,7 @@
     display: block;
     width: 100vw;
     height: 100vh;
+    overflow-x: hidden;
 
     .page {
         background-color: #000;
@@ -166,7 +167,7 @@
                     font-weight: bold;
                     color: #FFFFFF;
 
-                    font-family: Roboto;
+                    font-family: "Roboto", sans-serif;
                     
                     margin-bottom: 100px;
                     font-size: 52px;

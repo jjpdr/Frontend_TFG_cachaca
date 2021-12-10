@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <div className="home-container">
       <Header />
-      <div className="page no-one">
+      <div id="page-one" className="page no-one">
         <div className="content">
           <div>
             <h1>O MAIOR CLUBE DE ASSINATURA DE CACHAÇA</h1>
@@ -38,8 +38,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      '
-      <div className="page no-two">
+      <div id="page-two" className="page no-two">
         <div className="content">
           <h2>Conheça alguns de nossos produtos!</h2>
           <div className="product">
@@ -61,8 +60,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      '
-      <div className="page no-three">
+      <div id="page-three" className="page no-three">
         <div className="content">
           <h1>Faça parte do Clube!</h1>
           <div className="plans">

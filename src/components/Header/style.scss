@@ -30,7 +30,7 @@
             font-weight: bold;
             color: #fff;
             text-decoration: none;
-
+            text-align: center;
             font-size: 22px;
 
             &.btn-primary {
@@ -61,6 +61,10 @@
                 width: 70px;
                 height: 70px;
                 margin-left: 18px;
+            }
+
+            button {
+                margin-left: 40px;
             }
         }
     }
