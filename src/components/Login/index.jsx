@@ -36,7 +36,8 @@ export default function Login() {
       email,
       password
     }).then( (res) => {
-      console.log(res);
+      localStorage.setItem('user', JSON.stringify(res.data.user));
+      window.location.href = '/';
     }
     ).catch( (err) => {
       alert(err.response.data.message);

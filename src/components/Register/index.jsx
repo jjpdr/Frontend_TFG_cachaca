@@ -54,7 +54,8 @@ export default function Register() {
         confirmpassword,
       })
       .then((res) => {
-        console.log(res);
+        alert('Cadastro efetuado com sucesso!');
+        window.location.href = '/login';
       })
       .catch((err) => {
         alert(err.response.data.message);

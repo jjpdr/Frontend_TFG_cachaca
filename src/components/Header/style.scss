@@ -48,5 +48,20 @@
                 }
             }
         }
+
+        .user-data {
+            display: flex;
+            align-items: center;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+
+            font-weight: 400;
+
+            img {
+                width: 70px;
+                height: 70px;
+                margin-left: 18px;
+            }
+        }
     }
 }
