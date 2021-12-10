@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 
 import "./style.scss";
+import api from "../../services/api"
 
 import altLogo from "../../assets/img/alt-logo.png";
 import loginIcon from "../../assets/img/login-icon.png";
@@ -30,6 +31,17 @@ export default function Login() {
 
   const handleSubmit = () => {
     console.log(email, password);
+
+    api.post("/users/login", {
+      email,
+      password
+    }).then( (res) => {
+      console.log(res);
+    }
+    ).catch( (err) => {
+      alert(err.response.data.message);
+      window.location.reload();
+    })
   }
 
   return (
