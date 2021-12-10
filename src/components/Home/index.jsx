@@ -8,6 +8,9 @@ import iconWPP from "../../assets/img/icon-wpp.png"
 import iconFB from "../../assets/img/icon-fb.png"
 import iconINSTA from "../../assets/img/icon-insta.png"
 import iconTEL from "../../assets/img/icon-tel.png"
+import cachaca51 from "../../assets/img/cachaca-51.png"
+import velhobarreiro from "../../assets/img/velho-barreiro.png"
+import novofogo from "../../assets/img/novo-fogo.png"
 
 import { ReactComponent as LogoCdc } from "../../assets/img/logo-cdc.svg";
 
@@ -39,7 +42,23 @@ export default function Home() {
       <div className="page no-two">
         <div className="content">
           <h2>Conheça alguns de nossos produtos!</h2>
-          <div className="product"></div>
+          <div className="product">
+            <div className="product-items">
+              <img src={cachaca51} alt="produto"/>
+              <h2 className="name-font">CACHAÇA 51</h2>
+              <h2>R$10,00</h2>
+            </div>
+            <div className="product-items">
+            <img className="velho-barreiro" src={velhobarreiro} alt="produto"/>
+              <h2 className="name-font">VELHO BARREIRO</h2>
+              <h2>R$12,90</h2>
+            </div>
+            <div className="product-items">
+            <img src={novofogo} alt="produto"/>
+              <h2 className="name-font">NOVO FOGO</h2>
+              <h2>R$15,00</h2>
+            </div>
+          </div>
         </div>
       </div>
       '
