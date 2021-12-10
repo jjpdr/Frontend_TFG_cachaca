@@ -8,6 +8,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
 import ForgotPassword from './components/ForgotPassword';
+import UseTerms from './components/UseTerms';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.render(
             <Route path="/login" element={ <Login />} />
             <Route path="/register" element={ <Register />}/>
             <Route path="/forgot-password" element={ <ForgotPassword />} />
+            <Route path="/use-terms" element={ <UseTerms /> }/>
         </Routes>
     </BrowserRouter>
   </React.StrictMode>,
