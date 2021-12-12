@@ -57,11 +57,12 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div id="page-two" className="page no-two">
+      {products.length > 0 && (
+        <div id="page-two" className="page no-two">
         <div className="content">
           <h2>Conheça alguns de nossos produtos!</h2>
           <div className="product">
-            {products.length > 0 && 
+            { 
             products.map(product => {
               return (
               <div className="product-items">
@@ -73,6 +74,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+      )}
+      
       <div id="page-three" className="page no-three">
         <div className="content">
           <h1>Faça parte do Clube!</h1>
