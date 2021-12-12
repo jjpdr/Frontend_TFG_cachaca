@@ -3,6 +3,7 @@
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 
     .page {
         background-color: #000;
@@ -109,6 +110,7 @@
                     display: flex;
                     flex: 1;
                     width: 100%;
+                    flex-wrap: wrap;
 
                     .product-items{
                         display: flex;
@@ -117,7 +119,6 @@
                         align-items: center;
 
                         img {
-                            width: 300px;
                             height: 300px;
                         }
 

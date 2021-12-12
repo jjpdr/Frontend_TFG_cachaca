@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.scss";
 
 import Header from "../Header";
@@ -12,14 +12,33 @@ import cachaca51 from "../../assets/img/cachaca-51.png"
 import velhobarreiro from "../../assets/img/velho-barreiro.png"
 import novofogo from "../../assets/img/novo-fogo.png"
 
+import api from "../../services/api";
+
 import { ReactComponent as LogoCdc } from "../../assets/img/logo-cdc.svg";
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
 
 export default function Home() {
   const [selectedPlan, setSelectedPlan] = useState(1);
+  const [products, setProducts] = useState([]);
 
   const handleSelectPlan = (plan) => {
     setSelectedPlan(plan);
   };
+
+  useEffect(() => {
+    api
+    .get("/marcas")
+    .then( (res) => {
+      setProducts(res.data.marcas);
+      console.log(res.data.marcas);
+      console.log(products);
+    })
+    .catch( (err) => {
+      console.log(err);
+    })
+  }, [])
+
 
   return (
     <div className="home-container">
@@ -42,21 +61,15 @@ export default function Home() {
         <div className="content">
           <h2>Conheça alguns de nossos produtos!</h2>
           <div className="product">
-            <div className="product-items">
-              <img src={cachaca51} alt="produto"/>
-              <h2 className="name-font">CACHAÇA 51</h2>
-              <h2>R$10,00</h2>
-            </div>
-            <div className="product-items">
-            <img className="velho-barreiro" src={velhobarreiro} alt="produto"/>
-              <h2 className="name-font">VELHO BARREIRO</h2>
-              <h2>R$12,90</h2>
-            </div>
-            <div className="product-items">
-            <img src={novofogo} alt="produto"/>
-              <h2 className="name-font">NOVO FOGO</h2>
-              <h2>R$15,00</h2>
-            </div>
+            {products.length > 0 && 
+            products.map(product => {
+              return (
+              <div className="product-items">
+            <img src={`${BACKEND_URL}/marcas/image/${product.images[0]}`} alt="produto"/>
+              <h2 className="name-font">{product.nome}</h2>
+              <h2>{product.preco}</h2>
+            </div>)
+            })}
           </div>
         </div>
       </div>
