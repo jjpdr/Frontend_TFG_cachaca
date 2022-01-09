@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./style.scss";
 
 import Header from "../Header";
@@ -8,13 +9,11 @@ import iconWPP from "../../assets/img/icon-wpp.png"
 import iconFB from "../../assets/img/icon-fb.png"
 import iconINSTA from "../../assets/img/icon-insta.png"
 import iconTEL from "../../assets/img/icon-tel.png"
-import cachaca51 from "../../assets/img/cachaca-51.png"
-import velhobarreiro from "../../assets/img/velho-barreiro.png"
-import novofogo from "../../assets/img/novo-fogo.png"
 
 import api from "../../services/api";
 
 import { ReactComponent as LogoCdc } from "../../assets/img/logo-cdc.svg";
+import Footer from "../Footer";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
 
@@ -31,12 +30,11 @@ export default function Home() {
     .get("/marcas")
     .then( (res) => {
       setProducts(res.data.marcas);
-      console.log(res.data.marcas);
-      console.log(products);
     })
     .catch( (err) => {
       console.log(err);
     })
+  // eslint-disable-next-line
   }, [])
 
 
@@ -66,9 +64,11 @@ export default function Home() {
             products.map(product => {
               return (
               <div className="product-items">
+                <Link to={`/product/${product._id}`}>
             <img src={`${BACKEND_URL}/marcas/image/${product.images[0]}`} alt="produto"/>
               <h2 className="name-font">{product.nome}</h2>
-              <h2>{product.preco}</h2>
+              </Link>
+              <h2>R${product.preco}</h2>
             </div>)
             })}
           </div>
@@ -150,15 +150,12 @@ export default function Home() {
                 <img src={iconINSTA} className="social-media-icon" alt="Instagram" />
                 <img src={iconFB} className="social-media-icon" alt="Facebook" />
                 <img src={iconTEL} className="social-media-icon" alt="Telefone" />
-
               </div>
             </div>
           </div>
         </div>
-        <div className="footer-container">
-            <p>© 2021 CLUBE DA CACHAÇA. Todos os direitos reservados. Se beber não dirija. Aprecie com moderação. A venda de bebidas alcoólicas é proibida para menores de 18 anos.</p>
-        </div>
       </div>
+      <Footer />
     </div>
   );
 }

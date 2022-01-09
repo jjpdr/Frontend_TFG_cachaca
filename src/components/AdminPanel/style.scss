@@ -1,0 +1,38 @@
+.page-container-admin-panel {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+
+    .content {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 10%;
+
+        .btn {
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            font-size: 22px;
+            margin: 50px;
+
+            background-color: #15A146;
+            border: none;
+
+            border-radius: 10px;
+            max-width: 400px;
+            padding: 5px 18px;
+
+            transition: all 0.2s;
+
+            &:hover {
+                background-color: #149441;
+            }
+        }
+    }
+}

@@ -2,30 +2,34 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import reportWebVitals from './reportWebVitals';
 
 import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
 import ForgotPassword from './components/ForgotPassword';
 import UseTerms from './components/UseTerms';
+import RegisterProducts from './components/RegisterProducts'; 
+import ProductPage from './components/ProductPage';
+import UserPage from './components/UserPage';
+import AdminPanel from './components/AdminPanel';
+import DeleteProduct from './components/DeleteProduct'
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
         <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" exact element={<Home />} />
             <Route path="/login" element={ <Login />} />
             <Route path="/register" element={ <Register />}/>
             <Route path="/forgot-password" element={ <ForgotPassword />} />
             <Route path="/use-terms" element={ <UseTerms /> }/>
+            <Route path="/admin-panel" element={ <AdminPanel />} />
+            <Route path="/admin-panel/register-product" element={ <RegisterProducts /> } />
+            <Route path="/product/:id" element={ < ProductPage />}/>
+            <Route path="/user/:id" element={ <UserPage /> }/>
+            <Route path="/admin-panel/delete-product" element={ <DeleteProduct /> } />
         </Routes>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

@@ -294,25 +294,6 @@
             justify-content: center;
             background-color: #45A165;
             flex-direction: column;
-
-            .footer-container {
-                display: flex;
-                width: 100%;
-                flex: 1;
-                justify-content: center;
-                align-items: center;
-                background-color: #1D6E39;
-                height: 64px;
-
-                p {
-                    font-family: "Roboto", sans-serif;
-                    font-style: normal;
-                    font-weight: normal;
-                    font-size: 18px;
-                    line-height: 21px;
-                    color: #FFFFFF;
-                }
-            }
             
             .content {
                 order: -1;

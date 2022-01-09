@@ -5,12 +5,11 @@ import { Link } from 'react-router-dom';
 import "./style.scss";
 import api from "../../services/api"
 
-import altLogo from "../../assets/img/alt-logo.png";
-import loginIcon from "../../assets/img/login-icon.png";
+import loginIcon from "../../assets/img/login-icon.png"; 
 
-import { ReactComponent as LogoCdc } from "../../assets/img/logo-cdc.svg";
 import { ReactComponent as LogoFb } from "../../assets/img/logo-fb.svg";
 import { ReactComponent as LogoGoogle } from "../../assets/img/logo-google.svg";
+import Infos from "../Infos";
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -37,6 +36,8 @@ export default function Login() {
       password
     }).then( (res) => {
       localStorage.setItem('user', JSON.stringify(res.data.user));
+      localStorage.setItem('token', JSON.stringify(res.data.token));
+      localStorage.setItem('isAdmin', JSON.stringify(res.data.user.isAdmin));
       window.location.href = '/';
     }
     ).catch( (err) => {
@@ -47,31 +48,7 @@ export default function Login() {
 
   return (
     <div className="page-container-login">
-      <div className="info-container">
-        <div className="logo-container">
-          <LogoCdc className="logo" />
-        </div>
-        <div className="welcome-back">
-          <h2>BEM VINDO DE VOLTA</h2>
-          <br />
-          <p>
-            Ficamos felizes que tenha gostado de fazer parte do nosso Clube!
-            Fique ligado que sempre temos novidades!
-          </p>
-          <br />
-          <p>Reposições de estoque e novos produtos toda semana!</p>
-        </div>
-        <div className="alternative-logo">
-         <Link to="/" className="btn"><img src={altLogo} alt="Clube da Cachaça" /></Link>
-        </div>
-        <div className="footer-container">
-          <p>
-            © 2021 CLUBE DA CACHAÇA. Todos os direitos reservados. Se beber não
-            dirija. Aprecie com moderação. A venda de bebidas alcoólicas é
-            proibida para menores de 18 anos.
-          </p>
-        </div>
-      </div>
+      <Infos />
       <div className="login-container">
         <div className="top-container">
           <div className="login-text">

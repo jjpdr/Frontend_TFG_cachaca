@@ -5,10 +5,8 @@ import { Link } from "react-router-dom";
 import api from "../../services/api";
 import "./style.scss";
 
-import altLogo from "../../assets/img/alt-logo.png";
 import loginIcon from "../../assets/img/login-icon.png";
-
-import { ReactComponent as LogoCdc } from "../../assets/img/logo-cdc.svg";
+import Infos from "../Infos";
 
 export default function Register() {
   const [name, setName] = useState("");
@@ -44,7 +42,7 @@ export default function Register() {
         break;
     }
   };
-
+  
   const handleSubmit = () => {
     if (!isChecked) {
       return alert("Por favor, concorde com os termos");
@@ -70,33 +68,7 @@ export default function Register() {
 
   return (
     <div className="page-container-register">
-      <div className="info-container">
-        <div className="logo-container">
-          <LogoCdc className="logo" />
-        </div>
-        <div className="welcome-back">
-          <h2>BEM VINDO DE VOLTA</h2>
-          <br />
-          <p>
-            Ficamos felizes que tenha gostado de fazer parte do nosso Clube!
-            Fique ligado que sempre temos novidades!
-          </p>
-          <br />
-          <p>Reposições de estoque e novos produtos toda semana!</p>
-        </div>
-        <div className="alternative-logo">
-          <Link to="/" className="btn">
-            <img src={altLogo} alt="Clube da Cachaça" />
-          </Link>
-        </div>
-        <div className="footer-container">
-          <p>
-            © 2021 CLUBE DA CACHAÇA. Todos os direitos reservados. Se beber não
-            dirija. Aprecie com moderação. A venda de bebidas alcoólicas é
-            proibida para menores de 18 anos.
-          </p>
-        </div>
-      </div>
+      <Infos />
       <div className="login-container">
         <div className="top-container">
           <div className="login-text">
