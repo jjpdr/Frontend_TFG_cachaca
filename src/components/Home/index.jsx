@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./style.scss";
 
@@ -9,6 +9,7 @@ import iconWPP from "../../assets/img/icon-wpp.png"
 import iconFB from "../../assets/img/icon-fb.png"
 import iconINSTA from "../../assets/img/icon-insta.png"
 import iconTEL from "../../assets/img/icon-tel.png"
+import arrow from "../../assets/img/arrow.png"
 
 import api from "../../services/api";
 
@@ -20,6 +21,8 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
 export default function Home() {
   const [selectedPlan, setSelectedPlan] = useState(1);
   const [products, setProducts] = useState([]);
+  const [divCarousel, setDivCarousel] = useState([]);
+  const carousel = useRef(null);
 
   const handleSelectPlan = (plan) => {
     setSelectedPlan(plan);
@@ -36,6 +39,16 @@ export default function Home() {
     })
   // eslint-disable-next-line
   }, [])
+
+  const handleLeftClick = (event) => {
+    console.log('Esquerda');
+    carousel.current.scrollLeft -= carousel.current.offsetWidth;
+  }
+
+  const handleRightClick = (event) => {
+    console.log('Direita');
+    carousel.current.scrollLeft += carousel.current.offsetWidth;
+  }
 
 
   return (
@@ -58,12 +71,11 @@ export default function Home() {
       {products.length > 0 && (
         <div id="page-two" className="page no-two">
         <div className="content">
-          <h2>Conheça alguns de nossos produtos!</h2>
-          <div className="product">
+          <div className="product" ref={carousel}>
             { 
             products.map(product => {
               return (
-              <div className="product-items">
+              <div className="product-items" id={product._id}>
                 <Link to={`/product/${product._id}`}>
             <img src={`${BACKEND_URL}/marcas/image/${product.images[0]}`} alt="produto"/>
               <h2 className="name-font">{product.nome}</h2>
@@ -71,6 +83,10 @@ export default function Home() {
               <h2>R${product.preco}</h2>
             </div>)
             })}
+          </div>
+          <div className="buttons">
+            <button onClick={handleLeftClick}><img src={arrow}/></button>
+            <button onClick={handleRightClick}><img src={arrow}/></button>
           </div>
         </div>
       </div>
