@@ -6,19 +6,23 @@ export default function FacebookLogin() {
     const [picture, setPicture] = useState("");
 
     const responseFacebook = (response) => {
+        console.log(response);
         setData(response);
         setPicture(response.picture.data.url);
 
-        const { name, email } = data;
-
-        if (response.accessToken) console.log(name, email);
+        if (response.accessToken) {
+            let url = "/register?";
+            if (data.name !== undefined) url += `name=${data.name}`;
+            if (data.email !== undefined) url += `&email=${data.email}`;
+            window.location.href = url;
+        }
     };
 
     return (
         <div className="page-container-facebook-login">
             <Facebook
                 appId="971106717149309"
-                autoLoad={true}
+                autoLoad={false}
                 fields="name,email,picture"
                 scope="public_profile,user_friends"
                 callback={responseFacebook}
