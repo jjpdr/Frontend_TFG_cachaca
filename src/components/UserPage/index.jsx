@@ -1,29 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-import { useParams} from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
-import './style.scss';
+import "./style.scss";
 
-import api from '../../services/api'
-import Header from '../Header';
+import api from "../../services/api";
+import Header from "../Header";
 
 export default function UserPage() {
     const { id } = useParams();
     const [user, setUser] = useState({});
 
     useEffect(() => {
-        api
-        .get(`/users/${id}`)
-        .then((res) => {
-            setUser(res.data.user);
-        })
-        .catch((err) => {
-            console.log(err);
-        })
+        api.get(`/users/${id}`)
+            .then((res) => {
+                setUser(res.data.user);
+            })
+            .catch((err) => {});
+        // eslint-disable-next-line
     }, []);
 
     return (
-        <div className="page-container-user-page"> 
+        <div className="page-container-user-page">
             <Header />
             <div className="content">
                 <h1>Nome: {user.name}</h1>

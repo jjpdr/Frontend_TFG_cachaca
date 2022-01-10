@@ -1,26 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
-import './style.scss';  
-import api from '../../services/api';
-import Header from '../Header';
-
+import "./style.scss";
+import api from "../../services/api";
+import Header from "../Header";
 
 export default function ProductPage() {
     const { id } = useParams();
     const [product, setProduct] = useState({});
 
     useEffect(() => {
-        api
-            .get(`/marcas/${id}`)
+        api.get(`/marcas/${id}`)
             .then((res) => {
                 setProduct(res.data.marca);
-                console.log(res.data.marca);
             })
-            .catch((err) => {
-                console.log(err);
-            })
+            .catch((err) => {});
+        // eslint-disable-next-line
     }, []);
 
     return (
