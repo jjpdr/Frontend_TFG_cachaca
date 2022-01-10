@@ -10,6 +10,7 @@ import Infos from "../Infos";
 import checkEmail from "../../services/checkEmail";
 import checkCPF from "../../services/checkCPF";
 import maskCPF from "../../services/maskCPF";
+import checkAge from "../../services/checkAge";
 
 export default function Register() {
     const [name, setName] = useState("");
@@ -47,9 +48,11 @@ export default function Register() {
     };
 
     const handleSubmit = () => {
-        if (!checkEmail(email)) setEmail("");
-        if (!checkCPF(cpf)) setCPF("");
-        console.log(checkCPF(cpf));
+        if (!checkEmail(email)) return alert("E-mail inválido");
+        if (!checkCPF(cpf)) return alert("CPF inválido");
+        console.log(checkAge(date));
+        if (checkAge(date) < 18)
+            return alert("É necessário possuir mais de 18 anos!");
         if (!isChecked) {
             return alert("Por favor, concorde com os termos");
         }

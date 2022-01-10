@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import { useParams } from "react-router-dom";
 
+import moment from "moment";
+
 import "./style.scss";
 
 import api from "../../services/api";
@@ -27,7 +29,7 @@ export default function UserPage() {
                 <h1>Nome: {user.name}</h1>
                 <h1>Email: {user.email}</h1>
                 <h1>CPF: {user.cpf}</h1>
-                <h1>Data de nascimento: {user.date}</h1>
+                <h1>Data de nascimento: {moment(user.date).format("L")}</h1>
             </div>
         </div>
     );

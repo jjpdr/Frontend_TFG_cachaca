@@ -14,7 +14,7 @@ export default function FacebookLogin() {
             let url = "/register?";
             if (data.name !== undefined) url += `name=${data.name}`;
             if (data.email !== undefined) url += `&email=${data.email}`;
-            window.location.href = url;
+            // window.location.href = url;
         }
     };
 
@@ -23,9 +23,10 @@ export default function FacebookLogin() {
             <Facebook
                 appId="971106717149309"
                 autoLoad={false}
-                fields="name,email,picture"
-                scope="public_profile,user_friends"
+                fields="name,email,picture,birthday"
+                scope="public_profile,user_friends,user_birthday,email"
                 callback={responseFacebook}
+                returnScopes={true}
             />
         </div>
     );
