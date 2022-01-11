@@ -67,6 +67,7 @@ export default function Home() {
             {products.length > 0 && (
                 <div id="page-two" className="page no-two">
                     <div className="content">
+                        <h2>CONHEÇA ALGUNS DE NOSSOS PRODUTOS</h2>
                         <div className="product" ref={carousel}>
                             {products.map((product) => {
                                 return (

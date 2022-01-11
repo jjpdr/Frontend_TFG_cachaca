@@ -9,9 +9,9 @@
         background-color: #000;
         width: 100vw;
         height: 100vh;
-        
+
         &.no-one {
-            background-image: url('../../assets/img/wallpaper-landing-page.svg');
+            background-image: url("../../assets/img/wallpaper-landing-page.svg");
 
             .content {
                 display: flex;
@@ -27,8 +27,8 @@
                 h1 {
                     font-style: normal;
                     font-weight: bold;
-                    font-family: 'Zilla Slab Highlight', sans-serif;
-                    color: #15A146;
+                    font-family: "Zilla Slab Highlight", sans-serif;
+                    color: #15a146;
 
                     font-size: 64px;
                     line-height: 77px;
@@ -37,12 +37,11 @@
                 h3 {
                     font-style: normal;
                     font-weight: bold;
-                    font-family: 'Zilla Slab Highlight', sans-serif;
+                    font-family: "Zilla Slab Highlight", sans-serif;
                     color: #fff;
 
                     font-size: 36px;
                     line-height: 43px;
-
                 }
 
                 .btn-container {
@@ -53,17 +52,17 @@
 
                     .btn {
                         cursor: pointer;
-                        font-family: 'Roboto', sans-serif;
+                        font-family: "Roboto", sans-serif;
                         font-weight: bold;
                         color: #fff;
                         text-decoration: none;
-            
+
                         font-size: 22px;
-            
+
                         &.btn-primary {
-                            background-color: #15A146;
+                            background-color: #15a146;
                             border: none;
-            
+
                             border-radius: 12px;
                             max-width: 200px;
                             padding: 5px 10px;
@@ -76,7 +75,6 @@
                         }
                     }
                 }
-
             }
         }
 
@@ -84,22 +82,21 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #1D6E39;
-            
+            background-color: #1d6e39;
+
             .content {
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
                 justify-content: center;
                 align-items: center;
-
-                width: 75%;
-                height: 75%;
+                width: 77%;
+                height: 80%;
 
                 h2 {
-                    font-family: 'Zilla Slab Highlight';
+                    font-family: "Zilla Slab Highlight";
                     font-style: normal;
                     font-weight: bold;
-                    color: #FFFFFF;
+                    color: #ffffff;
 
                     font-size: 36px;
                     line-height: 44px;
@@ -111,42 +108,42 @@
                     width: 100%;
                     overflow-x: auto;
                     scroll-behavior: smooth;
-                    // transition: ease all 0.2s;
-                    
+                    align-items: center;
+
                     &::-webkit-scrollbar {
                         display: none;
                     }
-                    
 
-                    .product-items{
-                        margin: 10px;
+                    .product-items {
                         padding: 10px;
                         width: 280px;
                         flex: none;
 
                         img {
-                            height: 300px;
+                            height: 280px;
                             object-fit: cover;
                         }
 
                         .name-font {
-                            font-family: 'Roboto', sans-serif;
+                            font-family: "Roboto", sans-serif;
                             font-weight: 400;
                             color: #fff;
                             text-decoration: none;
-                
+                            text-align: center;
+
                             font-size: 40px;
                         }
 
-                        h2{
+                        h2 {
                             margin: 10px;
+                            text-align: center;
                         }
-                    }            
+                    }
                 }
 
                 .buttons {
-                    text-align: center;                    
-                    
+                    text-align: center;
+
                     button {
                         background-color: transparent;
                         border: none;
@@ -162,18 +159,14 @@
                     }
                 }
             }
-
-            
         }
 
         &.no-three {
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #15A146;
+            background-color: #15a146;
 
-            ;
-            
             .content {
                 display: flex;
                 flex-direction: column;
@@ -186,10 +179,10 @@
                 h1 {
                     font-style: normal;
                     font-weight: bold;
-                    color: #FFFFFF;
+                    color: #ffffff;
 
                     font-family: "Roboto", sans-serif;
-                    
+
                     margin-bottom: 100px;
                     font-size: 52px;
                     line-height: 60px;
@@ -212,17 +205,17 @@
                         .plan {
                             background-color: #fff;
                             border: none;
-                            
+
                             width: 65%;
                             border-radius: 22px;
 
                             h2 {
                                 font-style: normal;
                                 font-weight: bold;
-                                color: #0B5425;
-                                
+                                color: #0b5425;
+
                                 font-family: Roboto;
-                                
+
                                 font-size: 22px;
                                 line-height: 28px;
 
@@ -232,7 +225,7 @@
                             }
 
                             ul {
-                                color: #0B5425;
+                                color: #0b5425;
 
                                 margin-left: -18px;
                             }
@@ -241,7 +234,7 @@
                         .selection {
                             display: flex;
                             height: 100%;
-                            
+
                             .plans-selection {
                                 height: 80%;
 
@@ -249,12 +242,12 @@
                                     cursor: pointer;
                                     font-style: normal;
                                     font-weight: bold;
-                                    color: #0B5425;
+                                    color: #0b5425;
                                     background-color: transparent;
                                     border: none;
-                                    
+
                                     font-family: Roboto;
-                                    
+
                                     margin-bottom: 8px;
                                     width: 50%;
                                     font-size: 28px;
@@ -265,13 +258,13 @@
                                         background-color: #0e7231;
                                         color: #fff;
                                         border: none;
-                        
+
                                         border-radius: 12px;
                                     }
 
                                     &.selected {
-                                        background-color: #0B5425;
-                                        color: #FFFFFF;
+                                        background-color: #0b5425;
+                                        color: #ffffff;
 
                                         border-radius: 12px;
                                     }
@@ -286,10 +279,10 @@
                                     cursor: pointer;
                                     font-style: normal;
                                     font-weight: bold;
-                                    background-color: #0B5425;
+                                    background-color: #0b5425;
                                     color: #fff;
                                     border: none;
-                                    
+
                                     font-family: Roboto;
 
                                     border-radius: 12px;
@@ -312,9 +305,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #45A165;
+            background-color: #45a165;
             flex-direction: column;
-            
+
             .content {
                 order: -1;
                 display: flex;
@@ -324,10 +317,10 @@
                 height: 75%;
 
                 h2 {
-                    font-family: 'Zilla Slab Highlight';
+                    font-family: "Zilla Slab Highlight";
                     font-style: normal;
                     font-weight: bold;
-                    color: #FFFFFF;
+                    color: #ffffff;
 
                     font-size: 36px;
                     line-height: 44px;
@@ -348,11 +341,11 @@
                     }
 
                     p {
-                        font-family: 'Roboto', sans-serif;
+                        font-family: "Roboto", sans-serif;
                         font-style: normal;
                         font-weight: normal;
                         font-size: 20px;
-                        color: #FFFFFF;
+                        color: #ffffff;
                         text-align: justify;
 
                         width: 50%;
@@ -362,28 +355,27 @@
                 .useful-links {
                     display: flex;
                     flex-direction: column;
-                    .need-help{
-
+                    .need-help {
                         h2 {
                             font-family: "Roboto", sans-serif;
                             font-style: normal;
                             font-weight: bold;
                             text-align: justify;
-                            color: #FFFFFF;
-                            
+                            color: #ffffff;
+
                             font-size: 34px;
                             line-height: 40px;
                             margin-top: 85px;
                         }
-    
+
                         h3 {
                             font-family: "Roboto", sans-serif;
                             font-style: normal;
                             font-weight: normal;
                             text-decoration-line: underline;
                             text-align: justify;
-                            color: #FFFFFF;
-                            
+                            color: #ffffff;
+
                             font-size: 25px;
                             line-height: 35px;
                             margin-top: -20px;
@@ -396,8 +388,8 @@
                             font-style: normal;
                             font-weight: bold;
                             text-align: justify;
-                            color: #FFFFFF;
-                            
+                            color: #ffffff;
+
                             font-size: 34px;
                             line-height: 40px;
                             margin-top: 60px;
@@ -408,12 +400,11 @@
                         display: flex;
                         justify-content: space-between;
 
-                        .social-media-icon{
+                        .social-media-icon {
                             width: 60px;
                             height: 60px;
                             cursor: pointer;
                             margin-left: -10px;
-
                         }
                     }
                 }
