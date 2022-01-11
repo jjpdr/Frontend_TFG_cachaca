@@ -16,9 +16,9 @@ export default function Register() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [cpf, setCPF] = useState("");
-    const [date, setDate] = useState("");
+    const [birthday, setBirthday] = useState("");
     const [password, setPassword] = useState("");
-    const [confirmpassword, setConfirmPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
 
     const [isChecked, setIsChecked] = useState(false);
 
@@ -33,13 +33,13 @@ export default function Register() {
             case "cpf":
                 setCPF(maskCPF(value));
                 break;
-            case "date":
-                setDate(value);
+            case "birthday":
+                setBirthday(value);
                 break;
             case "password":
                 setPassword(value);
                 break;
-            case "confirmpassword":
+            case "confirmPassword":
                 setConfirmPassword(value);
                 break;
             default:
@@ -50,8 +50,8 @@ export default function Register() {
     const handleSubmit = () => {
         if (!checkEmail(email)) return alert("E-mail inválido");
         if (!checkCPF(cpf)) return alert("CPF inválido");
-        console.log(checkAge(date));
-        if (checkAge(date) < 18)
+        console.log(checkAge(birthday));
+        if (checkAge(birthday) < 18)
             return alert("É necessário possuir mais de 18 anos!");
         if (!isChecked) {
             return alert("Por favor, concorde com os termos");
@@ -60,9 +60,9 @@ export default function Register() {
             name,
             email,
             cpf,
-            date,
+            birthday,
             password,
-            confirmpassword,
+            confirmPassword,
         })
             .then((res) => {
                 alert("Cadastro efetuado com sucesso!");
@@ -83,6 +83,7 @@ export default function Register() {
     useEffect(() => {
         if (query.get("name")) setName(query.get("name"));
         if (query.get("email")) setEmail(query.get("email"));
+        // eslint-disable-next-line
     }, []);
 
     return (
@@ -135,9 +136,9 @@ export default function Register() {
                         className="field"
                         placeholder="Data de nascimento*"
                         onChange={(event) =>
-                            handleChange(event.target.value, "date")
+                            handleChange(event.target.value, "birthday")
                         }
-                        value={date}
+                        value={birthday}
                     />
                     <input
                         onChange={(event) =>
@@ -153,9 +154,9 @@ export default function Register() {
                         className="field"
                         placeholder="Confirmar senha*"
                         onChange={(event) =>
-                            handleChange(event.target.value, "confirmpassword")
+                            handleChange(event.target.value, "confirmPassword")
                         }
-                        value={confirmpassword}
+                        value={confirmPassword}
                     />
                 </div>
                 <div className="bottom-container">

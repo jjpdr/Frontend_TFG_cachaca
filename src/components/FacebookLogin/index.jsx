@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import Facebook from "react-facebook-login";
+import moment from "moment";
 
 export default function FacebookLogin() {
     const [data, setData] = useState({});
     const [picture, setPicture] = useState("");
 
     const responseFacebook = (response) => {
-        console.log(response);
         setData(response);
         setPicture(response.picture.data.url);
+        const { name, email, birthday } = data;
 
         if (response.accessToken) {
             let url = "/register?";
-            if (data.name !== undefined) url += `name=${data.name}`;
-            if (data.email !== undefined) url += `&email=${data.email}`;
-            // window.location.href = url;
+            if (name !== undefined) url += `name=${name}`;
+            if (email !== undefined) url += `&email=${email}`;
+            if (birthday !== undefined) url += `&birthday=${birthday}`;
+            window.location.href = url;
         }
     };
 
