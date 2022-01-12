@@ -1,14 +1,19 @@
+$base-color: #121d0c;
+$button-color: #09814a;
+$hover-button: #0cac64;
+$text-color: #e6e8e6;
+
 .header-container {
     display: flex;
-    background-color: #1D6E39;
+    background-color: $base-color;
     align-items: center;
     justify-content: center;
-    position: fixed;    
-    
-    box-shadow: 3px 3px 8px 0 rgba(0, 0, 0, .2);
+    position: fixed;
+
+    box-shadow: 3px 3px 8px 0 rgba(0, 0, 0, 0.2);
     width: 100vw;
     height: 100px;
-    
+
     .header {
         display: flex;
         flex-direction: row;
@@ -26,15 +31,15 @@
 
         .btn {
             cursor: pointer;
-            font-family: 'Roboto', sans-serif;
+            font-family: "Roboto", sans-serif;
             font-weight: bold;
-            color: #fff;
+            color: $text-color;
             text-decoration: none;
             text-align: center;
             font-size: 22px;
 
             &.btn-primary {
-                background-color: #15A146;
+                background-color: $button-color;
                 border: none;
 
                 border-radius: 10px;
@@ -44,7 +49,7 @@
                 transition: all 0.2s;
 
                 &:hover {
-                    background-color: #149441;
+                    background-color: $hover-button;
                 }
             }
         }
@@ -52,8 +57,8 @@
         .user-data {
             display: flex;
             align-items: center;
-            font-family: 'Roboto', sans-serif;
-            color: #fff;
+            font-family: "Roboto", sans-serif;
+            color: $text-color;
 
             font-weight: 400;
 

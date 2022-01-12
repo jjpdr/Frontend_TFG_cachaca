@@ -1,3 +1,8 @@
+$button-color: #09814a;
+$hover-button: #0cac64;
+$text-color: #e6e8e6;
+$primary-text-color: #92b4a7;
+
 .home-container {
     display: block;
     width: 100vw;
@@ -28,7 +33,7 @@
                     font-style: normal;
                     font-weight: bold;
                     font-family: "Zilla Slab Highlight", sans-serif;
-                    color: #15a146;
+                    color: $primary-text-color;
 
                     font-size: 64px;
                     line-height: 77px;
@@ -38,7 +43,7 @@
                     font-style: normal;
                     font-weight: bold;
                     font-family: "Zilla Slab Highlight", sans-serif;
-                    color: #fff;
+                    color: $primary-text-color;
 
                     font-size: 36px;
                     line-height: 43px;
@@ -54,13 +59,13 @@
                         cursor: pointer;
                         font-family: "Roboto", sans-serif;
                         font-weight: bold;
-                        color: #fff;
+                        color: $text-color;
                         text-decoration: none;
 
                         font-size: 22px;
 
                         &.btn-primary {
-                            background-color: #15a146;
+                            background-color: $button-color;
                             border: none;
 
                             border-radius: 12px;
@@ -70,7 +75,7 @@
                             transition: all 0.2s;
 
                             &:hover {
-                                background-color: #149441;
+                                background-color: $hover-button;
                             }
                         }
                     }
@@ -82,7 +87,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #1d6e39;
+            background-color: #535353;
 
             .content {
                 display: flex;
@@ -90,16 +95,21 @@
                 justify-content: center;
                 align-items: center;
                 width: 77%;
-                height: 80%;
+                height: 85%;
+                padding-top: 5%;
 
                 h2 {
                     font-family: "Zilla Slab Highlight";
                     font-style: normal;
                     font-weight: bold;
-                    color: #ffffff;
+                    color: #a5d8b7;
 
                     font-size: 36px;
-                    line-height: 44px;
+                    line-height: 40px;
+
+                    &.price {
+                        font-size: 28px;
+                    }
                 }
 
                 .product {
@@ -118,6 +128,13 @@
                         padding: 10px;
                         width: 280px;
                         flex: none;
+                        border-radius: 880px;
+                        border: solid #fff 0px;
+                        background-color: #adb1ae;
+
+                        &:hover {
+                            background-color: #494949;
+                        }
 
                         img {
                             height: 280px;
@@ -131,7 +148,7 @@
                             text-decoration: none;
                             text-align: center;
 
-                            font-size: 40px;
+                            font-size: 32;
                         }
 
                         h2 {

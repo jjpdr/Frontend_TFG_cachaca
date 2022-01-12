@@ -71,8 +71,11 @@ export default function Home() {
                         <div className="product" ref={carousel}>
                             {products.map((product) => {
                                 return (
-                                    <div className="product-items">
-                                        <Link to={`/product/${product._id}`}>
+                                    <Link
+                                        to={`/product/${product._id}`}
+                                        style={{ textDecoration: "none" }}
+                                    >
+                                        <div className="product-items">
                                             <img
                                                 src={`${BACKEND_URL}/marcas/image/${product.images[0]}`}
                                                 alt="produto"
@@ -80,9 +83,11 @@ export default function Home() {
                                             <h2 className="name-font">
                                                 {product.nome}
                                             </h2>
-                                        </Link>
-                                        <h2>R${product.preco.toFixed(2)}</h2>
-                                    </div>
+                                            <h2 className="price">
+                                                R${product.preco.toFixed(2)}
+                                            </h2>
+                                        </div>
+                                    </Link>
                                 );
                             })}
                         </div>
