@@ -13,6 +13,7 @@ export default function Header() {
         window.alert(`Volte sempre ${user.name}!`);
         localStorage.removeItem("user");
         localStorage.removeItem("isAdmin");
+        localStorage.removeItem("picture");
         window.location.reload();
     };
 
@@ -43,9 +44,18 @@ export default function Header() {
                 ) : (
                     <>
                         <div className="user-data">
-                            {user.name}
-                            <Link to={`/user/${user._id}`}>
-                                <img alt="user" src={userIcon} />
+                            <Link
+                                to={`/user/${user._id}`}
+                                className="user-info"
+                            >
+                                <img
+                                    alt="user"
+                                    src={
+                                        localStorage.getItem("picture") ||
+                                        userIcon
+                                    }
+                                />
+                                {user.name}
                             </Link>
                             <button
                                 onClick={handleLogout}
