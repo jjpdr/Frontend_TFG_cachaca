@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import "./style.scss";
 
 import Header from "../Header";
-import { plans } from "../../constants/plans";
 
 import iconWPP from "../../assets/img/icon-wpp.png";
 import iconFB from "../../assets/img/icon-fb.png";
@@ -14,75 +13,17 @@ import { ReactComponent as LogoCdc } from "../../assets/img/logo-cdc.svg";
 import Footer from "../Footer";
 import PageOne from "../PageOne";
 import PageTwo from "../PageTwo";
+import PageThree from "../PageThree";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 export default function Home() {
-    const [selectedPlan, setSelectedPlan] = useState(1);
-
-    const handleSelectPlan = (plan) => {
-        setSelectedPlan(plan);
-    };
-
     return (
         <div className="home-container">
             <Header />
             <PageOne />
             <PageTwo />
-            <div id="page-three" className="page no-three">
-                <div className="content">
-                    <h1>Faça parte do Clube!</h1>
-                    <div className="plans">
-                        <div>
-                            <div className="plan" key={selectedPlan.id}>
-                                <h2>PLANO {plans[selectedPlan].name}</h2>
-                                <ul>
-                                    {plans[selectedPlan].infos.map((info) => {
-                                        return <li>{info}</li>;
-                                    })}
-                                </ul>
-                                <h2>
-                                    R$ {plans[selectedPlan].price.toFixed(2)}
-                                    <span>/mês</span>
-                                </h2>
-                            </div>
-                        </div>
-                        <div>
-                            <div className="selection">
-                                <div className="plans-selection">
-                                    <button
-                                        className={`btn-plan ${
-                                            selectedPlan === 0 && "selected"
-                                        }`}
-                                        onClick={() => handleSelectPlan(0)}
-                                    >
-                                        Regular
-                                    </button>
-                                    <button
-                                        className={`btn-plan ${
-                                            selectedPlan === 1 && "selected"
-                                        }`}
-                                        onClick={() => handleSelectPlan(1)}
-                                    >
-                                        Gold
-                                    </button>
-                                    <button
-                                        className={`btn-plan ${
-                                            selectedPlan === 2 && "selected"
-                                        }`}
-                                        onClick={() => handleSelectPlan(2)}
-                                    >
-                                        Extreme
-                                    </button>
-                                </div>
-                                <div className="btn-container">
-                                    <button>Saiba mais</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <PageThree />
             <div className="page no-four">
                 <div className="content">
                     <div className="about">
