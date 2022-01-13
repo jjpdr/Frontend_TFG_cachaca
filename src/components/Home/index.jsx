@@ -15,6 +15,7 @@ import api from "../../services/api";
 
 import { ReactComponent as LogoCdc } from "../../assets/img/logo-cdc.svg";
 import Footer from "../Footer";
+import PageOne from "../PageOne";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -47,23 +48,7 @@ export default function Home() {
     return (
         <div className="home-container">
             <Header />
-            <div id="page-one" className="page no-one">
-                <div className="content">
-                    <div>
-                        <h1>O MAIOR CLUBE DE ASSINATURA DE CACHAÇA</h1>
-                        <h3>
-                            Receba todo mês no conforto de sua casa as melhores
-                            cachaças do Brasil. Já são mais de 5 mil assinantes
-                            por todo o país!
-                        </h3>
-                    </div>
-                    <div className="btn-container">
-                        <button className="btn btn-primary">
-                            CONHEÇA O CLUBE!
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <PageOne />
             {products.length > 0 && (
                 <div id="page-two" className="page no-two">
                     <div className="content">

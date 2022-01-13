@@ -12,7 +12,7 @@ $text-color: #e6e8e6;
 
     box-shadow: 3px 3px 8px 0 rgba(0, 0, 0, 0.2);
     width: 100vw;
-    height: 100px;
+    height: 75px;
 
     .header {
         display: flex;
@@ -25,7 +25,7 @@ $text-color: #e6e8e6;
         .logo {
             cursor: pointer;
 
-            width: 90px;
+            width: 70px;
             height: 100%;
         }
 
@@ -36,7 +36,7 @@ $text-color: #e6e8e6;
             color: $text-color;
             text-decoration: none;
             text-align: center;
-            font-size: 22px;
+            font-size: 18px;
 
             &.btn-primary {
                 background-color: $button-color;
