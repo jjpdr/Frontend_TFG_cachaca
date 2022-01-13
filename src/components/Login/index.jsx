@@ -75,6 +75,9 @@ export default function Login() {
                         type="text"
                         className="field"
                         placeholder="Email"
+                        onKeyDown={(event) => {
+                            if (event.key === "Enter") handleSubmit();
+                        }}
                     />
                     <input
                         onChange={(event) =>
@@ -84,6 +87,9 @@ export default function Login() {
                         type="password"
                         className="field"
                         placeholder="Senha"
+                        onKeyDown={(event) => {
+                            if (event.key === "Enter") handleSubmit();
+                        }}
                     />
                     <p>
                         <Link to="/forgot-password">ESQUECEU A SENHA?</Link>

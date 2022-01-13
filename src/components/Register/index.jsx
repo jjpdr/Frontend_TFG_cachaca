@@ -160,6 +160,9 @@ export default function Register() {
                             handleChange(event.target.value, "confirmPassword")
                         }
                         value={confirmPassword}
+                        onKeyDown={(event) => {
+                            if (event.key === "Enter") handleSubmit();
+                        }}
                     />
                 </div>
                 <div className="bottom-container">
