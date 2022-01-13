@@ -35,26 +35,28 @@ export default function PageTwo() {
                     <div className="content">
                         <h2>CONHEÇA ALGUNS DE NOSSOS PRODUTOS</h2>
                         <div className="product" ref={carousel}>
-                            {products.map((product) => {
-                                return (
-                                    <Link
-                                        to={`/product/${product._id}`}
-                                        style={{ textDecoration: "none" }}
-                                    >
-                                        <div className="product-items">
-                                            <img
-                                                src={`${BACKEND_URL}/marcas/image/${product.images[0]}`}
-                                                alt="produto"
-                                            />
-                                            <h2 className="name-font">
-                                                {product.nome}
-                                            </h2>
-                                            <h2 className="price">
-                                                R${product.preco.toFixed(2)}
-                                            </h2>
-                                        </div>
-                                    </Link>
-                                );
+                            {products.map((product, index) => {
+                                if (index <= 4) {
+                                    return (
+                                        <Link
+                                            to={`/product/${product._id}`}
+                                            style={{ textDecoration: "none" }}
+                                        >
+                                            <div className="product-items">
+                                                <img
+                                                    src={`${BACKEND_URL}/marcas/image/${product.images[0]}`}
+                                                    alt="produto"
+                                                />
+                                                <h2 className="name-font">
+                                                    {product.nome}
+                                                </h2>
+                                                <h2 className="price">
+                                                    R${product.preco.toFixed(2)}
+                                                </h2>
+                                            </div>
+                                        </Link>
+                                    );
+                                }
                             })}
                         </div>
                         <div className="buttons">

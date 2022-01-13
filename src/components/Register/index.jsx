@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import moment from "moment";
 
 import { Link, useLocation } from "react-router-dom";
 
@@ -83,6 +84,8 @@ export default function Register() {
     useEffect(() => {
         if (query.get("name")) setName(query.get("name"));
         if (query.get("email")) setEmail(query.get("email"));
+        if (query.get("birthday"))
+            setBirthday(moment(query.get("birthday")).format("YYYY-MM-DD"));
         // eslint-disable-next-line
     }, []);
 

@@ -1,0 +1,17 @@
+.page-container-catalog {
+    display: flex;
+    overflow-x: hidden;
+
+    width: 100vw;
+    height: 100vh;
+
+    .catalog-sidebar {
+        flex: 1;
+        border: solid red 5px;
+    }
+
+    .catalog-product-list {
+        flex: 3;
+        border: solid purple 5px;
+    }
+}
