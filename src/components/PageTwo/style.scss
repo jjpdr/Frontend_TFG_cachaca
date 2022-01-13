@@ -1,0 +1,97 @@
+.page-container-page-two {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #535353;
+
+    width: 100vw;
+    height: 100vh;
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 77%;
+        height: 85%;
+        padding-top: 5%;
+
+        h2 {
+            font-family: "Zilla Slab Highlight";
+            font-style: normal;
+            font-weight: bold;
+            color: #a5d8b7;
+
+            font-size: 36px;
+            line-height: 40px;
+
+            &.price {
+                font-size: 28px;
+            }
+        }
+
+        .product {
+            display: flex;
+            flex: 1;
+            width: 100%;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            align-items: center;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            .product-items {
+                padding: 10px;
+                width: 280px;
+                flex: none;
+                border-radius: 880px;
+                border: solid #fff 0px;
+                background-color: #adb1ae;
+
+                &:hover {
+                    background-color: #494949;
+                }
+
+                img {
+                    height: 280px;
+                    object-fit: cover;
+                }
+
+                .name-font {
+                    font-family: "Roboto", sans-serif;
+                    font-weight: 400;
+                    color: #fff;
+                    text-decoration: none;
+                    text-align: center;
+
+                    font-size: 32;
+                }
+
+                h2 {
+                    margin: 10px;
+                    text-align: center;
+                }
+            }
+        }
+
+        .buttons {
+            text-align: center;
+
+            button {
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+
+                img {
+                    height: 20px;
+                }
+            }
+
+            button:first-child img {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}

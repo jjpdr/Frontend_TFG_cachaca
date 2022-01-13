@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+
 import "./style.scss";
 
 import Header from "../Header";
@@ -9,85 +9,26 @@ import iconWPP from "../../assets/img/icon-wpp.png";
 import iconFB from "../../assets/img/icon-fb.png";
 import iconINSTA from "../../assets/img/icon-insta.png";
 import iconTEL from "../../assets/img/icon-tel.png";
-import arrow from "../../assets/img/arrow.png";
-
-import api from "../../services/api";
 
 import { ReactComponent as LogoCdc } from "../../assets/img/logo-cdc.svg";
 import Footer from "../Footer";
 import PageOne from "../PageOne";
+import PageTwo from "../PageTwo";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 export default function Home() {
     const [selectedPlan, setSelectedPlan] = useState(1);
-    const [products, setProducts] = useState([]);
-    const carousel = useRef(null);
 
     const handleSelectPlan = (plan) => {
         setSelectedPlan(plan);
-    };
-
-    useEffect(() => {
-        api.get("/marcas")
-            .then((res) => {
-                setProducts(res.data.marcas);
-            })
-            .catch((err) => {});
-        // eslint-disable-next-line
-    }, []);
-
-    const handleLeftClick = (event) => {
-        carousel.current.scrollLeft -= carousel.current.offsetWidth;
-    };
-
-    const handleRightClick = (event) => {
-        carousel.current.scrollLeft += carousel.current.offsetWidth;
     };
 
     return (
         <div className="home-container">
             <Header />
             <PageOne />
-            {products.length > 0 && (
-                <div id="page-two" className="page no-two">
-                    <div className="content">
-                        <h2>CONHEÇA ALGUNS DE NOSSOS PRODUTOS</h2>
-                        <div className="product" ref={carousel}>
-                            {products.map((product) => {
-                                return (
-                                    <Link
-                                        to={`/product/${product._id}`}
-                                        style={{ textDecoration: "none" }}
-                                    >
-                                        <div className="product-items">
-                                            <img
-                                                src={`${BACKEND_URL}/marcas/image/${product.images[0]}`}
-                                                alt="produto"
-                                            />
-                                            <h2 className="name-font">
-                                                {product.nome}
-                                            </h2>
-                                            <h2 className="price">
-                                                R${product.preco.toFixed(2)}
-                                            </h2>
-                                        </div>
-                                    </Link>
-                                );
-                            })}
-                        </div>
-                        <div className="buttons">
-                            <button onClick={handleLeftClick}>
-                                <img src={arrow} alt="Left arrow" />
-                            </button>
-                            <button onClick={handleRightClick}>
-                                <img src={arrow} alt="Right arrow" />
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
-
+            <PageTwo />
             <div id="page-three" className="page no-three">
                 <div className="content">
                     <h1>Faça parte do Clube!</h1>
