@@ -11,7 +11,7 @@ export default function ProductPage() {
     const [product, setProduct] = useState({});
 
     useEffect(() => {
-        api.get(`/marcas/${id}`)
+        api.get(`/products/${id}`)
             .then((res) => {
                 setProduct(res.data.marca);
             })

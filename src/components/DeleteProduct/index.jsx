@@ -20,7 +20,7 @@ export default function DeleteProduct() {
     };
 
     const handleDelete = () => {
-        api.delete(`/marcas/${id}`, {
+        api.delete(`/products/${id}`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },

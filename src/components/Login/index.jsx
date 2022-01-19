@@ -9,7 +9,6 @@ import loginIcon from "../../assets/img/login-icon.png";
 
 import FacebookLogin from "../FacebookLogin";
 
-import { ReactComponent as LogoFb } from "../../assets/img/logo-fb.svg";
 import { ReactComponent as LogoGoogle } from "../../assets/img/logo-google.svg";
 import Infos from "../Infos";
 

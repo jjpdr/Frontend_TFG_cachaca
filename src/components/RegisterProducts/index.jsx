@@ -13,7 +13,7 @@ export default function RegisterProducts() {
     const [fabricante, setFabricante] = useState("");
     const [caracteristica, setCaracteristica] = useState("");
     const [preco, setPreco] = useState("");
-    const [image, setImage] = useState("");
+    const [images, setImages] = useState([]);
 
     const token = JSON.parse(localStorage.getItem("token"));
     const handleChange = (value, field) => {
@@ -39,41 +39,39 @@ export default function RegisterProducts() {
             case "preco":
                 setPreco(value);
                 break;
-            case "image":
-                if (!value) {
-                    setImage("");
-                    return;
-                }
-                setImage(value);
+            case "images":
+                setImages(value);
                 break;
             default:
                 break;
         }
     };
 
+    console.log(images);
+
     const handleSubmit = async () => {
         const data = new FormData();
-        data.append("nome", nome);
-        data.append("marca_produto", marca_produto);
-        data.append("categoria", categoria);
-        data.append("descricao", descricao);
-        data.append("fabricante", fabricante);
-        data.append("caracteristica", caracteristica);
-        data.append("preco", preco);
-        // if (image === "") {
-        //   alert("Espere o upload da imagem terminar.");
-        //   return;
-        // }
+        data.append("name", nome);
+        data.append("brand", marca_produto);
+        data.append("category", categoria);
+        data.append("description", descricao);
+        data.append("manufacturer", fabricante);
+        data.append("info", caracteristica);
+        data.append("price", preco);
+        data.append("images", images[0]);
 
-        api.post("/marcas/create", data, {
+        console.log(data);
+
+        api.post("/products/create", data, {
             headers: {
                 Authorization: `Bearer ${token}`,
                 "content-type": "multipart/form-data",
             },
         })
             .then((res) => {
+                console.log(res);
                 alert("Cadastro efetuado com sucesso!");
-                window.location.reload();
+                // window.location.reload();
             })
             .catch((err) => {
                 alert(err.response.data.message);
@@ -156,7 +154,7 @@ export default function RegisterProducts() {
                     />
                     <input
                         onChange={(event) =>
-                            handleChange(event.target.files[0], "image")
+                            handleChange(event.target.files, "images")
                         }
                         type="file"
                         accept="image/png, image/jpeg"

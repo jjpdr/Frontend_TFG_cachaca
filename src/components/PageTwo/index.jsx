@@ -12,9 +12,9 @@ export default function PageTwo() {
     const carousel = useRef(null);
 
     useEffect(() => {
-        api.get("/marcas")
+        api.get("/products")
             .then((res) => {
-                setProducts(res.data.marcas);
+                setProducts(res.data.products);
             })
             .catch((err) => {});
         // eslint-disable-next-line
@@ -36,6 +36,7 @@ export default function PageTwo() {
                         <h2>CONHEÇA ALGUNS DE NOSSOS PRODUTOS</h2>
                         <div className="product" ref={carousel}>
                             {products.map((product, index) => {
+                                console.log(product);
                                 if (index <= 4) {
                                     return (
                                         <Link
@@ -44,14 +45,14 @@ export default function PageTwo() {
                                         >
                                             <div className="product-items">
                                                 <img
-                                                    src={`${BACKEND_URL}/marcas/image/${product.images[0]}`}
+                                                    src={`${BACKEND_URL}/products/image/${product.image}`}
                                                     alt="produto"
                                                 />
                                                 <h2 className="name-font">
-                                                    {product.nome}
+                                                    {product.name}
                                                 </h2>
                                                 <h2 className="price">
-                                                    R${product.preco.toFixed(2)}
+                                                    R${product.price.toFixed(2)}
                                                 </h2>
                                             </div>
                                         </Link>
