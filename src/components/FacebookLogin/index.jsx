@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Facebook from "react-facebook-login";
-import moment from "moment";
 import api from "../../services/api";
 
 export default function FacebookLogin() {

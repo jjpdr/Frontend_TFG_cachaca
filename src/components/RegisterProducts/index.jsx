@@ -47,8 +47,6 @@ export default function RegisterProducts() {
         }
     };
 
-    console.log(images);
-
     const handleSubmit = async () => {
         const data = new FormData();
         data.append("name", nome);
@@ -60,8 +58,6 @@ export default function RegisterProducts() {
         data.append("price", preco);
         data.append("images", images[0]);
 
-        console.log(data);
-
         api.post("/products/create", data, {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -69,7 +65,6 @@ export default function RegisterProducts() {
             },
         })
             .then((res) => {
-                console.log(res);
                 alert("Cadastro efetuado com sucesso!");
                 // window.location.reload();
             })

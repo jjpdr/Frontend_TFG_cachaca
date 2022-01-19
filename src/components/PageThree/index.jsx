@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import { plans } from "../../constants/plans";
 
@@ -17,12 +17,14 @@ export default function PageThree() {
                 <h1>Faça parte do Clube!</h1>
                 <div className="plans">
                     <div>
-                        <div className="plan" key={selectedPlan.id}>
+                        <div className="plan">
                             <h2>PLANO {plans[selectedPlan].name}</h2>
                             <ul>
-                                {plans[selectedPlan].infos.map((info) => {
-                                    return <li>{info}</li>;
-                                })}
+                                {plans[selectedPlan].infos.map(
+                                    (info, index) => {
+                                        return <li key={index}>{info}</li>;
+                                    }
+                                )}
                             </ul>
                             <h2>
                                 R$ {plans[selectedPlan].price.toFixed(2)}

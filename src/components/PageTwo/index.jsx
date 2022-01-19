@@ -36,12 +36,12 @@ export default function PageTwo() {
                         <h2>CONHEÇA ALGUNS DE NOSSOS PRODUTOS</h2>
                         <div className="product" ref={carousel}>
                             {products.map((product, index) => {
-                                console.log(product);
                                 if (index <= 4) {
                                     return (
                                         <Link
                                             to={`/product/${product._id}`}
                                             style={{ textDecoration: "none" }}
+                                            key={index}
                                         >
                                             <div className="product-items">
                                                 <img
@@ -58,6 +58,7 @@ export default function PageTwo() {
                                         </Link>
                                     );
                                 }
+                                return null;
                             })}
                         </div>
                         <div className="buttons">

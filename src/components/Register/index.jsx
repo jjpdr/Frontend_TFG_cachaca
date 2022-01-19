@@ -51,7 +51,6 @@ export default function Register() {
     const handleSubmit = () => {
         if (!checkEmail(email)) return alert("E-mail inválido");
         if (!checkCPF(cpf)) return alert("CPF inválido");
-        console.log(checkAge(birthday));
         if (checkAge(birthday) < 18)
             return alert("É necessário possuir mais de 18 anos!");
         if (!isChecked) {
