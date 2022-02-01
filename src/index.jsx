@@ -4,17 +4,16 @@ import "./index.css";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 import Home from "./pages/Home";
-import Login from "./components/Login";
-import Catalog from "./components/Catalog";
-import Register from "./components/Register";
+import Login from "./pages/Login";
+import Catalog from "./pages/Catalog";
+import Register from "./pages/Register";
 import ForgotPassword from "./pages/ForgotPassword";
 import UseTerms from "./pages/UseTerms";
-import RegisterProducts from "./components/RegisterProducts";
+import RegisterProducts from "./pages/RegisterProducts";
 import ProductPage from "./pages/ProductPage";
 import UserPage from "./pages/UserPage";
 import AdminPanel from "./components/AdminPanel";
-import DeleteProduct from "./components/DeleteProduct";
-import FacebookLogin from "./components/FacebookLogin";
+import DeleteProduct from "./pages/DeleteProduct";
 import Carousel from "./components/Carousel";
 
 ReactDOM.render(

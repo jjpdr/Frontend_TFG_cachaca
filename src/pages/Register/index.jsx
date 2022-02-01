@@ -7,7 +7,7 @@ import api from "../../services/api";
 import "./style.scss";
 
 import loginIcon from "../../assets/img/login-icon.png";
-import Infos from "../Infos";
+import Infos from "../../components/Infos";
 import checkEmail from "../../services/checkEmail";
 import checkCPF from "../../services/checkCPF";
 import maskCPF from "../../services/maskCPF";

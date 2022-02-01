@@ -1,0 +1,46 @@
+$base-color: #121d0c;
+$button-color: #09814a;
+$hover-button: #0cac64;
+$text-color: #e6e8e6;
+
+.button-component {
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    color: $text-color;
+    text-decoration: none;
+    text-align: center;
+    font-size: 18px;
+    line-height: 30px;
+
+    &.primary {
+        background-color: $button-color;
+        border: none;
+
+        border-radius: 10px;
+        max-width: 200px;
+        padding: 5px 18px;
+
+        transition: all 0.2s;
+
+        &:hover {
+            background-color: $hover-button;
+        }
+    }
+
+    &.secondary {
+        border: none;
+
+        border-radius: 10px;
+        max-width: 200px;
+        padding: 5px 18px;
+        line-height: 22px;
+
+        transition: all 0.2s;
+
+        &:hover {
+            background-color: $hover-button;
+            font-size: 22px;
+        }
+    }
+}

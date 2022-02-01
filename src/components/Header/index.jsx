@@ -5,6 +5,8 @@ import "./style.scss";
 import { ReactComponent as LogoCdc } from "../../assets/img/logo-cdc.svg";
 import userIcon from "../../assets/img/user-icon.png";
 
+import ButtonComponent from "../Buttons";
+
 export default function Header() {
     const user = JSON.parse(localStorage.getItem("user"));
     const adm = JSON.parse(localStorage.getItem("isAdmin"));
@@ -23,23 +25,38 @@ export default function Header() {
                 <Link to="/">
                     <LogoCdc className="logo" />
                 </Link>
-                <a href="#page-three" className="btn btn-primary">
-                    FAÇA PARTE DO CLUBE!
-                </a>
-                <a href="#page-two" className="btn">
-                    PRODUTOS
-                </a>
-                <Link to="/catalog" className="btn">
-                    CATÁLOGO
-                </Link>
+                <ButtonComponent
+                    tag="a"
+                    destination="#page-three"
+                    type="primary"
+                    text="FAÇA PARTE DO CLUBE!"
+                />
+                <ButtonComponent
+                    tag="a"
+                    destination="#page-two"
+                    type="secondary"
+                    text="PRODUTOS"
+                />
+                <ButtonComponent
+                    tag="Link"
+                    destination="/catalog"
+                    type="secondary"
+                    text="CATÁLOGO"
+                />
                 {!user ? (
                     <>
-                        <Link to="/login" className="btn">
-                            LOGIN
-                        </Link>
-                        <Link to="/register" className="btn btn-primary">
-                            CRIAR CONTA
-                        </Link>
+                        <ButtonComponent
+                            tag="Link"
+                            destination="/login"
+                            type="secondary"
+                            text="LOGIN"
+                        />
+                        <ButtonComponent
+                            tag="Link"
+                            destination="/register"
+                            type="primary"
+                            text="CRIAR CONTA"
+                        />
                     </>
                 ) : (
                     <>

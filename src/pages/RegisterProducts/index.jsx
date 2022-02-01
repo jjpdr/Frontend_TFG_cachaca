@@ -3,7 +3,7 @@ import FormData from "form-data";
 
 import "./style.scss";
 import api from "../../services/api";
-import Header from "../Header";
+import Header from "../../components/Header";
 
 export default function RegisterProducts() {
     const [nome, setNome] = useState("");

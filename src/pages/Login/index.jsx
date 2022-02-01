@@ -7,10 +7,10 @@ import api from "../../services/api";
 
 import loginIcon from "../../assets/img/login-icon.png";
 
-import FacebookLogin from "../FacebookLogin";
+import FacebookLogin from "../../components/FacebookLogin";
 
 import { ReactComponent as LogoGoogle } from "../../assets/img/logo-google.svg";
-import Infos from "../Infos";
+import Infos from "../../components/Infos";
 
 export default function Login() {
     const [email, setEmail] = useState("");

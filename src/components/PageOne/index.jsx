@@ -2,6 +2,8 @@ import React from "react";
 
 import "./style.scss";
 
+import ButtonComponent from "../Buttons";
+
 export default function PageOne() {
     return (
         <div id="page-one" className="page-container-page-one">
@@ -15,9 +17,12 @@ export default function PageOne() {
                     </h3>
                 </div>
                 <div className="btn-container">
-                    <a href="#page-four" className="btn btn-primary">
-                        CONHEÇA O CLUBE!
-                    </a>
+                    <ButtonComponent
+                        tag="a"
+                        destination="#page-four"
+                        type="primary"
+                        text="CONHEÇA O CLUBE!"
+                    />
                 </div>
             </div>
         </div>

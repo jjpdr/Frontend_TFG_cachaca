@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import api from "../../services/api";
 import "./style.scss";
 
-import Header from "../Header";
+import Header from "../../components/Header";
 
 export default function DeleteProduct() {
     const [id, setID] = useState("");
