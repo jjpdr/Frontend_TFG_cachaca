@@ -11,7 +11,7 @@ import "./style.scss";
 export default function PageFour() {
     return (
         <div className="page-container-page-four">
-            <div className="content">
+            <div id="page-four" className="content">
                 <div className="about">
                     <LogoCdc className="logo" />
                     <p>

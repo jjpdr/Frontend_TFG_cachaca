@@ -9,6 +9,7 @@ $text-color: #e6e8e6;
     align-items: center;
     justify-content: center;
     position: fixed;
+    z-index: 9999;
 
     box-shadow: 3px 3px 8px 0 rgba(0, 0, 0, 0.2);
     width: 100vw;

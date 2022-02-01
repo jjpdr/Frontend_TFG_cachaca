@@ -3,18 +3,19 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
-import Home from "./components/Home";
+import Home from "./pages/Home";
 import Login from "./components/Login";
 import Catalog from "./components/Catalog";
 import Register from "./components/Register";
-import ForgotPassword from "./components/ForgotPassword";
-import UseTerms from "./components/UseTerms";
+import ForgotPassword from "./pages/ForgotPassword";
+import UseTerms from "./pages/UseTerms";
 import RegisterProducts from "./components/RegisterProducts";
-import ProductPage from "./components/ProductPage";
-import UserPage from "./components/UserPage";
+import ProductPage from "./pages/ProductPage";
+import UserPage from "./pages/UserPage";
 import AdminPanel from "./components/AdminPanel";
 import DeleteProduct from "./components/DeleteProduct";
 import FacebookLogin from "./components/FacebookLogin";
+import Carousel from "./components/Carousel";
 
 ReactDOM.render(
     <React.StrictMode>
@@ -37,7 +38,7 @@ ReactDOM.render(
                     path="/admin-panel/delete-product"
                     element={<DeleteProduct />}
                 />
-                <Route path="/test" element={<FacebookLogin />} />
+                <Route path="/test" element={<Carousel />} />
             </Routes>
         </BrowserRouter>
     </React.StrictMode>,

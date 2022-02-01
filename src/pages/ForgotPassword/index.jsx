@@ -4,7 +4,7 @@ import "./style.scss";
 
 import loginIcon from "../../assets/img/login-icon.png";
 
-import Infos from "../Infos";
+import Infos from "../../components/Infos";
 
 export default function ForgotPassword() {
   return (

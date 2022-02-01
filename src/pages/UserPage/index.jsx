@@ -7,7 +7,7 @@ import moment from "moment";
 import "./style.scss";
 
 import api from "../../services/api";
-import Header from "../Header";
+import Header from "../../components/Header";
 
 export default function UserPage() {
     const { id } = useParams();

@@ -15,9 +15,9 @@ export default function PageOne() {
                     </h3>
                 </div>
                 <div className="btn-container">
-                    <button className="btn btn-primary">
+                    <a href="#page-four" className="btn btn-primary">
                         CONHEÇA O CLUBE!
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>

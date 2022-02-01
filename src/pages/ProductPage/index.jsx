@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 import "./style.scss";
 import api from "../../services/api";
-import Header from "../Header";
+import Header from "../../components/Header";
 
 export default function ProductPage() {
     const { id } = useParams();

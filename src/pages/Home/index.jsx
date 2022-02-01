@@ -2,12 +2,12 @@ import React from "react";
 
 import "./style.scss";
 
-import Header from "../Header";
-import PageOne from "../PageOne";
-import PageTwo from "../PageTwo";
-import PageThree from "../PageThree";
-import PageFour from "../PageFour";
-import Footer from "../Footer";
+import Header from "../../components/Header";
+import PageOne from "../../components/PageOne";
+import PageTwo from "../../components/PageTwo";
+import PageThree from "../../components/PageThree";
+import PageFour from "../../components/PageFour";
+import Footer from "../../components/Footer";
 
 export default function Home() {
     return (

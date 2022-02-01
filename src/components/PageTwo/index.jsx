@@ -1,15 +1,35 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState, useRef, useReducer } from "react";
+
+import Carousel from "../Carousel";
 
 import "./style.scss";
 import api from "../../services/api";
-import arrow from "../../assets/img/arrow.png";
-
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 export default function PageTwo() {
     const [products, setProducts] = useState([]);
     const carousel = useRef(null);
+    const slidesReducer = (state, event) => {
+        if (event.type === "NEXT") {
+            return {
+                ...state,
+                slideIndex: (state.slideIndex + 1) % products.length,
+            };
+        }
+        if (event.type === "PREV") {
+            return {
+                ...state,
+                slideIndex:
+                    state.slideIndex === 0
+                        ? products.length - 1
+                        : state.slideIndex - 1,
+            };
+        }
+    };
+
+    const initialState = {
+        slideIndex: 0,
+    };
+    const [state, dispatch] = useReducer(slidesReducer, initialState);
 
     useEffect(() => {
         api.get("/products")
@@ -20,55 +40,12 @@ export default function PageTwo() {
         // eslint-disable-next-line
     }, []);
 
-    const handleLeftClick = (event) => {
-        carousel.current.scrollLeft -= carousel.current.offsetWidth;
-    };
-
-    const handleRightClick = (event) => {
-        carousel.current.scrollLeft += carousel.current.offsetWidth;
-    };
-
     return (
         <>
             {products.length > 0 && (
                 <div id="page-two" className="page-container-page-two">
                     <div className="content">
                         <h2>CONHEÇA ALGUNS DE NOSSOS PRODUTOS</h2>
-                        <div className="product" ref={carousel}>
-                            {products.map((product, index) => {
-                                if (index <= 4) {
-                                    return (
-                                        <Link
-                                            to={`/product/${product._id}`}
-                                            style={{ textDecoration: "none" }}
-                                            key={index}
-                                        >
-                                            <div className="product-items">
-                                                <img
-                                                    src={`${BACKEND_URL}/products/image/${product.image}`}
-                                                    alt="produto"
-                                                />
-                                                <h2 className="name-font">
-                                                    {product.name}
-                                                </h2>
-                                                <h2 className="price">
-                                                    R${product.price.toFixed(2)}
-                                                </h2>
-                                            </div>
-                                        </Link>
-                                    );
-                                }
-                                return null;
-                            })}
-                        </div>
-                        <div className="buttons">
-                            <button onClick={handleLeftClick}>
-                                <img src={arrow} alt="Left arrow" />
-                            </button>
-                            <button onClick={handleRightClick}>
-                                <img src={arrow} alt="Right arrow" />
-                            </button>
-                        </div>
                     </div>
                 </div>
             )}

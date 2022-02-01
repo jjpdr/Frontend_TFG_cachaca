@@ -67,7 +67,6 @@ export default function PageThree() {
                     </div>
                 </div>
             </div>
-            ;
         </div>
     );
 }
