@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import "./style.scss";
 
@@ -84,9 +83,12 @@ export default function Header() {
                     </>
                 )}
                 {adm && (
-                    <Link to="/admin-panel" className="btn btn-primary">
-                        PAINEL ADMINISTRADOR
-                    </Link>
+                    <ButtonComponent
+                        tag="Link"
+                        destination="/admin-panel"
+                        type="primary"
+                        text="PAINEL ADMINISTRADOR"
+                    />
                 )}
             </div>
         </div>

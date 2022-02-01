@@ -1,13 +1,10 @@
 import { useEffect, useState, useRef, useReducer } from "react";
 
-import Carousel from "../Carousel";
-
 import "./style.scss";
 import api from "../../services/api";
 
 export default function PageTwo() {
     const [products, setProducts] = useState([]);
-    const carousel = useRef(null);
     const slidesReducer = (state, event) => {
         if (event.type === "NEXT") {
             return {

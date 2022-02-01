@@ -45,31 +45,6 @@ $primary-text-color: #92b4a7;
             justify-content: flex-end;
 
             width: 100%;
-
-            .btn {
-                cursor: pointer;
-                font-family: "Roboto", sans-serif;
-                font-weight: bold;
-                color: $text-color;
-                text-decoration: none;
-
-                font-size: 22px;
-
-                &.btn-primary {
-                    background-color: $button-color;
-                    border: none;
-
-                    border-radius: 12px;
-                    max-width: 200px;
-                    padding: 5px 10px;
-
-                    transition: all 0.2s;
-
-                    &:hover {
-                        background-color: $hover-button;
-                    }
-                }
-            }
         }
     }
 }

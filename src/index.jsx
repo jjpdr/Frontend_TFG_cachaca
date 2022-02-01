@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
@@ -14,7 +13,6 @@ import ProductPage from "./pages/ProductPage";
 import UserPage from "./pages/UserPage";
 import AdminPanel from "./components/AdminPanel";
 import DeleteProduct from "./pages/DeleteProduct";
-import Carousel from "./components/Carousel";
 
 ReactDOM.render(
     <React.StrictMode>
@@ -37,7 +35,6 @@ ReactDOM.render(
                     path="/admin-panel/delete-product"
                     element={<DeleteProduct />}
                 />
-                <Route path="/test" element={<Carousel />} />
             </Routes>
         </BrowserRouter>
     </React.StrictMode>,

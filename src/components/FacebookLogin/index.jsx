@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Facebook from "react-facebook-login";
 import api from "../../services/api";
 

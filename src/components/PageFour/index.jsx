@@ -1,5 +1,3 @@
-import React from "react";
-
 import iconWPP from "../../assets/img/icon-wpp.png";
 import iconFB from "../../assets/img/icon-fb.png";
 import iconINSTA from "../../assets/img/icon-insta.png";
