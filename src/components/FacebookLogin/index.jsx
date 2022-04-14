@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Facebook from "react-facebook-login";
 import api from "../../services/api";
+import "./style.scss"
 
 export default function FacebookLogin() {
     const [data, setData] = useState({});
@@ -41,7 +42,7 @@ export default function FacebookLogin() {
     };
 
     return (
-        <div className="page-container-facebook-login">
+        <div>
             <Facebook
                 appId="971106717149309"
                 autoLoad={false}
@@ -49,6 +50,7 @@ export default function FacebookLogin() {
                 scope="public_profile,user_friends,user_birthday,email"
                 callback={responseFacebook}
                 returnScopes={true}
+                cssClass="styling-fb-button"
             />
         </div>
     );

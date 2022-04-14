@@ -1,0 +1,26 @@
+.styling-fb-button {
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  background: rgb(25, 119, 243);
+  text-decoration: none;
+  height: 50px;
+  margin-top: 20px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: none;
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+
+  color: #f6f7f8;
+  background: rgb(25, 119, 243);
+
+  &:hover {
+    background-color: #83a0ce;
+  }
+}
