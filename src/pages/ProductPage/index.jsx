@@ -13,7 +13,7 @@ export default function ProductPage() {
     useEffect(() => {
         api.get(`/products/${id}`)
             .then((res) => {
-                setProduct(res.data.marca);
+                setProduct(res.data.product);
             })
             .catch((err) => {});
         // eslint-disable-next-line
@@ -23,13 +23,13 @@ export default function ProductPage() {
         <div className="page-container-product-page">
             <Header />
             <div className="content">
-                <h1>Nome: {product.nome}</h1>
-                <h1>Marca: {product.marca_produto}</h1>
-                <h1>Categoria: {product.categoria}</h1>
-                <h1>Descrição: {product.descricao}</h1>
-                <h1>Fabricante: {product.fabricante}</h1>
-                <h1>Característica: {product.caracteristica}</h1>
-                <h1>Preço: R${product.preco}</h1>
+                <h1>Nome: {product.name}</h1>
+                <h1>Marca: {product.brand}</h1>
+                <h1>Categoria: {product.category}</h1>
+                <h1>Descrição: {product.description}</h1>
+                <h1>Fabricante: {product.manufacturer}</h1>
+                <h1>Característica: {product.info}</h1>
+                <h1>Preço: R${product.price}</h1>
             </div>
         </div>
     );
