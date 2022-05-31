@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #535353;
+    background-color: #565624;
 
     width: 100vw;
     height: 100vh;
@@ -20,7 +20,7 @@
             font-family: "Zilla Slab Highlight";
             font-style: normal;
             font-weight: bold;
-            color: #a5d8b7;
+            color: #f3efe2;
 
             font-size: 36px;
             line-height: 40px;
@@ -34,8 +34,7 @@
             display: flex;
             flex: 1;
             width: 100%;
-            overflow-x: auto;
-            scroll-behavior: smooth;
+            justify-content: space-around;
             align-items: center;
 
             &::-webkit-scrollbar {
@@ -43,26 +42,27 @@
             }
 
             .product-items {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                flex-direction: column;
                 padding: 10px;
                 width: 280px;
                 flex: none;
-                border-radius: 880px;
-                border: solid #fff 0px;
-                background-color: #adb1ae;
-
-                &:hover {
-                    background-color: #494949;
-                }
 
                 img {
                     height: 280px;
-                    object-fit: cover;
+
+                    &:hover {
+                        height: 380px;
+                        transition: all 0.2s;
+                    }
                 }
 
                 .name-font {
                     font-family: "Roboto", sans-serif;
                     font-weight: 400;
-                    color: #fff;
+                    color: #f3efe2;
                     text-decoration: none;
                     text-align: center;
 
@@ -73,24 +73,6 @@
                     margin: 10px;
                     text-align: center;
                 }
-            }
-        }
-
-        .buttons {
-            text-align: center;
-
-            button {
-                background-color: transparent;
-                border: none;
-                cursor: pointer;
-
-                img {
-                    height: 20px;
-                }
-            }
-
-            button:first-child img {
-                transform: rotate(180deg);
             }
         }
     }

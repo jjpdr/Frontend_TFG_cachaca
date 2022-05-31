@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #15a146;
+    background-color: #48481e;
 
     width: 100vw;
     height: 100vh;
@@ -52,7 +52,7 @@
                     h2 {
                         font-style: normal;
                         font-weight: bold;
-                        color: #0b5425;
+                        color: #121d0c;
 
                         font-family: Roboto;
 
@@ -65,7 +65,7 @@
                     }
 
                     ul {
-                        color: #0b5425;
+                        color: #121d0c;
 
                         margin-left: -18px;
                     }
@@ -82,7 +82,7 @@
                             cursor: pointer;
                             font-style: normal;
                             font-weight: bold;
-                            color: #0b5425;
+                            color: #f3efe2;
                             background-color: transparent;
                             border: none;
 
@@ -92,19 +92,20 @@
                             width: 50%;
                             font-size: 28px;
                             line-height: 32px;
-                            transition: all 0.2s;
+                            transition: all 0.5s;
 
                             &:hover {
-                                background-color: #0e7231;
-                                color: #fff;
+                                background-color: #f3efe2;
+                                color: #121d0c;
                                 border: none;
+                                transition: all 0.5s;
 
                                 border-radius: 12px;
                             }
 
                             &.selected {
-                                background-color: #0b5425;
-                                color: #ffffff;
+                                color: #f3efe2;
+                                background-color: #121d0c;
 
                                 border-radius: 12px;
                             }
@@ -119,8 +120,8 @@
                             cursor: pointer;
                             font-style: normal;
                             font-weight: bold;
-                            background-color: #0b5425;
-                            color: #fff;
+                            background-color: #f3efe2;
+                            color: #121d0c;
                             border: none;
 
                             font-family: Roboto;
@@ -131,7 +132,8 @@
                             transition: all 0.2s;
 
                             &:hover {
-                                background-color: #0e7231;
+                                color: #f3efe2;
+                                background-color: #121d0c;
                             }
                         }
                     }
