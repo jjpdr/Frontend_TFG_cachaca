@@ -8,9 +8,17 @@
     background-color: #2d3d30;
 
     .catalog-sidebar {
+        display: flex;
         flex: 1;
 
         height: calc(100vh - 75px);
+
+        flex-direction: column;
+        align-items: center;
+
+        h2 {
+            color: #f3efe2;
+        }
     }
 
     .flex-catalog-product-list {
@@ -36,6 +44,8 @@
 
                 width: 100%;
                 height: 240px;
+
+                text-decoration: none;
 
                 img {
                     width: 50px;
