@@ -12,8 +12,11 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 export default function Catalog() {
     const [products, setProducts] = useState([]);
     const [filterProducts, setFilterProducts] = useState([]);
-    const [sliderPrice, setSliderPrice] = useState("10");
-    const [checkboxBrand, setCheckboxBrand] = useState([]);
+    const [sliderPrice, setSliderPrice] = useState("");
+    const [checkbox51, setCheckbox51] = useState(false);
+    const [checkboxVB, setCheckboxVB] = useState(false);
+    const [checkboxPA, setCheckboxPA] = useState(false);
+    const [checkboxOthers, setCheckboxOthers] = useState(false);
 
     const handleChange = (value, field) => {
         switch (field) {
@@ -37,6 +40,7 @@ export default function Catalog() {
             .then((res) => {
                 setProducts([...res.data.products, ...res.data.products]);
                 setFilterProducts(products);
+                setSliderPrice("25");
             })
             .catch((err) => {});
         // eslint-disable-next-line
@@ -56,44 +60,52 @@ export default function Catalog() {
                             step="1"
                             value={sliderPrice}
                             className="slider"
+                            id="slider-price"
                             onChange={(event) =>
                                 handleChange(event.target.value, "price")
                             }
                         ></input>
+                        <label for="slider-price">
+                            Preços até R${sliderPrice}
+                        </label>
                     </div>
                     <div className="catalog-sidebar-item">
                         <input
                             type="checkbox"
-                            value={checkboxBrand}
+                            value={checkbox51}
                             className="checkbox"
                             id="Cachaça 51"
+                            onClick={() => setCheckbox51(!checkbox51)}
                         ></input>
                         <label for="Cachaça 51">Cachaça 51</label>
                     </div>
                     <div className="catalog-sidebar-item">
                         <input
                             type="checkbox"
-                            value={checkboxBrand}
+                            value={checkboxVB}
                             className="checkbox"
                             id="Velho Barreiro"
+                            onClick={() => setCheckboxVB(!checkboxVB)}
                         ></input>
                         <label for="Velho Barreiro">Velho Barreiro</label>
                     </div>
                     <div className="catalog-sidebar-item">
                         <input
                             type="checkbox"
-                            value={checkboxBrand}
+                            value={checkboxPA}
                             className="checkbox"
                             id="Pinga Azul"
+                            onClick={() => setCheckboxPA(!checkboxPA)}
                         ></input>
                         <label for="Pinga Azul">Pinga Azul</label>
                     </div>
                     <div className="catalog-sidebar-item">
                         <input
                             type="checkbox"
-                            value={checkboxBrand}
+                            value={checkboxOthers}
                             className="checkbox"
                             id="Outros"
+                            onClick={() => setCheckboxOthers(!checkboxOthers)}
                         ></input>
                         <label for="Outros">Outros</label>
                     </div>
