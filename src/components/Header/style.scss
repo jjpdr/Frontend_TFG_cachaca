@@ -4,80 +4,91 @@ $hover-button: #0cac64;
 $text-color: #f3efe2;
 
 .header-container {
+  display: flex;
+  background-color: $base-color;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 9999;
+
+  box-shadow: 3px 3px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 100vw;
+  height: 75px;
+
+  .header {
     display: flex;
-    background-color: $base-color;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    position: fixed;
-    z-index: 9999;
 
-    box-shadow: 3px 3px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 100vw;
-    height: 75px;
+    width: 80vw;
 
-    .header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+    .logo {
+      cursor: pointer;
 
-        width: 80vw;
-
-        .logo {
-            cursor: pointer;
-
-            width: 70px;
-            height: 100%;
-        }
-
-        .btn {
-            cursor: pointer;
-            font-family: "Roboto", sans-serif;
-            font-weight: bold;
-            color: $text-color;
-            text-decoration: none;
-            text-align: center;
-            font-size: 18px;
-
-            &.btn-primary {
-                background-color: $button-color;
-                border: none;
-
-                border-radius: 10px;
-                max-width: 200px;
-                padding: 5px 18px;
-
-                transition: all 0.2s;
-
-                &:hover {
-                    background-color: $hover-button;
-                }
-            }
-        }
-
-        .user-data {
-            display: flex;
-            align-items: center;
-
-            .user-info {
-                display: flex;
-                align-items: center;
-                text-decoration: none;
-                font-weight: 400;
-                font-family: "Roboto", sans-serif;
-                color: $text-color;
-
-                img {
-                    width: 70px;
-                    height: 70px;
-                    margin-right: 18px;
-                    border-radius: 50%;
-                }
-            }
-
-            button {
-                margin-left: 40px;
-            }
-        }
+      width: 70px;
+      height: 100%;
     }
+
+    .btn {
+      cursor: pointer;
+      font-family: "Roboto", sans-serif;
+      font-weight: bold;
+      color: $text-color;
+      text-decoration: none;
+      text-align: center;
+      font-size: 18px;
+
+      &.btn-primary {
+        background-color: $button-color;
+        border: none;
+
+        border-radius: 10px;
+        max-width: 200px;
+        padding: 5px 18px;
+
+        transition: all 0.2s;
+
+        &:hover {
+          background-color: $hover-button;
+        }
+      }
+    }
+
+    .shopping-cart {
+      img {
+        height: 50px;
+        margin-right: 18px;
+      }
+
+      span {
+        color: #fff;
+      }
+    }
+
+    .user-data {
+      display: flex;
+      align-items: center;
+
+      .user-info {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-weight: 400;
+        font-family: "Roboto", sans-serif;
+        color: $text-color;
+
+        img {
+          width: 70px;
+          height: 70px;
+          margin-right: 18px;
+          border-radius: 50%;
+        }
+      }
+
+      button {
+        margin-left: 40px;
+      }
+    }
+  }
 }
