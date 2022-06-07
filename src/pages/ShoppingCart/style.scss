@@ -1,70 +1,87 @@
 .page-container-shopping-cart {
-  display: flex;
-  overflow-x: hidden;
-
-  width: 100vw;
-
-  padding-top: 75px;
-  background-color: #2d3d30;
-
-  height: calc(100vh - 75px);
-
-  flex-direction: column;
-
-  .title {
-    width: 100%;
-
-    h2 {
-      font-family: "Zilla Slab Highlight";
-      font-style: normal;
-      font-weight: bold;
-      color: #f3efe2;
-
-      font-size: 36px;
-      line-height: 40px;
-      margin: 0;
-      padding-top: 30px;
-      padding-left: 25px;
-    }
-  }
-
-  .fields {
     display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    color: #f3efe2;
+    overflow-x: hidden;
 
-    .description {
-      display: flex;
-      flex: 2;
-      justify-content: flex-start;
-      margin-left: 20%;
+    width: 100vw;
+
+    padding-top: 75px;
+    background-color: #2d3d30;
+
+    height: calc(100vh - 75px);
+
+    flex-direction: column;
+    text-decoration: none;
+
+    .title {
+        width: 100%;
+
+        h2 {
+            font-family: "Zilla Slab Highlight";
+            font-style: normal;
+            font-weight: bold;
+            color: #f3efe2;
+
+            font-size: 36px;
+            line-height: 40px;
+            margin: 0;
+            padding-top: 30px;
+            padding-left: 25px;
+        }
     }
 
-    .other {
-      display: flex;
-      flex: 2;
-      justify-content: space-between;
-      padding-right: 100px;
+    .fields {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        color: #f3efe2;
+
+        .description {
+            display: flex;
+            flex: 2;
+            justify-content: flex-start;
+            margin-left: 20%;
+        }
+
+        .other {
+            display: flex;
+            flex: 2;
+            justify-content: space-between;
+            padding-right: 100px;
+        }
     }
-  }
 
-  .cart-products {
-    border: white 5px solid;
+    .cart-products {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
 
-    .product-items {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      flex-direction: column;
-      padding: 10px;
-      width: 280px;
-      flex: none;
+        .product-items {
+            padding: 10px;
+            width: 100%;
+            display: flex;
+            text-decoration: none;
+            img {
+                height: 150px;
+            }
 
-      img {
-        height: 150px;
-      }
+            h4 {
+                color: #fff;
+            }
+
+            .description {
+                display: flex;
+                flex: 2;
+                justify-content: flex-start;
+                margin-left: 20%;
+            }
+
+            .other {
+                display: flex;
+                flex: 2;
+                justify-content: space-between;
+                padding-right: 100px;
+            }
+        }
     }
-  }
 }

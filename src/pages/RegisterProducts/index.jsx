@@ -14,6 +14,7 @@ export default function RegisterProducts() {
     const [caracteristica, setCaracteristica] = useState("");
     const [preco, setPreco] = useState("");
     const [images, setImages] = useState([]);
+    const [quantidade, setQuantidade] = useState("");
 
     const token = JSON.parse(localStorage.getItem("token"));
     const handleChange = (value, field) => {
@@ -42,6 +43,8 @@ export default function RegisterProducts() {
             case "images":
                 setImages(value);
                 break;
+            case "quantidade":
+                setQuantidade(value);
             default:
                 break;
         }
@@ -57,6 +60,7 @@ export default function RegisterProducts() {
         data.append("info", caracteristica);
         data.append("price", preco);
         data.append("images", images[0]);
+        data.append("quantity", quantidade);
 
         api.post("/products/create", data, {
             headers: {
@@ -155,6 +159,15 @@ export default function RegisterProducts() {
                         accept="image/png, image/jpeg"
                         className="field"
                         placeholder="Imagem*"
+                    />
+                    <input
+                        onChange={(event) =>
+                            handleChange(event.target.value, "quantidade")
+                        }
+                        value={quantidade}
+                        type="text"
+                        className="field"
+                        placeholder="Quantidade*"
                     />
                 </div>
                 <div className="bottom-container">
