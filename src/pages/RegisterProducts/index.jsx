@@ -45,6 +45,7 @@ export default function RegisterProducts() {
                 break;
             case "quantidade":
                 setQuantidade(value);
+                break;
             default:
                 break;
         }

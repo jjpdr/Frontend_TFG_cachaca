@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import Header from "../../components/Header";
@@ -6,6 +6,8 @@ import Header from "../../components/Header";
 import "./style.scss";
 
 import api from "../../services/api";
+
+import listContext from "../ShoppingCart/context";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -22,7 +24,6 @@ export default function Catalog() {
         switch (field) {
             case "price":
                 setSliderPrice(value);
-                console.log(sliderPrice);
                 break;
         }
     };
@@ -30,6 +31,8 @@ export default function Catalog() {
     const sliderFilter = (product) => {
         if (product.price <= sliderPrice) return product;
     };
+
+    const state = useContext(listContext);
 
     useEffect(() => {
         setFilterProducts(products.filter(sliderFilter));
@@ -114,18 +117,28 @@ export default function Catalog() {
                     <div className="catalog-product-list">
                         {filterProducts.map((product) => {
                             return (
-                                <Link
-                                    to={`/product/${product._id}`}
-                                    style={{ textDecoration: "none" }}
-                                    className="product-items"
-                                >
-                                    <img
-                                        src={`${BACKEND_URL}/products/image/${product.image}`}
-                                        alt="produto"
-                                    />
-                                    <h2>{product.name}</h2>
-                                    <h2>R${product.price.toFixed(2)}</h2>
-                                </Link>
+                                <>
+                                    <Link
+                                        to={`/product/${product._id}`}
+                                        style={{ textDecoration: "none" }}
+                                        className="product-items"
+                                    >
+                                        <img
+                                            src={`${BACKEND_URL}/products/image/${product.image}`}
+                                            alt="produto"
+                                        />
+                                        <h2>{product.name}</h2>
+                                        <h2>R${product.price.toFixed(2)}</h2>
+                                    </Link>
+                                    <button
+                                        className="setter"
+                                        onClick={() =>
+                                            state.addProduct(product)
+                                        }
+                                    >
+                                        Add to cart
+                                    </button>
+                                </>
                             );
                         })}
                     </div>
