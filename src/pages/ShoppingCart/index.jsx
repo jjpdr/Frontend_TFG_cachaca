@@ -70,6 +70,9 @@ export default function ShoppingCart() {
                             </div>
                         );
                     })}
+                    <button onClick={() => state.removeAllProducts()}>
+                        Remove all items
+                    </button>
                 </div>
             </div>
         </>

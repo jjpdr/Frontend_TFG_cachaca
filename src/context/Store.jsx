@@ -51,16 +51,8 @@ const Store = ({ children }) => {
         }
     };
 
-    const removeAllProducts = (index) => {
-        const cartList = appState.cart;
-
-        cartList.splice(index, 1);
-
-        setAppState({
-            ...appState,
-            cart: cartList,
-            cartCount: getCartCount(),
-        });
+    const removeAllProducts = () => {
+        setAppState(initialState);
     };
 
     const getCartCount = () => {
