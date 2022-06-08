@@ -31,11 +31,6 @@ const Store = ({ children }) => {
     const removeOneProduct = (product) => {
         let newList = appState.cart;
 
-        const newProduct = {
-            count: 1,
-            object: product,
-        };
-
         const filtered = newList.filter((prod) => {
             return prod.object._id === product._id;
         });

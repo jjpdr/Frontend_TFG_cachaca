@@ -46,7 +46,7 @@ export default function PageTwo() {
                                             </div>
                                         </Link>
                                     );
-                                }
+                                } else return;
                             })}
                         </div>
                     </div>

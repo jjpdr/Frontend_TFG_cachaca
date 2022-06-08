@@ -25,6 +25,8 @@ export default function Catalog() {
             case "price":
                 setSliderPrice(value);
                 break;
+            default:
+                break;
         }
     };
 

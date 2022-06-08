@@ -20,7 +20,7 @@ export default function Header() {
         localStorage.removeItem("user");
         localStorage.removeItem("isAdmin");
         localStorage.removeItem("picture");
-        window.location.reload();
+        window.location.href = "/";
     };
 
     return (
