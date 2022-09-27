@@ -11,6 +11,21 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 export default function ShoppingCart() {
     const state = useContext(listContext);
 
+    const handleRemoveAllProducts = () => {
+        state.removeAllProducts();
+        window.location.reload();
+    };
+
+    const handleRemoveOneProduct = (product) => {
+        if (product.count === 1) {
+            if (window.confirm("Deseja remover esse produto do carrinho?")) {
+                state.removeOneProduct(product.object);
+            }
+        } else {
+            state.removeOneProduct(product.object);
+        }
+    };
+
     return (
         <>
             <Header />
@@ -30,47 +45,52 @@ export default function ShoppingCart() {
                 </div>
                 <div className="cart-products">
                     {state.cart.map((product, index) => {
-                        return (
-                            <div className="product-items">
-                                <div className="description">
-                                    <Link to={`/product/${product.object._id}`}>
-                                        <img
-                                            src={`${BACKEND_URL}/products/image/${product.object.image}`}
-                                            alt="produto"
-                                        />
-                                    </Link>
-                                    <h4>{product.object.name}</h4>
+                        if (product.count > 0) {
+                            return (
+                                <div className="product-items">
+                                    <div className="description">
+                                        <Link
+                                            to={`/product/${product.object._id}`}
+                                        >
+                                            <img
+                                                src={`${BACKEND_URL}/products/image/${product.object.image}`}
+                                                alt="produto"
+                                            />
+                                        </Link>
+                                        <h4>{product.object.name}</h4>
+                                    </div>
+                                    <div className="other">
+                                        <button
+                                            onClick={() =>
+                                                handleRemoveOneProduct(product)
+                                            }
+                                        >
+                                            -
+                                        </button>
+                                        <h4>{product.count}</h4>
+                                        <button
+                                            onClick={() =>
+                                                state.addProduct(product.object)
+                                            }
+                                        >
+                                            +
+                                        </button>
+                                        <h4>
+                                            R${product.object.price.toFixed(2)}
+                                        </h4>
+                                        <h4>
+                                            R$
+                                            {(
+                                                product.count *
+                                                product.object.price
+                                            ).toFixed(2)}
+                                        </h4>
+                                    </div>
                                 </div>
-                                <div className="other">
-                                    <button
-                                        onClick={() =>
-                                            state.removeOneProduct(
-                                                product.object
-                                            )
-                                        }
-                                    >
-                                        -
-                                    </button>
-                                    <h4>{product.count}</h4>
-                                    <button
-                                        onClick={() =>
-                                            state.addProduct(product.object)
-                                        }
-                                    >
-                                        +
-                                    </button>
-                                    <h4>R${product.object.price.toFixed(2)}</h4>
-                                    <h4>
-                                        R$
-                                        {(
-                                            product.count * product.object.price
-                                        ).toFixed(2)}
-                                    </h4>
-                                </div>
-                            </div>
-                        );
+                            );
+                        }
                     })}
-                    <button onClick={() => state.removeAllProducts()}>
+                    <button onClick={() => handleRemoveAllProducts()}>
                         Remove all items
                     </button>
                 </div>
