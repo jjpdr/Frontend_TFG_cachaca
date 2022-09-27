@@ -1,7 +1,7 @@
 import { useState } from "react";
 import listContext from "../pages/ShoppingCart/context";
 
-const Store = ({ gitchildren }) => {
+const Store = ({ children }) => {
     const addProduct = (product) => {
         let newList = appState.cart;
 
