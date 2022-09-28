@@ -28,7 +28,6 @@ export default function ShoppingCart() {
   };
 
   const handleCheckout = () => {
-    console.log(state);
     const tempCheckout = [];
 
     state.cart.forEach((product) => {
