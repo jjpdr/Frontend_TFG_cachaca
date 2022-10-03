@@ -19,7 +19,6 @@ import {
 export default function ShoppingCart() {
   const state = useContext(listContext);
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-  console.log(state);
 
   return (
     <>
@@ -50,7 +49,6 @@ export default function ShoppingCart() {
 
                         <hr className="my-4" />
                         {state.cart.map((product) => {
-                          console.log(product);
                           <MDBRow className="mb-4 d-flex justify-content-between align-items-center">
                             <MDBCol md="2" lg="2" xl="2">
                               <MDBCardImage

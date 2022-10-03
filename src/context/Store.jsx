@@ -25,7 +25,12 @@ const Store = ({ children }) => {
       newList.push(newProduct);
     }
 
-    setAppState({ ...appState, cart: newList, cartCount: getCartCount() });
+    setAppState({
+      ...appState,
+      cart: newList,
+      cartCount: getCartCount(),
+      cartValue: getCartValue(),
+    });
   };
 
   const removeOneProduct = (product) => {
@@ -47,6 +52,7 @@ const Store = ({ children }) => {
         ...appState,
         cart: newList,
         cartCount: getCartCount(),
+        cartValue: getCartValue(),
       });
     }
   };
@@ -72,20 +78,45 @@ const Store = ({ children }) => {
 
     if (appState.cart.length > 0) {
       appState.cart.forEach((prod) => {
-        value += prod.price;
+        value += prod.object.price * prod.count;
       });
     }
-    console.log("Retornando" + value);
+
     return value;
+  };
+
+  const setProductCount = (id, quantity) => {
+    let newList = appState.cart;
+
+    const filtered = newList.filter((prod) => {
+      return prod.object._id === id;
+    });
+
+    if (filtered.length > 0) {
+      const position = newList
+        .map((prod) => {
+          return prod.object._id;
+        })
+        .indexOf(id);
+      newList[position].count = parseInt(quantity);
+    }
+
+    setAppState({
+      ...appState,
+      cart: newList,
+      cartCount: getCartCount(),
+      cartValue: getCartValue(),
+    });
   };
 
   const initialState = {
     cart: [],
     cartCount: 0,
+    cartValue: 0,
     addProduct: addProduct,
     removeOneProduct: removeOneProduct,
     removeAllProducts: removeAllProducts,
-    getCartValue: getCartValue,
+    setProductCount: setProductCount,
   };
 
   const [appState, setAppState] = useState(initialState);
