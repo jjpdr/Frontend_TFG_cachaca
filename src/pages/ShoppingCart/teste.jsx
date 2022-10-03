@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Header from "../../components/Header";
 import listContext from "../ShoppingCart/context";
-import { Row } from "react-bootstrap";
+
 import {
   MDBBtn,
   MDBCard,
@@ -19,6 +19,7 @@ import {
 export default function ShoppingCart() {
   const state = useContext(listContext);
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+  console.log(state);
 
   return (
     <>
@@ -40,69 +41,69 @@ export default function ShoppingCart() {
                             tag="h1"
                             className="fw-bold mb-0 text-black"
                           >
-                            Shopping Cart
+                            Carrinho de compras
                           </MDBTypography>
                           <MDBTypography className="mb-0 text-muted">
-                            {state.getCartCount || 0} itens
+                            {state.cartCount} itens
                           </MDBTypography>
                         </div>
+
                         <hr className="my-4" />
-                        <MDBRow className="mb-4 d-flex justify-content-between align-items-center">
-                          {state.cart.map((product) => {
-                            <>
-                              <MDBCol md="2" lg="2" xl="2">
-                                <MDBCardImage
-                                  src={`${BACKEND_URL}/products/image/${product.object.image}`}
-                                  fluid
-                                  className="rounded-3"
-                                  alt="Cotton T-shirt"
-                                />
-                              </MDBCol>
-                              <MDBCol md="3" lg="3" xl="3">
-                                <MDBTypography tag="h6" className="text-muted">
-                                  {product.object.category}
-                                </MDBTypography>
-                                <MDBTypography
-                                  tag="h6"
-                                  className="text-black mb-0"
-                                >
-                                  {product.object.name}
-                                </MDBTypography>
-                              </MDBCol>
-                              <MDBCol
-                                md="3"
-                                lg="3"
-                                xl="3"
-                                className="d-flex align-items-center"
+                        {state.cart.map((product) => {
+                          console.log(product);
+                          <MDBRow className="mb-4 d-flex justify-content-between align-items-center">
+                            <MDBCol md="2" lg="2" xl="2">
+                              <MDBCardImage
+                                src={`${BACKEND_URL}/products/image/${product.object.image}`}
+                                fluid
+                                className="rounded-3"
+                                alt={product.object.name}
+                              />
+                            </MDBCol>
+                            <MDBCol md="3" lg="3" xl="3">
+                              <MDBTypography tag="h6" className="text-muted">
+                                {product.object.category}
+                              </MDBTypography>
+                              <MDBTypography
+                                tag="h6"
+                                className="text-black mb-0"
                               >
-                                <MDBBtn color="link" className="px-2">
-                                  <MDBIcon fas icon="minus" />
-                                </MDBBtn>
+                                {product.object.name}
+                              </MDBTypography>
+                            </MDBCol>
+                            <MDBCol
+                              md="3"
+                              lg="3"
+                              xl="3"
+                              className="d-flex align-items-center"
+                            >
+                              <MDBBtn color="link" className="px-2">
+                                <MDBIcon fas icon="minus" />
+                              </MDBBtn>
 
-                                <MDBInput
-                                  type="number"
-                                  min="0"
-                                  value={product.count}
-                                  size="sm"
-                                />
+                              <MDBInput
+                                type="number"
+                                min="0"
+                                defaultValue={1}
+                                size="sm"
+                              />
 
-                                <MDBBtn color="link" className="px-2">
-                                  <MDBIcon fas icon="plus" />
-                                </MDBBtn>
-                              </MDBCol>
-                              <MDBCol md="3" lg="2" xl="2" className="text-end">
-                                <MDBTypography tag="h6" className="mb-0">
-                                  R${product.object.price.toFixed(2)}
-                                </MDBTypography>
-                              </MDBCol>
-                              <MDBCol md="1" lg="1" xl="1" className="text-end">
-                                <a href="#!" className="text-muted">
-                                  <MDBIcon fas icon="times" />
-                                </a>
-                              </MDBCol>
-                            </>;
-                          })}
-                        </MDBRow>
+                              <MDBBtn color="link" className="px-2">
+                                <MDBIcon fas icon="plus" />
+                              </MDBBtn>
+                            </MDBCol>
+                            <MDBCol md="3" lg="2" xl="2" className="text-end">
+                              <MDBTypography tag="h6" className="mb-0">
+                                R$ {product.object.price.toFixed(2)}
+                              </MDBTypography>
+                            </MDBCol>
+                            <MDBCol md="1" lg="1" xl="1" className="text-end">
+                              <a href="#!" className="text-muted">
+                                <MDBIcon fas icon="times" />
+                              </a>
+                            </MDBCol>
+                          </MDBRow>;
+                        })}
 
                         <div className="pt-5">
                           <MDBTypography tag="h6" className="mb-0">
@@ -131,7 +132,7 @@ export default function ShoppingCart() {
 
                         <div className="d-flex justify-content-between mb-4">
                           <MDBTypography tag="h5" className="text-uppercase">
-                            items 3
+                            items {state.cartCount}
                           </MDBTypography>
                           <MDBTypography tag="h5">€ 132.00</MDBTypography>
                         </div>
