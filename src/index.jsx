@@ -15,7 +15,6 @@ import UseTerms from "./pages/UseTerms";
 import RegisterProducts from "./pages/RegisterProducts";
 import ProductPage from "./pages/ProductPage";
 import UserPage from "./pages/UserPage";
-import AdminPanel from "./components/AdminPanel";
 import DeleteProduct from "./pages/DeleteProduct";
 import ShoppingCart from "./pages/ShoppingCart";
 
@@ -33,7 +32,6 @@ ReactDOM.render(
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/user/:id" element={<UserPage />} />
           <Route path="/shopping-cart" element={<ShoppingCart />} />
-          <Route path="/admin-panel" element={<AdminPanel />} />
           <Route
             path="/admin-panel/register-product"
             element={<RegisterProducts />}

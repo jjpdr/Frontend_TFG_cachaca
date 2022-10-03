@@ -9,6 +9,7 @@ import shoppingCartIcon from "../../assets/img/shopping-cart.png";
 import ButtonComponent from "../Buttons";
 
 import listContext from "../../pages/ShoppingCart/context";
+import DropdownMenu from "../DropdownMenu";
 
 export default function Header() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -84,14 +85,7 @@ export default function Header() {
             </div>
           </>
         )}
-        {adm && (
-          <ButtonComponent
-            tag="Link"
-            destination="/admin-panel"
-            type="primary"
-            text="PAINEL ADMINISTRADOR"
-          />
-        )}
+        {adm && <DropdownMenu />}
       </div>
     </div>
   );

@@ -31,7 +31,7 @@ export default function DeleteProduct() {
       })
       .then((res) => {
         alert("Cachaça removida com sucesso!");
-        window.location.href = "/admin-panel";
+        window.location.href = "/";
       })
       .catch((err) => {});
   };
