@@ -27,9 +27,7 @@ export const SelectProduct = ({ products, onItemChange }) => {
       getInputProps,
       getComboboxProps,
       getItemProps,
-      selectedItem,
       setInputValue,
-      inputValue,
     } = useCombobox({
       onInputValueChange({ inputValue }) {
         setItems(products.filter(getBooksFilter(inputValue)));
@@ -47,9 +45,7 @@ export const SelectProduct = ({ products, onItemChange }) => {
     return (
       <div>
         <div>
-          <label {...getLabelProps()}>
-            Escolha o produto que deseja deletar:
-          </label>
+          <label {...getLabelProps()}></label>
           <div {...getComboboxProps()}>
             <input
               {...getInputProps({
