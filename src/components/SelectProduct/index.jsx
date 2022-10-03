@@ -1,13 +1,13 @@
 import React, { useRef, useState } from "react";
 import { useCombobox } from "downshift";
 
-export const SelectProduct = ({ products, onItemChange, value }) => {
+export const SelectProduct = ({ products, onItemChange }) => {
   function getBooksFilter(inputValue) {
-    return function booksFilter(book) {
+    return function booksFilter(product) {
       return (
         !inputValue ||
-        book.name.toLowerCase().includes(inputValue) ||
-        book.name.includes(inputValue)
+        product.name.toLowerCase().includes(inputValue) ||
+        product.name.includes(inputValue)
       );
     };
   }
@@ -18,7 +18,7 @@ export const SelectProduct = ({ products, onItemChange, value }) => {
     onItemChange(id);
   };
   function ComboBox() {
-    const [items, setItems] = React.useState(products);
+    const [items, setItems] = useState(products);
     const {
       isOpen,
       getToggleButtonProps,
@@ -26,7 +26,6 @@ export const SelectProduct = ({ products, onItemChange, value }) => {
       getMenuProps,
       getInputProps,
       getComboboxProps,
-      highlightedIndex,
       getItemProps,
       selectedItem,
       setInputValue,
@@ -48,18 +47,16 @@ export const SelectProduct = ({ products, onItemChange, value }) => {
     return (
       <div>
         <div>
-          <label {...getLabelProps()}>Choose your favorite book:</label>
+          <label {...getLabelProps()}>
+            Escolha o produto que deseja deletar:
+          </label>
           <div {...getComboboxProps()}>
             <input
               {...getInputProps({
                 ref: inputRef.current,
               })}
             />
-            <button
-              aria-label="toggle menu"
-              type="button"
-              {...getToggleButtonProps()}
-            >
+            <button type="button" {...getToggleButtonProps()}>
               {isOpen ? <>&#8593;</> : <>&#8595;</>}
             </button>
           </div>

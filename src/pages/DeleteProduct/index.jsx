@@ -22,16 +22,6 @@ export default function DeleteProduct() {
     // eslint-disable-next-line
   }, []);
 
-  const handleChange = (value, field) => {
-    switch (field) {
-      case "id":
-        setID(value);
-        break;
-      default:
-        break;
-    }
-  };
-
   const handleDelete = () => {
     api
       .delete(`/products/${id}`, {
@@ -49,14 +39,10 @@ export default function DeleteProduct() {
     <div className="page-container-delete-product">
       <Header />
       <div className="content">
-        {/* <input
-          onChange={(event) => handleChange(event.target.value, "id")}
-          value={id}
-          type="text"
-          placeholder="ID do produto"
-        /> */}
         <SelectProduct products={products} onItemChange={setID} value={id} />
-        <button onClick={handleDelete}>DELETAR</button>
+        <div>
+          <button onClick={handleDelete}>DELETAR</button>
+        </div>
       </div>
     </div>
   );
