@@ -14,7 +14,9 @@ const DropdownMenu = () => {
         <Dropdown.Item href="/admin-panel/delete-product">
           Excluir produto
         </Dropdown.Item>
-        <Dropdown.Item href="/action-3">Alterar produto</Dropdown.Item>
+        <Dropdown.Item href="/admin-panel/update-product">
+          Alterar produto
+        </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );

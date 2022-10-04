@@ -16,6 +16,7 @@ import RegisterProducts from "./pages/RegisterProducts";
 import ProductPage from "./pages/ProductPage";
 import UserPage from "./pages/UserPage";
 import DeleteProduct from "./pages/DeleteProduct";
+import UpdateProduct from "./pages/UpdateProduct";
 import ShoppingCart from "./pages/ShoppingCart";
 
 ReactDOM.render(
@@ -39,6 +40,10 @@ ReactDOM.render(
           <Route
             path="/admin-panel/delete-product"
             element={<DeleteProduct />}
+          />
+          <Route
+            path="/admin-panel/update-product"
+            element={<UpdateProduct />}
           />
         </Routes>
       </BrowserRouter>
