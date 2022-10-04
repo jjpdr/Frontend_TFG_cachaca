@@ -18,6 +18,7 @@ import UserPage from "./pages/UserPage";
 import DeleteProduct from "./pages/DeleteProduct";
 import UpdateProduct from "./pages/UpdateProduct";
 import ShoppingCart from "./pages/ShoppingCart";
+import PaymentMethod from "./components/PaymentMethod";
 
 ReactDOM.render(
   <Store>
@@ -45,6 +46,7 @@ ReactDOM.render(
             path="/admin-panel/update-product"
             element={<UpdateProduct />}
           />
+          <Route path="/user/payment-method" element={<PaymentMethod />} />
         </Routes>
       </BrowserRouter>
     </React.StrictMode>

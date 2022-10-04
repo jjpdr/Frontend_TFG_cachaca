@@ -14,23 +14,18 @@ import {
   MDBCardText,
   MDBCardBody,
   MDBCardImage,
-  MDBBtn,
-  MDBBreadcrumb,
-  MDBBreadcrumbItem,
-  MDBProgress,
-  MDBProgressBar,
   MDBIcon,
   MDBListGroup,
   MDBListGroupItem,
-  MDBCardTitle,
-  MDBTypography,
   MDBCardHeader,
 } from "mdb-react-ui-kit";
 import userIcon from "../../assets/img/user-icon.png";
+import ModalCreditCard from "../../components/ModalCreditCard";
 
 export default function UserPage() {
   const { id } = useParams();
   const [user, setUser] = useState({});
+  const [modalShow, setModalShow] = useState(false);
 
   useEffect(() => {
     api
@@ -63,7 +58,26 @@ export default function UserPage() {
               </MDBCard>
 
               <MDBCard className="mb-4 mb-lg-0">
-                <MDBCardHeader>Informações de pagamento</MDBCardHeader>
+                <MDBCardHeader
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  Informações de pagamento
+                  <MDBIcon
+                    fas
+                    icon="plus fa-lg"
+                    style={{ color: "#333333" }}
+                    onClick={() => setModalShow(true)}
+                  ></MDBIcon>
+                  <ModalCreditCard
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                    centered={true}
+                  />
+                </MDBCardHeader>
                 <MDBCardBody className="p-0">
                   <MDBListGroup className="rounded-3">
                     <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
