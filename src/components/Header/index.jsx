@@ -27,20 +27,14 @@ export default function Header() {
   return (
     <div className="header-container">
       <div className="header">
-        <Link to="/">
+        <Link to="/#page-one">
           <LogoCdc className="logo" />
         </Link>
         <ButtonComponent
-          tag="a"
-          destination="#page-three"
+          tag="Link"
+          destination="/#page-three"
           type="primary"
           text="FAÇA PARTE DO CLUBE!"
-        />
-        <ButtonComponent
-          tag="a"
-          destination="/#page-two"
-          type="secondary"
-          text="PRODUTOS"
         />
         <ButtonComponent
           tag="Link"

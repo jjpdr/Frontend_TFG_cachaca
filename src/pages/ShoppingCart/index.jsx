@@ -62,8 +62,11 @@ export default function ShoppingCart() {
     <>
       <Header />
       <section
-        className="h-100 h-custom"
-        style={{ backgroundColor: "#E7F6F2" }}
+        style={{
+          backgroundColor: "#E7F6F2",
+          minHeight: "100vh",
+          paddingTop: "3%",
+        }}
       >
         <MDBContainer className="py-5 h-100">
           <MDBRow className="justify-content-center align-items-center h-100">
@@ -142,11 +145,7 @@ export default function ShoppingCart() {
                                     lg="1"
                                     xl="1"
                                     className="text-end"
-                                  >
-                                    <a href="#!" className="text-muted">
-                                      <MDBIcon fas icon="times" />
-                                    </a>
-                                  </MDBCol>
+                                  ></MDBCol>
                                 </>
                               );
                             }

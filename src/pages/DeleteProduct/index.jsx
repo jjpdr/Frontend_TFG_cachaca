@@ -94,6 +94,7 @@ export default function DeleteProduct() {
                     <MDBCardImage
                       src={`${BACKEND_URL}/products/image/${itemDisplay.image}`}
                       alt="Aguardando o produto a ser selecionado"
+                      className="product-image"
                       fluid
                     />
                   </MDBCol>

@@ -1,5 +1,24 @@
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBTypography,
+  MDBBtn,
+  MDBCard,
+  MDBCardImage,
+  MDBCardBody,
+  MDBCardTitle,
+  MDBCardText,
+  MDBCardLink,
+  MDBListGroup,
+  MDBListGroupItem,
+  MDBCardFooter,
+  MDBRange,
+  MDBCheckbox,
+  MDBBtnGroup,
+} from "mdb-react-ui-kit";
 
 import Header from "../../components/Header";
 
@@ -14,16 +33,25 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 export default function Catalog() {
   const [products, setProducts] = useState([]);
   const [filterProducts, setFilterProducts] = useState([]);
-  const [sliderPrice, setSliderPrice] = useState("");
+  const [sliderPrice, setSliderPrice] = useState(100);
   const [checkbox51, setCheckbox51] = useState(false);
   const [checkboxVB, setCheckboxVB] = useState(false);
   const [checkboxPA, setCheckboxPA] = useState(false);
-  const [checkboxOthers, setCheckboxOthers] = useState(false);
 
-  const handleChange = (value, field) => {
-    switch (field) {
-      case "price":
-        setSliderPrice(value);
+  const handleChange = (value) => {
+    setSliderPrice(value);
+  };
+
+  const handleCheckBoxChange = (checkbox) => {
+    switch (checkbox) {
+      case "51":
+        setCheckbox51(!checkbox51);
+        break;
+      case "VB":
+        setCheckboxVB(!checkboxVB);
+        break;
+      case "PA":
+        setCheckboxPA(!checkboxPA);
         break;
       default:
         break;
@@ -31,22 +59,28 @@ export default function Catalog() {
   };
 
   const sliderFilter = (product) => {
-    if (product.price <= sliderPrice) return product;
+    if (
+      product.price <= sliderPrice &&
+      ((!checkbox51 && !checkboxVB && !checkboxPA) ||
+        (checkbox51 && product.brand === "51") ||
+        (checkboxVB && product.brand.toLowerCase() === "velho barreiro") ||
+        (checkboxPA && product.brand.toLowerCase() === "pinga azul"))
+    )
+      return product;
   };
 
   const state = useContext(listContext);
 
   useEffect(() => {
     setFilterProducts(products.filter(sliderFilter));
-  }, [sliderPrice]);
+  }, [sliderPrice, checkbox51, checkboxPA, checkboxVB]);
 
   useEffect(() => {
     api
       .get("/products")
       .then((res) => {
-        setProducts([...res.data.products, ...res.data.products]);
-        setFilterProducts(products);
-        setSliderPrice("25");
+        setProducts(res.data.products);
+        setFilterProducts(res.data.products);
       })
       .catch((err) => {});
     // eslint-disable-next-line
@@ -55,91 +89,108 @@ export default function Catalog() {
   return (
     <>
       <Header />
-      <div className="page-container-catalog">
-        <div className="catalog-sidebar">
-          <h2>FILTRAR POR:</h2>
-          <div className="catalog-sidebar-item">
-            <input
-              type="range"
-              min="10"
-              max="100"
-              step="1"
-              value={sliderPrice}
-              className="slider"
-              id="slider-price"
-              onChange={(event) => handleChange(event.target.value, "price")}
-            ></input>
-            <label for="slider-price">Preços até R${sliderPrice}</label>
-          </div>
-          <div className="catalog-sidebar-item">
-            <input
-              type="checkbox"
-              value={checkbox51}
-              className="checkbox"
-              id="Cachaça 51"
-              onClick={() => setCheckbox51(!checkbox51)}
-            ></input>
-            <label for="Cachaça 51">Cachaça 51</label>
-          </div>
-          <div className="catalog-sidebar-item">
-            <input
-              type="checkbox"
-              value={checkboxVB}
-              className="checkbox"
-              id="Velho Barreiro"
-              onClick={() => setCheckboxVB(!checkboxVB)}
-            ></input>
-            <label for="Velho Barreiro">Velho Barreiro</label>
-          </div>
-          <div className="catalog-sidebar-item">
-            <input
-              type="checkbox"
-              value={checkboxPA}
-              className="checkbox"
-              id="Pinga Azul"
-              onClick={() => setCheckboxPA(!checkboxPA)}
-            ></input>
-            <label for="Pinga Azul">Pinga Azul</label>
-          </div>
-          <div className="catalog-sidebar-item">
-            <input
-              type="checkbox"
-              value={checkboxOthers}
-              className="checkbox"
-              id="Outros"
-              onClick={() => setCheckboxOthers(!checkboxOthers)}
-            ></input>
-            <label for="Outros">Outros</label>
-          </div>
+      <div className="div-container">
+        <div className="filter">
+          <MDBRange
+            defaultValue={100}
+            min="0"
+            max="100"
+            step="1"
+            id="customRange3"
+            label={`Mostrando produtos até R$ ${sliderPrice}`}
+            onChange={(event) => handleChange(event.target.value)}
+          />
+          <MDBCheckbox
+            name="btnCheck"
+            btn
+            id="btn-check"
+            wrapperTag="span"
+            label="Cachaça 51"
+            checked={checkbox51}
+            onChange={() => handleCheckBoxChange("51")}
+          />
+          <MDBCheckbox
+            name="btnCheck"
+            btn
+            id="btn-check2"
+            wrapperClass="mx-2"
+            wrapperTag="span"
+            label="Velho Barreiro"
+            checked={checkboxVB}
+            onChange={() => handleCheckBoxChange("VB")}
+          />
+          <MDBCheckbox
+            name="btnCheck"
+            btn
+            id="btn-check3"
+            wrapperTag="span"
+            label="Pinga Azul"
+            checked={checkboxPA}
+            onChange={() => handleCheckBoxChange("PA")}
+            className="btn btn-secondary btn-lg btn-block"
+          />
         </div>
-        <div className="flex-catalog-product-list">
-          <div className="catalog-product-list">
-            {filterProducts.map((product) => {
-              return (
-                <>
-                  <div className="product-items">
-                    <Link
-                      to={`/product/${product._id}`}
-                      style={{ textDecoration: "none" }}
+        <div className="grid">
+          {filterProducts.length > 0 &&
+            filterProducts.map((product) => (
+              <div className="g-col-6">
+                <MDBCard
+                  style={{
+                    maxWidth: "540px",
+                    height: "250px",
+                  }}
+                >
+                  <MDBRow className="g-0">
+                    <MDBCol
+                      md="4"
+                      style={{
+                        alignItems: "center",
+                        display: "flex",
+                      }}
                     >
-                      <img
-                        src={`${BACKEND_URL}/products/image/${product.image}`}
-                        alt="produto"
-                      />
-                      <h2>{product.name}</h2>
-                      <h2>R${product.price.toFixed(2)}</h2>
-                    </Link>
-                  </div>
-                  <button
-                    className="setter"
-                    onClick={() => state.addProduct(product)}
-                  >
-                    Add to cart
-                  </button>
-                </>
-              );
-            })}
-          </div>
+                      <Link
+                        to={`/product/${product._id}`}
+                        style={{ textDecoration: "none", color: "#395B64" }}
+                      >
+                        <MDBCardImage
+                          src={`${BACKEND_URL}/products/image/${product.image}`}
+                          alt={product.name}
+                          className="product-image-catalog"
+                          fluid
+                        />
+                      </Link>
+                    </MDBCol>
+                    <MDBCol md="8">
+                      <MDBCardBody>
+                        <Link
+                          to={`/product/${product._id}`}
+                          style={{ textDecoration: "none", color: "#395B64" }}
+                        >
+                          <MDBCardTitle
+                            style={{
+                              whiteSpace: "nowrap",
+                              overflow: "hidden",
+                              textOverflow: "ellipsis",
+                            }}
+                          >
+                            {product.name}
+                          </MDBCardTitle>
+                        </Link>
+                        <MDBCardText
+                          style={{ height: "70px", overflowY: "auto" }}
+                        >
+                          {product.description}
+                        </MDBCardText>
+                        <MDBCardText>R$ {product.price.toFixed(2)}</MDBCardText>
+                      </MDBCardBody>
+                      <MDBBtn onClick={() => state.addProduct(product)}>
+                        + CARRINHO
+                      </MDBBtn>
+                    </MDBCol>
+                  </MDBRow>
+                </MDBCard>
+              </div>
+            ))}
         </div>
       </div>
     </>

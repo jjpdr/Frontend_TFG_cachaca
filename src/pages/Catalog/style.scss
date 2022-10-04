@@ -1,66 +1,29 @@
-.page-container-catalog {
-    display: flex;
-    overflow-x: hidden;
+$enable-grid-classes: false;
+$enable-cssgrid: true;
+.div-container {
+  display: flex;
+  flex-direction: row;
 
-    width: 100vw;
+  width: 100vw;
+}
 
-    padding-top: 75px;
-    background-color: #2d3d30;
+.grid {
+  padding-top: 6%;
+  width: 80vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 25px;
+  min-height: 100vh;
+}
 
-    .catalog-sidebar {
-        display: flex;
-        flex: 1;
+.filter {
+  padding-top: 10% !important;
+  width: 20vw;
+  padding: 30px;
+}
 
-        height: calc(100vh - 75px);
-
-        flex-direction: column;
-        align-items: center;
-
-        h2 {
-            color: #f3efe2;
-        }
-    }
-
-    .flex-catalog-product-list {
-        flex: 3;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-
-        .catalog-product-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, 220px);
-            grid-template-rows: 240px;
-            grid-row-gap: 25px;
-            grid-column-gap: 25px;
-
-            width: 100%;
-
-            button {
-                width: 40px;
-                height: 100px;
-            }
-
-            .product-items {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-
-                width: 100%;
-                height: 240px;
-
-                text-decoration: none;
-
-                img {
-                    width: 50px;
-                }
-
-                h2 {
-                    padding: 0;
-                    margin: 0;
-                }
-            }
-        }
-    }
+.product-image-catalog {
+  object-fit: contain;
+  height: 150px;
+  width: 150px;
 }
