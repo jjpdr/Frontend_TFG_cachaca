@@ -82,11 +82,11 @@ export default function ModalAddress(props) {
             .then((res) => {
                 alert(res.data.message);
                 props.onHide();
-                // window.location.reload();
+                window.location.reload();
             })
             .catch((err) => {
                 alert(err.response.data.message);
-                // window.location.reload();
+                window.location.reload();
             });
     };
 

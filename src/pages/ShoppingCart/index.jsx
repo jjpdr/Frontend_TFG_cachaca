@@ -44,16 +44,6 @@ export default function ShoppingCart() {
         });
     };
 
-    const handleRemoveOneProduct = (product) => {
-        if (product.count === 1) {
-            if (window.confirm("Deseja remover esse produto do carrinho?")) {
-                state.removeOneProduct(product.object);
-            }
-        } else {
-            state.removeOneProduct(product.object);
-        }
-    };
-
     const handleProductChange = (product, event) => {
         state.setProductCount(product.object._id, event.target.value);
     };

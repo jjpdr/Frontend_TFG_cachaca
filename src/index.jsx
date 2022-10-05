@@ -21,35 +21,45 @@ import ShoppingCart from "./pages/ShoppingCart";
 import PaymentMethod from "./components/PaymentMethod";
 
 ReactDOM.render(
-  <Store>
-    <React.StrictMode>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" exact element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/catalog" element={<Catalog />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/use-terms" element={<UseTerms />} />
-          <Route path="/product/:id" element={<ProductPage />} />
-          <Route path="/user/:id" element={<UserPage />} />
-          <Route path="/shopping-cart" element={<ShoppingCart />} />
-          <Route
-            path="/admin-panel/register-product"
-            element={<RegisterProducts />}
-          />
-          <Route
-            path="/admin-panel/delete-product"
-            element={<DeleteProduct />}
-          />
-          <Route
-            path="/admin-panel/update-product"
-            element={<UpdateProduct />}
-          />
-          <Route path="/user/payment-method" element={<PaymentMethod />} />
-        </Routes>
-      </BrowserRouter>
-    </React.StrictMode>
-  </Store>,
-  document.getElementById("root")
+    <Store>
+        <React.StrictMode>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" exact element={<Home />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/catalog" element={<Catalog />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route
+                        path="/forgot-password"
+                        element={<ForgotPassword />}
+                    />
+                    <Route path="/use-terms" element={<UseTerms />} />
+                    <Route path="/product/:id" element={<ProductPage />} />
+                    <Route path="/user/:id" element={<UserPage />} />
+                    <Route path="/shopping-cart" element={<ShoppingCart />} />
+                    <Route
+                        path="/admin-panel/register-product"
+                        element={<RegisterProducts />}
+                    />
+                    <Route
+                        path="/admin-panel/delete-product"
+                        element={<DeleteProduct />}
+                    />
+                    <Route
+                        path="/admin-panel/update-product"
+                        element={<UpdateProduct />}
+                    />
+                    <Route
+                        path="/user/payment-method"
+                        element={<PaymentMethod />}
+                    />
+                    <Route
+                        path="*"
+                        element={<p>There's nothing here: 404!</p>}
+                    />
+                </Routes>
+            </BrowserRouter>
+        </React.StrictMode>
+    </Store>,
+    document.getElementById("root")
 );

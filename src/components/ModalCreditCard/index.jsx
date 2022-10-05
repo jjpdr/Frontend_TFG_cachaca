@@ -30,11 +30,11 @@ export default function ModalCreditCard(props) {
             .then((res) => {
                 alert("Cadastro efetuado com sucesso!");
                 props.onHide();
-                // window.location.reload();
+                window.location.reload();
             })
             .catch((err) => {
                 alert(err.response.data.message);
-                // window.location.reload();
+                window.location.reload();
             });
     };
 

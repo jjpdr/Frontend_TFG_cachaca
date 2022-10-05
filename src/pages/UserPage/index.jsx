@@ -24,10 +24,37 @@ import ModalCreditCard from "../../components/ModalCreditCard";
 import ModalAddress from "../../components/ModalAddress";
 
 export default function UserPage() {
+    const token = JSON.parse(localStorage.getItem("token"));
     const { id } = useParams();
     const [user, setUser] = useState({});
     const [modalCCShow, setModalCCShow] = useState(false);
     const [modalAddressShow, setModalAddressShow] = useState(false);
+
+    const handleRemoveCC = (index) => {
+        let paymentID = "";
+
+        if (user && (paymentID = user.paymentMethod[index]._id));
+
+        const data = {
+            paymentID: user.paymentMethod[index]._id,
+        };
+
+        console.log(user);
+
+        api.put(`/users/payment-method/${id}`, data, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        })
+            .then((res) => {
+                alert(res.data.message);
+                window.location.reload();
+            })
+            .catch((err) => {
+                alert(err.response.data.message);
+                window.location.reload();
+            });
+    };
 
     useEffect(() => {
         api.get(`/users/${id}`)
@@ -37,7 +64,6 @@ export default function UserPage() {
             .catch((err) => {});
         // eslint-disable-next-line
     }, []);
-
     return (
         <>
             <Header />
@@ -91,26 +117,43 @@ export default function UserPage() {
                                 <MDBCardBody className="p-0">
                                     <MDBListGroup className="rounded-3">
                                         {user.paymentMethod &&
-                                            user.paymentMethod.map((method) => (
-                                                <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                                                    <MDBIcon
-                                                        fab
-                                                        icon="cc-visa fa-2x"
-                                                        style={{
-                                                            color: "#333333",
-                                                        }}
-                                                    />
-                                                    <MDBCardText>
-                                                        VISA
-                                                    </MDBCardText>
-                                                    <MDBCardText className="text-muted">
-                                                        {method.number.replace(
-                                                            /.(?=.{4})/g,
-                                                            "*"
-                                                        )}
-                                                    </MDBCardText>
-                                                </MDBListGroupItem>
-                                            ))}
+                                            user.paymentMethod.map(
+                                                (method, index) => (
+                                                    <MDBListGroupItem
+                                                        key={index}
+                                                        className="d-flex justify-content-around align-items-center p-2"
+                                                    >
+                                                        <MDBIcon
+                                                            fab
+                                                            icon="cc-visa fa-2x"
+                                                            style={{
+                                                                color: "#333333",
+                                                            }}
+                                                        />
+                                                        <MDBCardText>
+                                                            VISA
+                                                        </MDBCardText>
+                                                        <MDBCardText className="text-muted">
+                                                            {method.number.replace(
+                                                                /.(?=.{4})/g,
+                                                                "*"
+                                                            )}
+                                                        </MDBCardText>
+                                                        <MDBIcon
+                                                            fas
+                                                            icon="times fa-md"
+                                                            style={{
+                                                                color: "#333333",
+                                                            }}
+                                                            onClick={() =>
+                                                                handleRemoveCC(
+                                                                    index
+                                                                )
+                                                            }
+                                                        />
+                                                    </MDBListGroupItem>
+                                                )
+                                            )}
                                     </MDBListGroup>
                                 </MDBCardBody>
                             </MDBCard>
