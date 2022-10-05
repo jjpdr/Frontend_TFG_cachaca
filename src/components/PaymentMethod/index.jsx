@@ -72,6 +72,9 @@ export default function PaymentForm({
                         onChange={(e) => handleInputChange(e, "name")}
                         onFocus={handleInputFocus}
                         maxLength={30}
+                        data-mdb-toggle="tooltip"
+                        data-mdb-placement="bottom"
+                        title="Igual ao nome no cartão"
                     />
                 </MDBRow>
                 <MDBRow
@@ -86,7 +89,10 @@ export default function PaymentForm({
                             label="Validade"
                             onChange={(e) => handleInputChange(e, "expiry")}
                             onFocus={handleInputFocus}
-                            maxLength={4}
+                            maxLength={7}
+                            data-mdb-toggle="tooltip"
+                            data-mdb-placement="top"
+                            title="Formato MM/AAAA"
                         />
                     </MDBCol>
                     <MDBCol style={{ paddingRight: "0px" }}>
