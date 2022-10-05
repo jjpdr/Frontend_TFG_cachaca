@@ -71,7 +71,6 @@ export default function RegisterProducts() {
         },
       })
       .then((res) => {
-        console.log(data);
         alert("Cadastro efetuado com sucesso!");
         // window.location.reload();
       })

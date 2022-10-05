@@ -21,21 +21,22 @@ import {
 } from "mdb-react-ui-kit";
 import userIcon from "../../assets/img/user-icon.png";
 import ModalCreditCard from "../../components/ModalCreditCard";
+import ModalAddress from "../../components/ModalAddress";
 
 export default function UserPage() {
     const { id } = useParams();
     const [user, setUser] = useState({});
-    const [modalShow, setModalShow] = useState(false);
+    const [modalCCShow, setModalCCShow] = useState(false);
+    const [modalAddressShow, setModalAddressShow] = useState(false);
 
     useEffect(() => {
         api.get(`/users/${id}`)
             .then((res) => {
                 setUser(res.data.user);
-                console.log(user);
             })
             .catch((err) => {});
         // eslint-disable-next-line
-    }, [user.paymentMethod]);
+    }, []);
 
     return (
         <>
@@ -79,11 +80,11 @@ export default function UserPage() {
                                         fas
                                         icon="plus fa-lg"
                                         style={{ color: "#333333" }}
-                                        onClick={() => setModalShow(true)}
+                                        onClick={() => setModalCCShow(true)}
                                     ></MDBIcon>
                                     <ModalCreditCard
-                                        show={modalShow}
-                                        onHide={() => setModalShow(false)}
+                                        show={modalCCShow}
+                                        onHide={() => setModalCCShow(false)}
                                         centered={true}
                                     />
                                 </MDBCardHeader>
@@ -169,6 +170,18 @@ export default function UserPage() {
                                     <hr />
                                     <MDBRow>
                                         <MDBCol sm="3">
+                                            <MDBCardText>Telefone</MDBCardText>
+                                        </MDBCol>
+                                        <MDBCol sm="9">
+                                            <MDBCardText className="text-muted">
+                                                {user.address &&
+                                                    user.address.phone}
+                                            </MDBCardText>
+                                        </MDBCol>
+                                    </MDBRow>
+                                    <hr />
+                                    <MDBRow>
+                                        <MDBCol sm="3">
                                             <MDBCardText>
                                                 Plano atual
                                             </MDBCardText>
@@ -183,43 +196,85 @@ export default function UserPage() {
                                     <MDBRow>
                                         <MDBCardHeader
                                             tag="h4"
-                                            style={{ paddingLeft: "10px" }}
+                                            style={{
+                                                paddingLeft: "10px",
+                                                display: "flex",
+                                                justifyContent: "space-between",
+                                                alignItems: "center",
+                                            }}
                                         >
                                             Informações de contato
+                                            <MDBIcon
+                                                fas
+                                                icon="plus fa-sm"
+                                                style={{ color: "#333333" }}
+                                                onClick={() =>
+                                                    setModalAddressShow(true)
+                                                }
+                                            ></MDBIcon>
+                                            <ModalAddress
+                                                show={modalAddressShow}
+                                                onHide={() =>
+                                                    setModalAddressShow(false)
+                                                }
+                                                centered={true}
+                                            />
                                         </MDBCardHeader>
-                                        <MDBCol sm="3">
-                                            <MDBCardText>Endereço</MDBCardText>
-                                        </MDBCol>
-                                        <MDBCol sm="9">
-                                            <MDBCardText className="text-muted">
-                                                Rua Dr Sebastião Pereira
-                                                Machado, 136 - Pinheirinho
-                                            </MDBCardText>
-                                        </MDBCol>
-                                        <MDBCol sm="3">
-                                            <MDBCardText>Cidade</MDBCardText>
-                                        </MDBCol>
-                                        <MDBCol sm="9">
-                                            <MDBCardText className="text-muted">
-                                                Itajubá
-                                            </MDBCardText>
-                                        </MDBCol>
-                                        <MDBCol sm="3">
-                                            <MDBCardText>Estado</MDBCardText>
-                                        </MDBCol>
-                                        <MDBCol sm="9">
-                                            <MDBCardText className="text-muted">
-                                                Minas Gerais
-                                            </MDBCardText>
-                                        </MDBCol>
-                                        <MDBCol sm="3">
-                                            <MDBCardText>CEP</MDBCardText>
-                                        </MDBCol>
-                                        <MDBCol sm="9">
-                                            <MDBCardText className="text-muted">
-                                                37500-175
-                                            </MDBCardText>
-                                        </MDBCol>
+
+                                        {user.address && (
+                                            <>
+                                                <MDBCol sm="3">
+                                                    <MDBCardText>
+                                                        Endereço
+                                                    </MDBCardText>
+                                                </MDBCol>
+                                                <MDBCol sm="9">
+                                                    <MDBCardText className="text-muted">
+                                                        {`${user.address.street}, ${user.address.number} - ${user.address.borough}`}
+                                                    </MDBCardText>
+                                                </MDBCol>
+                                                <MDBCol sm="3">
+                                                    <MDBCardText>
+                                                        Cidade
+                                                    </MDBCardText>
+                                                </MDBCol>
+                                                <MDBCol sm="9">
+                                                    <MDBCardText className="text-muted">
+                                                        {user.address.city}
+                                                    </MDBCardText>
+                                                </MDBCol>
+                                                <MDBCol sm="3">
+                                                    <MDBCardText>
+                                                        Estado
+                                                    </MDBCardText>
+                                                </MDBCol>
+                                                <MDBCol sm="9">
+                                                    <MDBCardText className="text-muted">
+                                                        {user.address.state}
+                                                    </MDBCardText>
+                                                </MDBCol>
+                                                <MDBCol sm="3">
+                                                    <MDBCardText>
+                                                        CEP
+                                                    </MDBCardText>
+                                                </MDBCol>
+                                                <MDBCol sm="9">
+                                                    <MDBCardText className="text-muted">
+                                                        {user.address.zipCode}
+                                                    </MDBCardText>
+                                                </MDBCol>
+                                                <MDBCol sm="3">
+                                                    <MDBCardText>
+                                                        País
+                                                    </MDBCardText>
+                                                </MDBCol>
+                                                <MDBCol sm="9">
+                                                    <MDBCardText className="text-muted">
+                                                        {user.address.country}
+                                                    </MDBCardText>
+                                                </MDBCol>
+                                            </>
+                                        )}
                                     </MDBRow>
                                 </MDBCardBody>
                             </MDBCard>

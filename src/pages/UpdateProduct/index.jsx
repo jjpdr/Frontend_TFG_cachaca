@@ -95,7 +95,6 @@ export default function RegisterProducts() {
         },
       })
       .then((res) => {
-        console.log(data);
         alert("Atualização efetuada com sucesso!");
         // window.location.reload();
       })
