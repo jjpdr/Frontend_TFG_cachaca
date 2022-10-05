@@ -19,6 +19,7 @@ import DeleteProduct from "./pages/DeleteProduct";
 import UpdateProduct from "./pages/UpdateProduct";
 import ShoppingCart from "./pages/ShoppingCart";
 import PaymentMethod from "./components/PaymentMethod";
+import UpdateUser from "./pages/UpdateUser";
 
 ReactDOM.render(
     <Store>
@@ -48,6 +49,10 @@ ReactDOM.render(
                     <Route
                         path="/admin-panel/update-product"
                         element={<UpdateProduct />}
+                    />
+                    <Route
+                        path="/admin-panel/update-user"
+                        element={<UpdateUser />}
                     />
                     <Route
                         path="/user/payment-method"

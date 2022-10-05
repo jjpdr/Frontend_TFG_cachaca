@@ -61,8 +61,6 @@ export default function RegisterProducts() {
                 setInfo(value);
                 break;
             case "price":
-                console.log(value);
-
                 setPrice(value);
                 break;
             case "image":
