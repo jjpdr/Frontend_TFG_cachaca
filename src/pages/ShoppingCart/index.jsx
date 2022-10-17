@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Header from "../../components/Header";
 import listContext from "../ShoppingCart/context";
 import { shipping } from "../../constants/shipping";
@@ -21,11 +21,19 @@ import {
 
 export default function ShoppingCart() {
   const state = useContext(listContext);
-  const [selectedShipping, setSelectedShipping] = useState(shipping[0].price);
+  const [shippings, setShippings] = useState([]);
+  const [selectedShipping, setSelectedShipping] = useState({});
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
-  const handleShippingChange = (event) => {
-    setSelectedShipping(event.target.value);
+  useEffect(() => {
+    api.get("/checkout/shippings").then((res) => {
+      setShippings(res.data.shippingRates);
+      setSelectedShipping(res.data.shippingRates[0]);
+    });
+  }, []);
+
+  const handleShippingChange = (shipping) => {
+    setSelectedShipping(JSON.parse(shipping));
   };
 
   const handleCheckout = () => {
@@ -39,7 +47,7 @@ export default function ShoppingCart() {
     api
       .post(
         "/users/create-checkout-session",
-        { line_items },
+        { line_items, shipping_cost: selectedShipping.id },
         {
           headers: {},
         }
@@ -210,17 +218,16 @@ export default function ShoppingCart() {
                               width: "100%",
                             }}
                             onChange={(event) => {
-                              handleShippingChange(event);
+                              handleShippingChange(event.target.value);
                             }}
                           >
-                            {shipping.map((opt, index) => {
+                            {shippings.map((opt, index) => {
                               return (
-                                <option
-                                  key={index}
-                                  value={opt.price.toFixed(2)}
-                                >
-                                  {opt.name} - R$
-                                  {opt.price.toFixed(2)}
+                                <option key={index} value={JSON.stringify(opt)}>
+                                  {opt.display_name} - R$
+                                  {(
+                                    parseFloat(opt.fixed_amount.amount) / 100
+                                  ).toFixed(2)}
                                 </option>
                               );
                             })}
@@ -245,7 +252,10 @@ export default function ShoppingCart() {
                             R$
                             {(
                               parseFloat(state.cartValue) +
-                              parseFloat(selectedShipping)
+                              parseFloat(
+                                selectedShipping?.fixed_amount?.amount || 0
+                              ) /
+                                100
                             ).toFixed(2)}
                           </MDBTypography>
                         </div>
