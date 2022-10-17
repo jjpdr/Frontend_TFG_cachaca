@@ -92,11 +92,24 @@ export default function ShoppingCart() {
                             if (product.count > 0) {
                               return (
                                 <>
-                                  <MDBCol md="2" lg="2" xl="2">
+                                  <MDBCol
+                                    md="2"
+                                    lg="2"
+                                    xl="2"
+                                    style={{
+                                      alignItems: "center",
+                                      justifyContent: "center",
+                                      display: "flex",
+                                      marginBottom: "10px",
+                                    }}
+                                  >
                                     <MDBCardImage
                                       src={`${BACKEND_URL}/products/image/${product.object.image}`}
                                       fluid
                                       alt={product.object.name}
+                                      style={{
+                                        height: "100px",
+                                      }}
                                     />
                                   </MDBCol>
                                   <MDBCol md="3" lg="3" xl="3">
