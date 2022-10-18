@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import Header from "../../components/Header";
 import listContext from "../ShoppingCart/context";
-import { shipping } from "../../constants/shipping";
 import "./style.scss";
 import api from "../../services/api";
 

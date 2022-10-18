@@ -20,51 +20,57 @@ import UpdateProduct from "./pages/UpdateProduct";
 import ShoppingCart from "./pages/ShoppingCart";
 import PaymentMethod from "./components/PaymentMethod";
 import UpdateUser from "./pages/UpdateUser";
+import PurchaseSuccess from "./pages/PurchaseSuccess";
 
 ReactDOM.render(
-    <Store>
-        <React.StrictMode>
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/" exact element={<Home />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/catalog" element={<Catalog />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route
-                        path="/forgot-password"
-                        element={<ForgotPassword />}
-                    />
-                    <Route path="/use-terms" element={<UseTerms />} />
-                    <Route path="/product/:id" element={<ProductPage />} />
-                    <Route path="/user/:id" element={<UserPage />} />
-                    <Route path="/shopping-cart" element={<ShoppingCart />} />
-                    <Route
-                        path="/admin-panel/register-product"
-                        element={<RegisterProducts />}
-                    />
-                    <Route
-                        path="/admin-panel/delete-product"
-                        element={<DeleteProduct />}
-                    />
-                    <Route
-                        path="/admin-panel/update-product"
-                        element={<UpdateProduct />}
-                    />
-                    <Route
-                        path="/admin-panel/update-user"
-                        element={<UpdateUser />}
-                    />
-                    <Route
-                        path="/user/payment-method"
-                        element={<PaymentMethod />}
-                    />
-                    <Route
-                        path="*"
-                        element={<p>There's nothing here: 404!</p>}
-                    />
-                </Routes>
-            </BrowserRouter>
-        </React.StrictMode>
-    </Store>,
-    document.getElementById("root")
+  <Store>
+    <React.StrictMode>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" exact element={<Home />} />
+          <Route path="/login" exact element={<Login />} />
+          <Route path="/catalog" exact element={<Catalog />} />
+          <Route path="/register" exact element={<Register />} />
+          <Route path="/forgot-password" exact element={<ForgotPassword />} />
+          <Route path="/use-terms" exact element={<UseTerms />} />
+          <Route path="/product/:id" exact element={<ProductPage />} />
+          <Route path="/user/:id" exact element={<UserPage />} />
+          <Route path="/shopping-cart" exact element={<ShoppingCart />} />
+          <Route
+            exact
+            path="/admin-panel/register-product"
+            element={<RegisterProducts />}
+          />
+          <Route
+            exact
+            path="/admin-panel/delete-product"
+            element={<DeleteProduct />}
+          />
+          <Route
+            exact
+            path="/admin-panel/update-product"
+            element={<UpdateProduct />}
+          />
+          <Route
+            path="/admin-panel/update-user"
+            exact
+            element={<UpdateUser />}
+          />
+          <Route
+            path="/user/payment-method"
+            exact
+            element={<PaymentMethod />}
+          />
+          <Route path="/purchase-success" exact element={<PurchaseSuccess />} />
+          <Route
+            exact
+            path="/checkout/payment-success"
+            element={<PurchaseSuccess />}
+          />
+          <Route path="*" element={<p>There's nothing here: 404!</p>} />
+        </Routes>
+      </BrowserRouter>
+    </React.StrictMode>
+  </Store>,
+  document.getElementById("root")
 );
