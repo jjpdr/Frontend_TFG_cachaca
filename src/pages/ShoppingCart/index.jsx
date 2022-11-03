@@ -45,7 +45,7 @@ export default function ShoppingCart() {
 
     api
       .post(
-        "/users/create-checkout-session",
+        "/checkout/product-checkout-session",
         { line_items, shipping_cost: selectedShipping.id },
         {
           headers: {},
