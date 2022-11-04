@@ -64,7 +64,7 @@ ReactDOM.render(
           <Route path="/purchase-success" exact element={<PurchaseSuccess />} />
           <Route
             exact
-            path="/checkout/payment-success"
+            path="/checkout/purchase-success"
             element={<PurchaseSuccess />}
           />
           <Route path="*" element={<p>There's nothing here: 404!</p>} />

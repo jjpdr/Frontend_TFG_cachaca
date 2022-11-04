@@ -52,7 +52,7 @@ export default function ShoppingCart() {
         }
       )
       .then((res) => {
-        window.open(res.data.url, "_blank");
+        window.location.href = res.data.url;
       })
       .catch((err) => {
         alert(err.response.data.message);
