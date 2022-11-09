@@ -1,7 +1,6 @@
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import React from "react";
 import ReactDOM from "react-dom";
-// import "./index.css";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 import Store from "./context/Store";

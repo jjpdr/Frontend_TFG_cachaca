@@ -13,9 +13,6 @@ import {
   MDBCardBody,
   MDBCardTitle,
   MDBCardText,
-  MDBCardLink,
-  MDBListGroup,
-  MDBListGroupItem,
 } from "mdb-react-ui-kit";
 import Header from "../../components/Header";
 
@@ -71,6 +68,7 @@ export default function DeleteProduct() {
 
   useEffect(() => {
     findProduct();
+    // eslint-disable-next-line
   }, [id]);
 
   return (

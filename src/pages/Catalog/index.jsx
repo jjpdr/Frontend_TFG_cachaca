@@ -1,23 +1,16 @@
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import {
-  MDBContainer,
   MDBRow,
   MDBCol,
-  MDBTypography,
   MDBBtn,
   MDBCard,
   MDBCardImage,
   MDBCardBody,
   MDBCardTitle,
   MDBCardText,
-  MDBCardLink,
-  MDBListGroup,
-  MDBListGroupItem,
-  MDBCardFooter,
   MDBRange,
   MDBCheckbox,
-  MDBBtnGroup,
 } from "mdb-react-ui-kit";
 
 import Header from "../../components/Header";
@@ -73,6 +66,7 @@ export default function Catalog() {
 
   useEffect(() => {
     setFilterProducts(products.filter(sliderFilter));
+    // eslint-disable-next-line
   }, [sliderPrice, checkbox51, checkboxPA, checkboxVB]);
 
   useEffect(() => {

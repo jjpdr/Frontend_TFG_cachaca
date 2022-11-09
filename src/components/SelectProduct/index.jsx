@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useCombobox } from "downshift";
 
 export const SelectProduct = ({ products, onItemChange }) => {

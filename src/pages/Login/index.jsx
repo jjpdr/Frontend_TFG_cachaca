@@ -92,7 +92,7 @@ export default function Login() {
                 <LogoGoogle className="icon-button google" />
                 ENTRAR COM GOOGLE
               </button>
-                <FacebookLogin />
+              <FacebookLogin />
             </div>
           </div>
         </div>

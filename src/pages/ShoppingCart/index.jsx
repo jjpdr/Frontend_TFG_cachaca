@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import Header from "../../components/Header";
 import listContext from "../ShoppingCart/context";
 import "./style.scss";
@@ -95,6 +95,7 @@ export default function ShoppingCart() {
                         </div>
                         <hr className="my-4" />
                         <MDBRow className="mb-4 d-flex justify-content-between align-items-center">
+                          {/*eslint-disable-next-line*/}
                           {state.cart.map((product) => {
                             if (product.count > 0) {
                               return (

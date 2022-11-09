@@ -32,7 +32,7 @@ export default function UserPage() {
 
   const handleRemoveCC = (index) => {
     let paymentID = "";
-
+    // eslint-disable-next-line
     if (user && (paymentID = user.paymentMethod[index]._id));
 
     const data = {
