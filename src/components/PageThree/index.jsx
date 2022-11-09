@@ -5,7 +5,7 @@ import api from "../../services/api";
 import "./style.scss";
 
 export default function PageThree() {
-  const [selectedPlan, setSelectedPlan] = useState(1);
+  const [selectedPlan, setSelectedPlan] = useState(0);
   const [plans, setPlans] = useState([]);
 
   const handleSelectPlan = (plan) => {
@@ -44,6 +44,7 @@ export default function PageThree() {
         <div className="plans">
           <div>
             <div className="plan">
+              {console.log(plans)}
               {plans.length > 0 && (
                 <>
                   <h2>{plans[selectedPlan].name}</h2>
@@ -59,16 +60,17 @@ export default function PageThree() {
           <div>
             <div className="selection">
               <div className="plans-selection">
-                {plans.map((plan, index) => (
-                  <button
-                    className={`btn-plan ${
-                      selectedPlan === index && "selected"
-                    }`}
-                    onClick={() => handleSelectPlan(index)}
-                  >
-                    {plan.name}
-                  </button>
-                ))}
+                {plans.length > 0 &&
+                  plans.map((plan, index) => (
+                    <button
+                      className={`btn-plan ${
+                        selectedPlan === index && "selected"
+                      }`}
+                      onClick={() => handleSelectPlan(index)}
+                    >
+                      {plan.name}
+                    </button>
+                  ))}
               </div>
               <div className="btn-container">
                 <button onClick={handleSubscribe}>Assine agora!</button>
