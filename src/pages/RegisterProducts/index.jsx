@@ -4,47 +4,57 @@ import FormData from "form-data";
 import "./style.scss";
 import api from "../../services/api";
 import Header from "../../components/Header";
+import {
+  MDBBtn,
+  MDBCol,
+  MDBContainer,
+  MDBInput,
+  MDBRow,
+  MDBFile,
+} from "mdb-react-ui-kit";
 
 export default function RegisterProducts() {
-  const [nome, setNome] = useState("");
-  const [marca_produto, setMarca] = useState("");
-  const [categoria, setCategoria] = useState("");
-  const [descricao, setDescricao] = useState("");
-  const [fabricante, setFabricante] = useState("");
-  const [caracteristica, setCaracteristica] = useState("");
-  const [preco, setPreco] = useState("");
-  const [images, setImages] = useState([]);
-  const [quantidade, setQuantidade] = useState("");
+  const [name, setName] = useState(null);
+  const [brand, setBrand] = useState(null);
+  const [category, setCategory] = useState(null);
+  const [description, setDescription] = useState(null);
+  const [manufacturer, setManufacturer] = useState(null);
+  const [info, setInfo] = useState(null);
+  const [price, setPrice] = useState(null);
+  const [image, setImage] = useState([]);
+  const [quantity, setQuantity] = useState(null);
+  const [products, setProducts] = useState([]);
 
   const token = JSON.parse(localStorage.getItem("token"));
+
   const handleChange = (value, field) => {
     switch (field) {
-      case "nome":
-        setNome(value);
+      case "name":
+        setName(value);
         break;
-      case "marca_produto":
-        setMarca(value);
+      case "brand":
+        setBrand(value);
         break;
-      case "categoria":
-        setCategoria(value);
+      case "category":
+        setCategory(value);
         break;
-      case "descricao":
-        setDescricao(value);
+      case "description":
+        setDescription(value);
         break;
-      case "fabricante":
-        setFabricante(value);
+      case "manufacturer":
+        setManufacturer(value);
         break;
-      case "caracteristica":
-        setCaracteristica(value);
+      case "info":
+        setInfo(value);
         break;
-      case "preco":
-        setPreco(value);
+      case "price":
+        setPrice(value);
         break;
-      case "images":
-        setImages(value);
+      case "image":
+        setImage(value);
         break;
-      case "quantidade":
-        setQuantidade(value);
+      case "quantity":
+        setQuantity(value);
         break;
       default:
         break;
@@ -53,15 +63,15 @@ export default function RegisterProducts() {
 
   const handleSubmit = async () => {
     const data = new FormData();
-    data.append("name", nome);
-    data.append("brand", marca_produto);
-    data.append("category", categoria);
-    data.append("description", descricao);
-    data.append("manufacturer", fabricante);
-    data.append("info", caracteristica);
-    data.append("price", preco);
-    data.append("images", images[0]);
-    data.append("quantity", quantidade);
+    data.append("name", name);
+    data.append("brand", brand);
+    data.append("category", category);
+    data.append("description", description);
+    data.append("manufacturer", manufacturer);
+    data.append("info", info);
+    data.append("price", price);
+    data.append("images", image[0]);
+    data.append("quantity", quantity);
 
     api
       .post("/products/create", data, {
@@ -72,100 +82,108 @@ export default function RegisterProducts() {
       })
       .then((res) => {
         alert("Cadastro efetuado com sucesso!");
-        // window.location.reload();
+        window.location.reload();
       })
       .catch((err) => {
         alert(err.response.data.message);
-        // window.location.reload();
+        window.location.reload();
       });
   };
 
   return (
-    <div className="page-container-register-products">
+    <>
       <Header />
-      <div className="login-container">
-        <div className="top-container">
-          <div className="login-text">
-            <h2>REGISTRAR UM PRODUTO</h2>
-          </div>
-        </div>
-        <div className="middle-container">
-          <input
-            onChange={(event) => handleChange(event.target.value, "nome")}
-            value={nome}
-            type="text"
-            className="field"
-            placeholder="Nome do produto*"
-          />
-          <input
-            onChange={(event) =>
-              handleChange(event.target.value, "marca_produto")
-            }
-            value={marca_produto}
-            type="text"
-            className="field"
-            placeholder="Marca do produto*"
-          />
-          <input
-            onChange={(event) => handleChange(event.target.value, "categoria")}
-            value={categoria}
-            type="text"
-            className="field"
-            placeholder="Categoria"
-          />
-          <input
-            onChange={(event) => handleChange(event.target.value, "descricao")}
-            value={descricao}
-            type="text"
-            className="field"
-            placeholder="Descrição"
-          />
-          <input
-            onChange={(event) => handleChange(event.target.value, "fabricante")}
-            value={fabricante}
-            type="text"
-            className="field"
-            placeholder="Fabricante"
-          />
-          <input
-            onChange={(event) =>
-              handleChange(event.target.value, "caracteristica")
-            }
-            type="text"
-            value={caracteristica}
-            className="field"
-            placeholder="Característica"
-          />
-          <input
-            onChange={(event) => handleChange(event.target.value, "preco")}
-            value={preco}
-            type="text"
-            className="field"
-            placeholder="Preço*"
-          />
-          <input
-            onChange={(event) => handleChange(event.target.files, "images")}
-            type="file"
-            accept="image/png, image/jpeg"
-            className="field"
-            placeholder="Imagem*"
-          />
-          <input
-            onChange={(event) => handleChange(event.target.value, "quantidade")}
-            value={quantidade}
-            type="text"
-            className="field"
-            placeholder="Quantidade*"
-          />
-        </div>
-        <div className="bottom-container">
-          <div className="button-enter">
-            <button onClick={handleSubmit} className="btn btn-enter">
-              CADASTRAR
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+      <MDBContainer style={{ paddingTop: "7%", width: "50%" }}>
+        <MDBCol>
+          {products ? (
+            <>
+              <p className="h1">Cadastrar produto</p>
+              <MDBInput
+                style={{ marginTop: "10px" }}
+                label="Nome*"
+                id="productName"
+                type="text"
+                value={name || ""}
+                onChange={(event) => handleChange(event.target.value, "name")}
+              />
+              <MDBInput
+                style={{ marginTop: "10px" }}
+                label="Marca*"
+                id="productBrand"
+                type="text"
+                value={brand || ""}
+                onChange={(event) => handleChange(event.target.value, "brand")}
+              />
+              <MDBInput
+                style={{ marginTop: "10px" }}
+                label="Categoria"
+                id="productCategory"
+                type="text"
+                value={category || ""}
+                onChange={(event) =>
+                  handleChange(event.target.value, "category")
+                }
+              />
+              <MDBInput
+                style={{ marginTop: "10px" }}
+                label="Descrição"
+                id="productDescription"
+                type="text"
+                value={description || ""}
+                onChange={(event) =>
+                  handleChange(event.target.value, "description")
+                }
+              />
+              <MDBInput
+                style={{ marginTop: "10px" }}
+                label="Fabricante"
+                id="productManufacturer"
+                type="text"
+                value={manufacturer || ""}
+                onChange={(event) =>
+                  handleChange(event.target.value, "manufacturer")
+                }
+              />
+              <MDBInput
+                style={{ marginTop: "10px" }}
+                label="Informações"
+                id="productInfo"
+                type="text"
+                value={info || ""}
+                onChange={(event) => handleChange(event.target.value, "info")}
+              />
+              <MDBInput
+                style={{ marginTop: "10px" }}
+                label="Preço*"
+                id="productPrice"
+                type="number"
+                value={price || ""}
+                onChange={(event) => handleChange(event.target.value, "price")}
+              />
+              <MDBFile
+                style={{ marginTop: "10px" }}
+                id="customFile"
+                onChange={(event) => handleChange(event.target.files, "image")}
+              />
+              <MDBInput
+                style={{ marginTop: "10px" }}
+                label="Quantidade*"
+                id="productQuantity"
+                type="number"
+                value={quantity || ""}
+                onChange={(event) =>
+                  handleChange(event.target.value, "quantity")
+                }
+              />
+            </>
+          ) : (
+            <p className="h1">Nenhum produto selecionado!</p>
+          )}
+          <MDBBtn style={{ marginTop: "10px" }} onClick={handleSubmit}>
+            Confirmar
+          </MDBBtn>
+        </MDBCol>
+      </MDBContainer>
+    </>
   );
 }
