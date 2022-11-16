@@ -91,7 +91,11 @@ export default function Catalog() {
             max="100"
             step="1"
             id="customRange3"
-            label={`Mostrando produtos até R$ ${sliderPrice}`}
+            label={
+              sliderPrice > 99
+                ? "Mostrando todos os produtos"
+                : `Mostrando produtos até R$ ${sliderPrice}`
+            }
             onChange={(event) => handleChange(event.target.value)}
           />
           <MDBCheckbox
