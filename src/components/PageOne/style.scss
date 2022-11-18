@@ -3,48 +3,49 @@ $hover-button: #0cac64;
 $text-color: #e6e8e6;
 $primary-text-color: #f3efe2;
 
+.home-container {
+  background-color: #ffffff;
+}
+
 .page-container-page-one {
-    background-image: url("../../assets/img/wallpaper-landing-page.svg");
-    background-size: 100vw auto;
-    background-position: center bottom;
-    width: 100vw;
-    height: 100vh;
+  background-image: url("../../assets/img/wallpaper-landing-page.svg");
+  background-size: 100vw auto;
+  background-position: center bottom;
+  width: 100vw;
+  height: 100vh;
+}
 
-    .content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        clear: both;
-        overflow: hidden;
-        width: 40vw;
-        margin-left: 10vw;
-        height: 100%;
+img {
+  width: 100%;
+}
 
-        h1 {
-            font-style: normal;
-            font-weight: bold;
-            font-family: "Zilla Slab Highlight", sans-serif;
-            color: $primary-text-color;
-            padding-top: 30px;
-            font-size: 58px;
-            line-height: 65px;
-        }
+h1 {
+  width: 400px;
+  font-style: normal;
+  font-weight: bold;
+  font-family: "Zilla Slab Highlight", sans-serif;
+  color: $primary-text-color;
+  margin-top: -100px;
+  padding-top: 30px;
+  margin-left: 40px;
+  font-size: 58px;
+  line-height: 65px;
+}
 
-        h3 {
-            font-style: normal;
-            font-weight: bold;
-            font-family: "Zilla Slab Highlight", sans-serif;
-            color: $primary-text-color;
-            text-align: left;
-            font-size: 28px;
-            line-height: 30px;
-        }
+h3 {
+  width: 300px;
+  font-style: normal;
+  font-weight: bold;
+  font-family: "Zilla Slab Highlight", sans-serif;
+  color: $primary-text-color;
+  text-align: left;
+  font-size: 28px;
+  line-height: 30px;
+}
 
-        .btn-container {
-            display: flex;
-            justify-content: flex-end;
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
 
-            width: 100%;
-        }
-    }
+  width: 100%;
 }

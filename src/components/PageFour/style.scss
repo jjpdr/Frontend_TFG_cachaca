@@ -1,112 +1,119 @@
 .page-container-page-four {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #2f2f13;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  flex-direction: column;
 
-    width: 100vw;
+  width: 100vw;
+  height: 100vh;
+
+  .about {
+    width: 100%;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .content img {
+      height: auto;
+      width: 900px;
+      max-width: 100%;
+    }
+
+    .text {
+      width: 550px;
+      max-width: 100%;
+      padding: 0 10px;
+    }
 
     .content {
-        order: -1;
-        display: flex;
-        justify-content: space-between;
-        margin-top: 100px;
-        width: 75%;
-        height: 75%;
-
-        h2 {
-            font-family: "Zilla Slab Highlight";
-            font-style: normal;
-            font-weight: bold;
-            color: #ffffff;
-
-            font-size: 36px;
-            line-height: 44px;
-        }
-
-        .about {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            .logo {
-                cursor: pointer;
-                justify-content: center;
-                width: 190px;
-                height: 190px;
-                margin-top: -50px;
-            }
-
-            p {
-                font-family: "Roboto", sans-serif;
-                font-style: normal;
-                font-weight: normal;
-                font-size: 20px;
-                color: #ffffff;
-                text-align: justify;
-
-                width: 50%;
-            }
-        }
-
-        .useful-links {
-            display: flex;
-            flex-direction: column;
-            .need-help {
-                h2 {
-                    font-family: "Roboto", sans-serif;
-                    font-style: normal;
-                    font-weight: bold;
-                    text-align: justify;
-                    color: #ffffff;
-
-                    font-size: 34px;
-                    line-height: 40px;
-                    margin-top: 85px;
-                }
-
-                h3 {
-                    font-family: "Roboto", sans-serif;
-                    font-style: normal;
-                    font-weight: normal;
-                    text-decoration-line: underline;
-                    text-align: justify;
-                    color: #ffffff;
-
-                    font-size: 25px;
-                    line-height: 35px;
-                    margin-top: -20px;
-                }
-            }
-
-            .social-media {
-                h2 {
-                    font-family: "Roboto", sans-serif;
-                    font-style: normal;
-                    font-weight: bold;
-                    text-align: justify;
-                    color: #ffffff;
-
-                    font-size: 34px;
-                    line-height: 40px;
-                    margin-top: 60px;
-                }
-            }
-
-            .icon-container {
-                display: flex;
-                justify-content: space-between;
-
-                .social-media-icon {
-                    width: 60px;
-                    height: 60px;
-                    cursor: pointer;
-                    margin-left: -10px;
-                }
-            }
-        }
+      width: 1280px;
+      max-width: 95%;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-around;
     }
+
+    .text h1 {
+      font-family: Impact, "Poppins", sans-serif;
+      font-style: italic;
+      font-weight: bolder;
+      -webkit-text-stroke-width: 0.2px;
+      -webkit-text-stroke-color: #fff;
+      -webkit-text-fill-color: #12425c;
+      width: 600px;
+      color: #ffffff;
+      font-size: 85px;
+      margin-left: -10px;
+      margin-bottom: 60px;
+      text-transform: capitalize;
+    }
+
+    .text h5 {
+      font-family: Haettenschweiler, "Poppins", sans-serif;
+      font-style: italic;
+      font-weight: bolder;
+      -webkit-text-stroke-width: 0.2px;
+      -webkit-text-stroke-color: #12425c;
+
+      color: #12425c;
+      font-size: 30px;
+      margin-bottom: 25px;
+      text-transform: capitalize;
+      letter-spacing: 2px;
+    }
+
+    .text p {
+      font-family: Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-style: italic;
+      font-weight: bolder;
+      -webkit-text-stroke-width: 0.2px;
+      -webkit-text-stroke-color: #12425c;
+      -webkit-text-fill-color: #12425c;
+      color: #ffffff;
+      font-size: 25px;
+      line-height: 28px;
+      margin-bottom: 45px;
+      letter-spacing: 1px;
+    }
+
+    .icon-container {
+      display: flex;
+      justify-content: space-between;
+
+      .social-media-icon {
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+        margin-left: -10px;
+      }
+      .social-media-iconwpp {
+        margin-top: 10px;
+        width: 80px;
+        height: 80px;
+        cursor: pointer;
+        margin-left: -10px;
+      }
+      .social-media-icontel {
+        margin-top: 10px;
+        width: 70px;
+        height: 70px;
+        cursor: pointer;
+        margin-left: -10px;
+      }
+    }
+
+    .logo {
+      margin-left: -100px;
+      cursor: pointer;
+      justify-content: first baseline;
+      width: 600px;
+      height: 190px;
+      margin-top: -50px;
+    }
+  }
 }

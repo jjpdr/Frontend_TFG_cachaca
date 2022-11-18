@@ -1,79 +1,91 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { ReactComponent as LogoCdc } from "../../assets/img/logo-cdc.svg";
+import { plans } from "../../constants/plans";
 
-import api from "../../services/api";
-
+import card_image1 from "../../assets/img/header_tfg2.png";
+import Card from "react-bootstrap/Card";
+import CardGroup from "react-bootstrap/CardGroup";
 import "./style.scss";
 
+<script src="https://kit.fontawesome.com/95a02bd20d.js"></script>;
+
 export default function PageThree() {
-  const [selectedPlan, setSelectedPlan] = useState(0);
-  const [plans, setPlans] = useState([]);
+  const [selectedPlan, setSelectedPlan] = useState(1);
 
   const handleSelectPlan = (plan) => {
     setSelectedPlan(plan);
   };
 
-  const handleSubscribe = () => {
-    api
-      .post("/checkout/plan-checkout-session", {
-        lookup_keys: plans[selectedPlan].lookup_key,
-        price: plans[selectedPlan].priceID,
-      })
-      .then((res) => {
-        window.location.href = res.data.url;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  useEffect(() => {
-    api
-      .get("/plans")
-      .then((res) => {
-        setPlans(res.data.plans);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
   return (
     <div id="page-three" className="page-container-page-three">
-      <div className="content">
-        <h1>Faça parte do Clube!</h1>
-        <div className="plans">
-          <div>
-            <div className="plan">
-              {console.log(plans)}
-              {plans.length > 0 && (
-                <>
-                  <h2>{plans[selectedPlan].name}</h2>
-                  <p>{plans[selectedPlan].description}</p>
-                  <h2>
-                    R$ {plans[selectedPlan].price.toFixed(2)}
-                    <span>/mês</span>
-                  </h2>
-                </>
-              )}
+      <div class="container">
+        <h1>Adquira já seu plano </h1>
+        <div class="container_card">
+          <div class="card1">
+            <div class="face face1">
+              <div class="content">
+                <LogoCdc className="logo" />
+                <h3>PLANO {plans[selectedPlan].name}</h3>
+              </div>
+            </div>
+            <div class="face face2">
+              <div class="content">
+                <p>
+                  <ul>
+                    {plans[selectedPlan].infos.map((info, index) => {
+                      return <li key={index}>{info}</li>;
+                    })}
+                  </ul>
+                </p>
+                <a href="#" type="button">
+                  Read More
+                </a>
+              </div>
             </div>
           </div>
-          <div>
-            <div className="selection">
-              <div className="plans-selection">
-                {plans.length > 0 &&
-                  plans.map((plan, index) => (
-                    <button
-                      className={`btn-plan ${
-                        selectedPlan === index && "selected"
-                      }`}
-                      onClick={() => handleSelectPlan(index)}
-                    >
-                      {plan.name}
-                    </button>
-                  ))}
+
+          <div class="card1">
+            <div class="face face1">
+              <div class="content">
+                <LogoCdc className="logo" />
+                <h3>PLANO {plans[selectedPlan].name}</h3>
               </div>
-              <div className="btn-container">
-                <button onClick={handleSubscribe}>Assine agora!</button>
+            </div>
+            <div class="face face2">
+              <div class="content">
+                <p>
+                  <ul>
+                    {plans[selectedPlan].infos.map((info, index) => {
+                      return <li key={index}>{info}</li>;
+                    })}
+                  </ul>
+                </p>
+                <a href="#" type="button">
+                  Read More
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card1">
+            <div class="face face1">
+              <div class="content">
+                <LogoCdc className="logo" />
+                <h3>PLANO {plans[selectedPlan].name}</h3>
+              </div>
+            </div>
+            <div class="face face2">
+              <div class="content">
+                <p>
+                  <ul>
+                    {plans[selectedPlan].infos.map((info, index) => {
+                      return <li key={index}>{info}</li>;
+                    })}
+                  </ul>
+                </p>
+                <a href="#" type="button">
+                  Read More
+                </a>
               </div>
             </div>
           </div>

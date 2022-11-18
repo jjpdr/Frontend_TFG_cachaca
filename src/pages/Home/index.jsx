@@ -4,8 +4,10 @@ import "./style.scss";
 
 import Header from "../../components/Header";
 import PageOne from "../../components/PageOne";
+import PageTwo from "../../components/PageTwo";
 import PageThree from "../../components/PageThree";
 import PageFour from "../../components/PageFour";
+import PageFive from "../../components/PageFive";
 import Footer from "../../components/Footer";
 import { useLocation } from "react-router-dom";
 
@@ -28,8 +30,10 @@ export default function Home() {
     <div className="home-container">
       <Header />
       <PageOne />
+      <PageTwo />
       <PageThree />
       <PageFour />
+      <PageFive />
       <Footer />
     </div>
   );

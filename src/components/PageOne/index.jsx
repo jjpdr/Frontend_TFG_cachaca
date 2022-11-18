@@ -1,27 +1,36 @@
+import Slider from "react-slick";
+import "./slick-theme.css";
 import "./style.scss";
 
-import ButtonComponent from "../Buttons";
+import imageOne from "../../assets/img/imageOne.png";
+import imageTwo from "../../assets/img/imageTwo.png";
 
-export default function PageOne() {
-  return (
-    <div id="page-one" className="page-container-page-one">
-      <div className="content">
-        <div>
-          <h1>O MAIOR CLUBE DE ASSINATURA DE CACHAÇA</h1>
-          <h3>
-            Receba todo mês no conforto de sua casa as melhores cachaças do
-            Brasil. Já são mais de 5 mil assinantes por todo o país!
-          </h3>
+export default function SimpleSlider() {
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+    };
+
+    return (
+        <div className="page-container-page-two">
+            <div id="page-two" className="content">
+                <div class="content">
+                    <Slider {...settings}>
+                        <div id="page-one" class="slider">
+                            <img src={imageOne} alt="" />
+                        </div>
+                        <div id="page-one" class="slider">
+                            <img src={imageTwo} alt="" />
+                        </div>
+                        <div id="page-one" class="slider">
+                            <img src={imageOne} alt="" />
+                        </div>
+                    </Slider>
+                </div>
+            </div>
         </div>
-        <div className="btn-container">
-          <ButtonComponent
-            tag="a"
-            destination="#page-four"
-            type="primary"
-            text="CONHEÇA O CLUBE!"
-          />
-        </div>
-      </div>
-    </div>
-  );
+    );
 }
