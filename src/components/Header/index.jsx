@@ -10,77 +10,96 @@ import ButtonComponent from "../Buttons";
 
 import listContext from "../../pages/ShoppingCart/context";
 import DropdownMenu from "../DropdownMenu";
+import { useUserContext } from "../../context/User";
 
 export default function Header() {
-  const user = JSON.parse(localStorage.getItem("user"));
-  const adm = JSON.parse(localStorage.getItem("isAdmin"));
-  const { cartCount } = useContext(listContext);
+    const { cartCount } = useContext(listContext);
+    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+    const { user, setID } = useUserContext();
 
-  const handleLogout = () => {
-    window.alert(`Volte sempre ${user.name}!`);
-    localStorage.removeItem("user");
-    localStorage.removeItem("isAdmin");
-    localStorage.removeItem("picture");
-    window.location.href = "/";
-  };
+    const handleLogout = () => {
+        window.alert(`Volte sempre ${user.name}!`);
+        localStorage.removeItem("picture");
+        localStorage.removeItem("userID");
+        localStorage.removeItem("token");
+        setID(null);
+        window.location.href = "/";
+    };
 
-  return (
-    <div className="header-container">
-      <div className="header">
-        <Link to="/#page-one">
-          <LogoCdc className="logo" />
-        </Link>
-        <ButtonComponent
-          tag="Link"
-          destination="/#page-three"
-          type="primary"
-          text="FAÇA PARTE DO CLUBE!"
-        />
-        <ButtonComponent
-          tag="Link"
-          destination="/catalog"
-          type="secondary"
-          text="CATÁLOGO"
-        />
-        {!user ? (
-          <>
-            <ButtonComponent
-              tag="Link"
-              destination="/login"
-              type="secondary"
-              text="LOGIN"
-            />
-            <ButtonComponent
-              tag="Link"
-              destination="/register"
-              type="primary"
-              text="CRIAR CONTA"
-            />
-          </>
-        ) : (
-          <>
-            <div className="user-data">
-              <Link to={`/user/${user._id}`} className="user-info">
-                <img
-                  alt="user"
-                  src={localStorage.getItem("picture") || userIcon}
-                />
-                {user.name}
-              </Link>
-              <div className="shopping-cart">
-                <Link to="/shopping-cart" className="shopping-img">
-                  <img alt="shopping-cart" src={shoppingCartIcon}></img>
+    return (
+        <div className="header-container">
+            <div className="header">
+                <Link to="/#page-one">
+                    <LogoCdc className="logo" />
                 </Link>
-                <span>{cartCount}</span>
-              </div>
-              <button onClick={handleLogout} className="btn btn-primary">
-                SAIR
-              </button>
+                <ButtonComponent
+                    tag="Link"
+                    destination="/#page-three"
+                    type="primary"
+                    text="FAÇA PARTE DO CLUBE!"
+                />
+                <ButtonComponent
+                    tag="Link"
+                    destination="/catalog"
+                    type="secondary"
+                    text="CATÁLOGO"
+                />
+                {!user ? (
+                    <>
+                        <ButtonComponent
+                            tag="Link"
+                            destination="/login"
+                            type="secondary"
+                            text="LOGIN"
+                        />
+                        <ButtonComponent
+                            tag="Link"
+                            destination="/register"
+                            type="primary"
+                            text="CRIAR CONTA"
+                        />
+                    </>
+                ) : (
+                    <>
+                        <div className="user-data">
+                            <Link
+                                to={`/user/${user._id}`}
+                                className="user-info"
+                            >
+                                <img
+                                    alt="user"
+                                    src={
+                                        localStorage.getItem("picture") ||
+                                        user?.image !== undefined
+                                            ? `${BACKEND_URL}/users/image/${user.image}`
+                                            : userIcon
+                                    }
+                                />
+                                {user.name}
+                            </Link>
+                            <div className="shopping-cart">
+                                <Link
+                                    to="/shopping-cart"
+                                    className="shopping-img"
+                                >
+                                    <img
+                                        alt="shopping-cart"
+                                        src={shoppingCartIcon}
+                                    ></img>
+                                </Link>
+                                <span>{cartCount}</span>
+                            </div>
+                            <button
+                                onClick={handleLogout}
+                                className="btn btn-primary"
+                            >
+                                SAIR
+                            </button>
+                        </div>
+                    </>
+                )}
+                {user?.isAdmin && <DropdownMenu />}
             </div>
-          </>
-        )}
-        {adm && <DropdownMenu />}
-      </div>
-    </div>
-  );
+        </div>
+    );
 }

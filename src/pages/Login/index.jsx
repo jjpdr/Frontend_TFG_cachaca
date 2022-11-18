@@ -11,100 +11,113 @@ import FacebookLogin from "../../components/FacebookLogin";
 
 import { ReactComponent as LogoGoogle } from "../../assets/img/logo-google.svg";
 import Infos from "../../components/Infos";
+import { useUserContext } from "../../context/User";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-  const handleChange = (value, field) => {
-    switch (field) {
-      case "email":
-        setEmail(value);
-        break;
-      case "password":
-        setPassword(value);
-        break;
-      default:
-        break;
-    }
-  };
+    const { setID } = useUserContext();
 
-  const handleSubmit = () => {
-    api
-      .post("/users/login", {
-        email,
-        password,
-      })
-      .then((res) => {
-        localStorage.setItem("user", JSON.stringify(res.data.user));
-        localStorage.setItem("token", JSON.stringify(res.data.token));
-        localStorage.setItem("isAdmin", JSON.stringify(res.data.user.isAdmin));
-        window.location.href = "/";
-      })
-      .catch((err) => {
-        alert(err.response.data.message);
-        window.location.reload();
-      });
-  };
+    const handleChange = (value, field) => {
+        switch (field) {
+            case "email":
+                setEmail(value);
+                break;
+            case "password":
+                setPassword(value);
+                break;
+            default:
+                break;
+        }
+    };
 
-  return (
-    <div className="page-container-login">
-      <Infos />
-      <div className="login-container">
-        <div className="top-container">
-          <div className="login-text">
-            <h2>LOGIN</h2>
-          </div>
-          <div className="login-icon">
-            <img className="img" src={loginIcon} alt="Icone de login" />
-          </div>
-        </div>
-        <div className="middle-container">
-          <input
-            onChange={(event) => handleChange(event.target.value, "email")}
-            value={email}
-            type="text"
-            className="field"
-            placeholder="Email"
-            onKeyDown={(event) => {
-              if (event.key === "Enter") handleSubmit();
-            }}
-          />
-          <input
-            onChange={(event) => handleChange(event.target.value, "password")}
-            value={password}
-            type="password"
-            className="field"
-            placeholder="Senha"
-            onKeyDown={(event) => {
-              if (event.key === "Enter") handleSubmit();
-            }}
-          />
-          <p>
-            <Link to="/forgot-password">ESQUECEU A SENHA?</Link>
-          </p>
-          <div className="button-enter">
-            <button onClick={handleSubmit} className="btn btn-enter">
-              ENTRAR
-            </button>
-            <div className="button-socialMedia">
-              <button className="btn btn-google">
-                <LogoGoogle className="icon-button google" />
-                ENTRAR COM GOOGLE
-              </button>
-              <FacebookLogin />
+    const handleSubmit = () => {
+        api.post("/users/login", {
+            email,
+            password,
+        })
+            .then((res) => {
+                localStorage.setItem("token", JSON.stringify(res.data.token));
+                localStorage.setItem("userID", res.data.user._id);
+                setID(res.data.user._id);
+                window.location.href = "/";
+            })
+            .catch((err) => {
+                alert(err.response.data.message);
+                window.location.reload();
+            });
+    };
+
+    return (
+        <div className="page-container-login">
+            <Infos />
+            <div className="login-container">
+                <div className="top-container">
+                    <div className="login-text">
+                        <h2>LOGIN</h2>
+                    </div>
+                    <div className="login-icon">
+                        <img
+                            className="img"
+                            src={loginIcon}
+                            alt="Icone de login"
+                        />
+                    </div>
+                </div>
+                <div className="middle-container">
+                    <input
+                        onChange={(event) =>
+                            handleChange(event.target.value, "email")
+                        }
+                        value={email}
+                        type="text"
+                        className="field"
+                        placeholder="Email"
+                        onKeyDown={(event) => {
+                            if (event.key === "Enter") handleSubmit();
+                        }}
+                    />
+                    <input
+                        onChange={(event) =>
+                            handleChange(event.target.value, "password")
+                        }
+                        value={password}
+                        type="password"
+                        className="field"
+                        placeholder="Senha"
+                        onKeyDown={(event) => {
+                            if (event.key === "Enter") handleSubmit();
+                        }}
+                    />
+                    <p>
+                        <Link to="/forgot-password">ESQUECEU A SENHA?</Link>
+                    </p>
+                    <div className="button-enter">
+                        <button
+                            onClick={handleSubmit}
+                            className="btn btn-enter"
+                        >
+                            ENTRAR
+                        </button>
+                        <div className="button-socialMedia">
+                            <button className="btn btn-google">
+                                <LogoGoogle className="icon-button google" />
+                                ENTRAR COM GOOGLE
+                            </button>
+                            <FacebookLogin />
+                        </div>
+                    </div>
+                </div>
+                <div className="bottom-container">
+                    <h4>
+                        Ainda não tem conta?{" "}
+                        <Link to="/register" className="register">
+                            Faça seu cadastro.
+                        </Link>
+                    </h4>
+                </div>
             </div>
-          </div>
         </div>
-        <div className="bottom-container">
-          <h4>
-            Ainda não tem conta?{" "}
-            <Link to="/register" className="register">
-              Faça seu cadastro.
-            </Link>
-          </h4>
-        </div>
-      </div>
-    </div>
-  );
+    );
 }
