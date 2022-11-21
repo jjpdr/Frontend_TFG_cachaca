@@ -18,7 +18,6 @@ export function UserContextProvider({ children }) {
         api.get(`/users/${id}`)
             .then((res) => {
                 setUser(res.data.user);
-                console.log(res.data.user);
             })
             .catch((err) => {});
         // eslint-disable-next-line

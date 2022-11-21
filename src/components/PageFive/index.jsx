@@ -5,7 +5,7 @@ import "./style.scss";
 
 export default function PageFive() {
     return (
-        <div id="page-one" class="slider">
+        <div id="page-one" className="slider">
             <img src={aplicativo} alt="" />
         </div>
     );

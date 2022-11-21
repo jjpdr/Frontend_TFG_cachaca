@@ -85,7 +85,6 @@ export default function UserPage() {
         api.get(`/users/${id}`)
             .then((res) => {
                 setUser(res.data.user);
-                console.log(res.data.user);
             })
             .catch((err) => {});
         // eslint-disable-next-line

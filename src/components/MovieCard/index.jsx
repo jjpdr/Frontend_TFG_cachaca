@@ -8,42 +8,49 @@ import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 
 const CardInfo = styled(CardContent)(({ theme }) => ({
-  "&:last-child": {
-    paddingBottom: theme.spacing(2),
-  },
+    "&:last-child": {
+        paddingBottom: theme.spacing(2),
+    },
 }));
 
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
 const MovieCard = ({ movie }) => {
-  return (
-    <Card sx={{ maxWidth: 250, position: "relative" }}>
-      <Box sx={{ position: "relative" }}>
-        <CardMedia
-          component="img"
-          height="350"
-          image={movie.image}
-          alt={movie.title}
-        />
-      </Box>
+    return (
+        <Card sx={{ maxWidth: 250, position: "relative" }}>
+            <Box sx={{ position: "relative" }}>
+                <CardMedia
+                    component="img"
+                    height="350"
+                    image={`${BACKEND_URL}/products/image/${movie.image}`}
+                    alt={movie.name}
+                />
+            </Box>
 
-      <CardInfo>
-        <Typography variant="h6" gutterBottom component="div">
-          {movie.title}
-        </Typography>
+            <CardInfo>
+                <Typography variant="h6" gutterBottom component="div">
+                    {movie.name}
+                </Typography>
 
-        <Typography mb={0} variant="subtitle1" gutterBottom component="div">
-          {movie.releaseDate}
-        </Typography>
-      </CardInfo>
-    </Card>
-  );
+                <Typography
+                    mb={0}
+                    variant="subtitle1"
+                    gutterBottom
+                    component="div"
+                >
+                    {movie.price}
+                </Typography>
+            </CardInfo>
+        </Card>
+    );
 };
 
 MovieCard.propTypes = {
-  movie: PropTypes.shape({
-    image: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    releaseDate: PropTypes.string,
-  }).isRequired,
+    movie: PropTypes.shape({
+        image: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        releaseDate: PropTypes.string,
+    }).isRequired,
 };
 
 export default MovieCard;

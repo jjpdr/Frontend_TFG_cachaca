@@ -17,15 +17,15 @@ export default function SimpleSlider() {
     return (
         <div className="page-container-page-two">
             <div id="page-two" className="content">
-                <div class="content">
+                <div className="content">
                     <Slider {...settings}>
-                        <div id="page-one" class="slider">
+                        <div id="page-one" className="slider">
                             <img src={imageOne} alt="" />
                         </div>
-                        <div id="page-one" class="slider">
+                        <div id="page-one" className="slider">
                             <img src={imageTwo} alt="" />
                         </div>
-                        <div id="page-one" class="slider">
+                        <div id="page-one" className="slider">
                             <img src={imageOne} alt="" />
                         </div>
                     </Slider>
