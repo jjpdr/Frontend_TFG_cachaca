@@ -1,24 +1,13 @@
 import "./style.scss";
-
-import { Link } from "react-router-dom";
-import { ReactComponent as LogoCdc } from "../../assets/img/logo-cdc.svg";
-import altLogo from "../../assets/img/alt-logo.png";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 export default function UseTerms() {
   return (
     <div className="page-container-terms">
-      <div className="fake-header">
-        <Link to="/">
-          <LogoCdc className="logo" />
-        </Link>
-        <Link to="/">
-          <img className="alt-logo" src={altLogo} alt="Clube da Cachaça" />
-        </Link>
-      </div>
+      <Header />
       <div className="use-terms-container">
-        <div className="use-terms-header">
-          <h1>TERMOS DE USO</h1>
-        </div>
+        <h1>TERMOS</h1>
         <div className="use-terms-content">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -78,13 +67,7 @@ export default function UseTerms() {
           </p>
         </div>
       </div>
-      <div className="use-terms-footer">
-        <p>
-          © 2021 CLUBE DA CACHAÇA. Todos os direitos reservados. Se beber não
-          dirija. Aprecie com moderação. A venda de bebidas alcoólicas é
-          proibida para menores de 18 anos.
-        </p>
-      </div>
+      <Footer />
     </div>
   );
 }

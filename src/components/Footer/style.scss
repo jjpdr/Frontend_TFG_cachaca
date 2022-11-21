@@ -1,8 +1,8 @@
 .footer-container {
   width: 100%;
   display: inline-block;
-  background: #333;
-  height: 10vh;
+  background: rgb(170, 170, 170);
+  height: 200px;
   text-align: center;
   font-size: 22px;
   font-weight: 700;
@@ -16,8 +16,6 @@
 
   .footer-distributed {
     background: #666;
-
-    height: 24vh;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
     box-sizing: border-box;
     width: 100%;

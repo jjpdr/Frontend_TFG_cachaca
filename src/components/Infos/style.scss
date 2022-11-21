@@ -1,62 +1,63 @@
 .info-container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  background-color: #45a165;
+  width: 50%;
+  overflow-y: hidden;
+
+  .footer-container {
+    padding-top: 7%;
     background-color: #45a165;
-    width: 50%;
+    text-align: center;
+  }
 
-    .footer-container {
-      background-color: #45a165;
-      text-align: center;
-    }
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
 
-    .logo-container {
-      display: flex;
-      justify-content: center;
-      margin-top: 50px;
-
-      .logo {
-        height: 160px;
-        width: 160px;
-      }
-    }
-
-    .welcome-back {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      margin-top: -35px;
-
-      h2 {
-        font-family: "Zilla Slab Highlight", sans-serif;
-        font-style: normal;
-        font-weight: bold;
-        color: #ffffff;
-
-        font-size: 48px;
-        line-height: 58px;
-      }
-
-      p {
-        font-family: "Roboto", sans-serif;
-        font-style: normal;
-        font-weight: bold;
-        text-align: center;
-        color: #ffffff;
-
-        font-size: 25px;
-        line-height: 35px;
-
-        margin-top: -30px;
-        white-space: wrap;
-      }
-    }
-
-    .alternative-logo {
-      margin-top: 60px;
-      display: flex;
-      justify-content: center;
-      cursor: pointer;
-      margin-bottom: 50px;
+    .logo {
+      height: 160px;
+      width: 160px;
     }
   }
+
+  .welcome-back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h2 {
+      font-family: "Zilla Slab Highlight", sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      color: #ffffff;
+
+      font-size: 48px;
+      line-height: 58px;
+    }
+
+    p {
+      font-family: "Roboto", sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      text-align: center;
+      color: #ffffff;
+
+      font-size: 25px;
+      line-height: 35px;
+
+      margin-top: -30px;
+      white-space: wrap;
+    }
+  }
+
+  .alternative-logo {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    margin-bottom: 50px;
+  }
+}
