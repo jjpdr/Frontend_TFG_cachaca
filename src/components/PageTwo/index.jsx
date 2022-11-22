@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Slider from "react-slick";
-import "./slick.css";
-import "./slick-theme.css";
+import "./style.scss";
 import ProductCard from "../ProductCard";
 import api from "../../services/api";
 

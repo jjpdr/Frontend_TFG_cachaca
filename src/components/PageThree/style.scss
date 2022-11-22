@@ -6,31 +6,24 @@
   justify-content: center;
   align-items: center;
   font-family: arial;
-}
+  flex-direction: column;
 
-.container {
-  width: 1200px;
-  margin-top: -50px;
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.container h1 {
-  font-family: Impact, "Poppins", sans-serif;
-  font-style: italic;
-  font-weight: bolder;
-  -webkit-text-stroke-width: 0.2px;
-  -webkit-text-stroke-color: #fff;
-  -webkit-text-fill-color: #12425c;
-  width: 1400px;
-  margin-top: -270px;
-  margin-left: 320px;
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  h1 {
+    position: relative;
+    margin-top: -80px;
+    margin-left: 65vh;
+    margin-bottom: 50px;
+    font-family: Impact, "Poppins", sans-serif;
+    font-style: italic;
+    font-weight: bolder;
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: #fff;
+    -webkit-text-fill-color: #12425c;
+    width: 900px;
+    color: #ffffff;
+    font-size: 55px;
+    text-transform: capitalize;
+  }
 }
 
 .container_card {

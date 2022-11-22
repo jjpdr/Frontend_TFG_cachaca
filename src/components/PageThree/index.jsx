@@ -35,29 +35,33 @@ export default function PageThree() {
   }, []);
 
   return (
-    <div id="page-three" className="page-container-page-three">
-      <div className="container">
-        <h1>Adquira já seu plano </h1>
-        <div className="container_card">
-          {plans.length > 0 &&
-            plans.map((plan, index) => (
-              <div className="card1">
-                <div className="face face1">
-                  <div className="content">
-                    <LogoCdc className="logo" />
-                    <h3>{plan.name}</h3>
+    <>
+      <div id="page-three" className="page-container-page-three">
+        <div>
+          <h1>Planos disponíveis </h1>
+        </div>
+        <div className="container">
+          <div className="container_card">
+            {plans.length > 0 &&
+              plans.map((plan, index) => (
+                <div className="card1">
+                  <div className="face face1">
+                    <div className="content">
+                      <LogoCdc className="logo" />
+                      <h3>{plan.name}</h3>
+                    </div>
+                  </div>
+                  <div className="face face2">
+                    {plan.description}
+                    <MDBBtn onClick={(e) => handleSubscribe(e, index)}>
+                      Assine agora!
+                    </MDBBtn>
                   </div>
                 </div>
-                <div className="face face2">
-                  {plan.description}
-                  <MDBBtn onClick={(e) => handleSubscribe(e, index)}>
-                    Assine agora!
-                  </MDBBtn>
-                </div>
-              </div>
-            ))}
+              ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
