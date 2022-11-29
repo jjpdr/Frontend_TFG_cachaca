@@ -7,7 +7,6 @@ import PageOne from "../../components/PageOne";
 import PageTwo from "../../components/PageTwo";
 import PageThree from "../../components/PageThree";
 import PageFour from "../../components/PageFour";
-import PageFive from "../../components/PageFive";
 import Footer from "../../components/Footer";
 import { useLocation } from "react-router-dom";
 
@@ -33,7 +32,6 @@ export default function Home() {
       <PageTwo />
       <PageThree />
       <PageFour />
-      <PageFive />
       <Footer />
     </div>
   );
