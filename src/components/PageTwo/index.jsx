@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "./style.scss";
 import ProductCard from "../ProductCard";
 import api from "../../services/api";
+import { Link } from "react-router-dom";
 
 export default function SimpleSlider() {
   const [products, setProducts] = useState([]);
@@ -40,7 +41,14 @@ export default function SimpleSlider() {
           }}
         >
           {products.map((product, index) => {
-            return <ProductCard product={product} />;
+            return (
+              <Link
+                to={`/product/${product._id}`}
+                style={{ textDecoration: "none", color: "#395B64" }}
+              >
+                <ProductCard product={product} />
+              </Link>
+            );
           })}
         </Slider>
       </div>
