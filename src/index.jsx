@@ -22,6 +22,7 @@ import UpdateUser from "./pages/UpdateUser";
 import PurchaseSuccess from "./pages/PurchaseSuccess";
 import { UserContextProvider } from "./context/User";
 import ProtectedRouteAdmin from "./components/ProtectedRouteAdmin";
+import ProtectedRouteUser from "./components/ProtectedRouteUser";
 
 ReactDOM.render(
   <UserContextProvider>
@@ -29,6 +30,7 @@ ReactDOM.render(
       <React.StrictMode>
         <BrowserRouter>
           <Routes>
+            <Route path="/" exact element={<Home />} />
             <Route element={<ProtectedRouteAdmin />}>
               <Route
                 exact
@@ -51,25 +53,17 @@ ReactDOM.render(
                 element={<UpdateUser />}
               />
             </Route>
+            <Route element={<ProtectedRouteUser />}>
+              <Route path="/user/:id" exact element={<UserPage />} />
+            </Route>
+            <Route path="/product/:id" exact element={<ProductPage />} />
             <Route path="/shopping-cart" exact element={<ShoppingCart />} />
-            <Route path="/" exact element={<Home />} />
             <Route path="/login" exact element={<Login />} />
             <Route path="/catalog" exact element={<Catalog />} />
             <Route path="/register" exact element={<Register />} />
             <Route path="/forgot-password" exact element={<ForgotPassword />} />
             <Route path="/use-terms" exact element={<UseTerms />} />
-            <Route path="/product/:id" exact element={<ProductPage />} />
-            <Route path="/user/:id" exact element={<UserPage />} />
-            <Route
-              path="/user/payment-method"
-              exact
-              element={<PaymentMethod />}
-            />
-            <Route
-              path="/purchase-success"
-              exact
-              element={<PurchaseSuccess />}
-            />
+
             <Route
               exact
               path="/checkout/purchase-success"
