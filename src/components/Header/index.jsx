@@ -22,6 +22,7 @@ export default function Header() {
     localStorage.removeItem("picture");
     localStorage.removeItem("userID");
     localStorage.removeItem("token");
+    localStorage.removeItem("isAdmin");
     setID(null);
     window.location.href = "/";
   };
