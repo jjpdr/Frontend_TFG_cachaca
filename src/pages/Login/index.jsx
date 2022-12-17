@@ -11,6 +11,7 @@ import FacebookLogin from "../../components/FacebookLogin";
 
 import Infos from "../../components/Infos";
 import { useUserContext } from "../../context/User";
+import Header from "../../components/Header";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -50,59 +51,60 @@ export default function Login() {
   };
 
   return (
-    <div className="page-container-login">
-      <Infos />
-      <div className="login-container">
-        <div className="top-container">
-          <div className="login-text">
-            <h2>LOGIN</h2>
-          </div>
-          <div className="login-icon">
-            <img className="img" src={loginIcon} alt="Icone de login" />
-          </div>
-        </div>
-        <div className="middle-container">
-          <input
-            onChange={(event) => handleChange(event.target.value, "email")}
-            value={email}
-            type="text"
-            className="field"
-            placeholder="Email"
-            onKeyDown={(event) => {
-              if (event.key === "Enter") handleSubmit();
-            }}
-          />
-          <input
-            onChange={(event) => handleChange(event.target.value, "password")}
-            value={password}
-            type="password"
-            className="field"
-            placeholder="Senha"
-            onKeyDown={(event) => {
-              if (event.key === "Enter") handleSubmit();
-            }}
-          />
-          <p>
-            <Link to="/forgot-password">ESQUECEU A SENHA?</Link>
-          </p>
-          <div className="button-enter">
-            <button onClick={handleSubmit} className="btn btn-enter">
-              ENTRAR
-            </button>
-            <div className="button-socialMedia">
-              <FacebookLogin />
+    <>
+      <Header />
+      <div className="page-container-login">
+        <Infos />
+        <div className="login-container">
+          <div className="top-container">
+            <div className="login-text">
+              <h2>LOGIN</h2>
+            </div>
+            <div className="login-icon">
+              <img className="img" src={loginIcon} alt="Icone de login" />
             </div>
           </div>
-        </div>
-        <div className="bottom-container">
-          <h5>
-            Ainda não tem conta?{" "}
-            <Link to="/register" className="register">
-              Faça seu cadastro.
-            </Link>
-          </h5>
+          <div className="middle-container">
+            <input
+              onChange={(event) => handleChange(event.target.value, "email")}
+              value={email}
+              type="text"
+              className="field"
+              placeholder="Email"
+              onKeyDown={(event) => {
+                if (event.key === "Enter") handleSubmit();
+              }}
+            />
+            <input
+              onChange={(event) => handleChange(event.target.value, "password")}
+              value={password}
+              type="password"
+              className="field"
+              placeholder="Senha"
+              onKeyDown={(event) => {
+                if (event.key === "Enter") handleSubmit();
+              }}
+            />
+            <p>
+              <Link to="/forgot-password">ESQUECEU A SENHA?</Link>
+            </p>
+            <div className="button-enter">
+              <button onClick={handleSubmit} className="btn btn-enter">
+                ENTRAR
+              </button>
+              <div className="button-socialMedia">
+                <FacebookLogin />
+              </div>
+            </div>
+          </div>
+          <div className="bottom-container">
+            <p>
+              Ainda não tem conta?{" "}
+              <Link to="/register">Faça seu cadastro.</Link>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

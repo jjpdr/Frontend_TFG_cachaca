@@ -1,6 +1,7 @@
 .page-container-login {
   display: flex;
   height: 100vh;
+  padding-top: 4%;
 
   .login-container {
     display: flex;
@@ -192,13 +193,12 @@
       margin-top: 20px;
       flex: 4;
       padding-right: 30%;
+      text-decoration: none;
 
-      h4 {
-        .register {
-          font-family: "Roboto", sans-serif;
-          color: #fff;
-          text-decoration: none;
-        }
+      p {
+        font-family: "Roboto", sans-serif;
+        color: #fff;
+        text-decoration: none;
       }
     }
   }

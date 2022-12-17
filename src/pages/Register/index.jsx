@@ -12,6 +12,7 @@ import checkEmail from "../../services/checkEmail";
 import checkCPF from "../../services/checkCPF";
 import maskCPF from "../../services/maskCPF";
 import checkAge from "../../services/checkAge";
+import Header from "../../components/Header";
 
 export default function Register() {
   const [name, setName] = useState("");
@@ -90,88 +91,91 @@ export default function Register() {
   }, []);
 
   return (
-    <div className="page-container-register">
-      <Infos />
-      <div className="login-container">
-        <div className="top-container">
-          <div className="login-text">
-            <h2>CADASTRE-SE</h2>
+    <>
+      <Header />
+      <div className="page-container-register">
+        <Infos />
+        <div className="login-container">
+          <div className="top-container">
+            <div className="login-text">
+              <h2>CADASTRE-SE</h2>
+            </div>
+            <div className="login-icon">
+              <img className="img" src={loginIcon} alt="Icone de login" />
+            </div>
           </div>
-          <div className="login-icon">
-            <img className="img" src={loginIcon} alt="Icone de login" />
-          </div>
-        </div>
-        <div className="middle-container">
-          <input
-            onChange={(event) => handleChange(event.target.value, "name")}
-            value={name}
-            type="text"
-            className="field"
-            placeholder="Nome completo*"
-          />
-          <input
-            onChange={(event) => handleChange(event.target.value, "email")}
-            value={email}
-            type="text"
-            className="field"
-            placeholder="Email*"
-          />
-          <input
-            onChange={(event) => handleChange(event.target.value, "cpf")}
-            value={cpf}
-            type="text"
-            className="field"
-            placeholder="CPF*"
-            pattern="[0-9]{11}"
-          />
-          <input
-            type="date"
-            max={moment().subtract(18, "years").format("yyyy-MM-DD")}
-            className="field"
-            placeholder="Data de nascimento*"
-            onChange={(event) => handleChange(event.target.value, "birthday")}
-            value={birthday}
-          />
-          <input
-            onChange={(event) => handleChange(event.target.value, "password")}
-            value={password}
-            type="password"
-            className="field"
-            placeholder="Senha*"
-          />
-          <input
-            type="password"
-            className="field"
-            placeholder="Confirmar senha*"
-            onChange={(event) =>
-              handleChange(event.target.value, "confirmPassword")
-            }
-            value={confirmPassword}
-            onKeyDown={(event) => {
-              if (event.key === "Enter") handleSubmit();
-            }}
-          />
-        </div>
-        <div className="bottom-container">
-          <h4>
+          <div className="middle-container">
             <input
-              onClick={() => setIsChecked(!isChecked)}
-              type="checkbox"
-            ></input>
-            Li e aceito os{" "}
-            <Link to="/use-terms" className="register">
-              Termos de Uso.
-            </Link>
-          </h4>
-        </div>
-        <div className="bottom-container">
-          <div className="button-enter">
-            <button onClick={handleSubmit} className="btn btn-enter">
-              CADASTRAR
-            </button>
+              onChange={(event) => handleChange(event.target.value, "name")}
+              value={name}
+              type="text"
+              className="field"
+              placeholder="Nome completo*"
+            />
+            <input
+              onChange={(event) => handleChange(event.target.value, "email")}
+              value={email}
+              type="text"
+              className="field"
+              placeholder="Email*"
+            />
+            <input
+              onChange={(event) => handleChange(event.target.value, "cpf")}
+              value={cpf}
+              type="text"
+              className="field"
+              placeholder="CPF*"
+              pattern="[0-9]{11}"
+            />
+            <input
+              type="date"
+              max={moment().subtract(18, "years").format("yyyy-MM-DD")}
+              className="field"
+              placeholder="Data de nascimento*"
+              onChange={(event) => handleChange(event.target.value, "birthday")}
+              value={birthday}
+            />
+            <input
+              onChange={(event) => handleChange(event.target.value, "password")}
+              value={password}
+              type="password"
+              className="field"
+              placeholder="Senha*"
+            />
+            <input
+              type="password"
+              className="field"
+              placeholder="Confirmar senha*"
+              onChange={(event) =>
+                handleChange(event.target.value, "confirmPassword")
+              }
+              value={confirmPassword}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") handleSubmit();
+              }}
+            />
+          </div>
+          <div className="bottom-container">
+            <h4>
+              <input
+                onClick={() => setIsChecked(!isChecked)}
+                type="checkbox"
+              ></input>
+              Li e aceito os{" "}
+              <Link to="/use-terms" className="register">
+                Termos de Uso.
+              </Link>
+            </h4>
+          </div>
+          <div className="bottom-container">
+            <div className="button-enter">
+              <button onClick={handleSubmit} className="btn btn-enter">
+                CADASTRAR
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
