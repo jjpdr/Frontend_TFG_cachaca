@@ -1,5 +1,4 @@
 import { Navigate, Outlet } from "react-router";
-import { useUserContext } from "../../context/User";
 import { useState } from "react";
 
 const checkAdmin = (string) => {
@@ -7,6 +6,7 @@ const checkAdmin = (string) => {
 };
 
 export default function ProtectedRoute() {
+  //eslint-disable-next-line
   const [isAdmin, setIsAdmin] = useState(localStorage.getItem("isAdmin"));
   return checkAdmin(isAdmin) ? <Outlet /> : <Navigate to="/" />;
 }

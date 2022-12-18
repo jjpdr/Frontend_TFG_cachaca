@@ -19,8 +19,9 @@ export default function UpdateUser() {
   const [email, setEmail] = useState(null);
   const [cpf, setCpf] = useState(null);
   const [birthday, setBirthday] = useState(null);
-  const [plan, setPlan] = useState(null);
+  const [plan, setPlan] = useState({});
   const [users, setUsers] = useState([]);
+  const [currentUser, setCurrentUser] = useState({});
 
   const token = JSON.parse(localStorage.getItem("token"));
 
@@ -81,6 +82,17 @@ export default function UpdateUser() {
       });
   };
 
+  useEffect(() => {
+    if (currentUser?.planID !== undefined)
+      api
+        .get(`/plans/${currentUser?.planID}`)
+        .then((res) => {
+          setPlan(res.data.plan);
+        })
+        .catch((err) => {});
+    //eslint-disable-next-line;
+  }, [currentUser]);
+
   const findUser = () => {
     let newList = users;
 
@@ -94,11 +106,13 @@ export default function UpdateUser() {
           return user._id;
         })
         .indexOf(id);
-      setName(newList[position].name);
-      setEmail(newList[position].email);
-      setCpf(newList[position].cpf);
-      setBirthday(newList[position].birthday);
-      setPlan(newList[position].plan);
+      console.log(currentUser);
+      setCurrentUser(newList[position]);
+      setName(currentUser.name);
+      setEmail(currentUser.email);
+      setCpf(currentUser.cpf);
+      setBirthday(currentUser.birthday);
+      setPlan(plan.name || "");
     }
   };
 
@@ -133,7 +147,7 @@ export default function UpdateUser() {
                     label="Nome"
                     id="userName"
                     type="text"
-                    value={name || ""}
+                    value={currentUser.name || ""}
                     onChange={(event) =>
                       handleChange(event.target.value, "name")
                     }
@@ -143,7 +157,7 @@ export default function UpdateUser() {
                     label="Email"
                     id="userEmail"
                     type="text"
-                    value={email || ""}
+                    value={currentUser.email || ""}
                     onChange={(event) =>
                       handleChange(event.target.value, "email")
                     }
@@ -153,7 +167,7 @@ export default function UpdateUser() {
                     label="CPF"
                     id="userCPF"
                     type="text"
-                    value={cpf || ""}
+                    value={currentUser.cpf || ""}
                     onChange={(event) =>
                       handleChange(event.target.value, "cpf")
                     }
@@ -163,24 +177,29 @@ export default function UpdateUser() {
                     label="Data de nascimento"
                     id="userBirthday"
                     type="text"
-                    value={moment(birthday).format("DD/MM/YYYY") || ""}
+                    value={
+                      currentUser.birthday
+                        ? moment(currentUser.birthday).format("DD/MM/YYYY")
+                        : ""
+                    }
                     onChange={(event) =>
                       handleChange(event.target.value, "birthday")
                     }
                   />
                   <MDBInput
+                    readonly
                     style={{ marginTop: "10px" }}
                     label="Plano atual"
                     id="userPlan"
                     type="text"
-                    value={plan || ""}
+                    value={plan.name || ""}
                     onChange={(event) =>
                       handleChange(event.target.value, "plan")
                     }
                   />
                 </>
               ) : (
-                <p className="h1">Nenhum produto selecionado!</p>
+                <p className="h1">Nenhum usuário selecionado!</p>
               )}
               <MDBBtn style={{ marginTop: "10px" }} onClick={handleSubmit}>
                 Confirmar

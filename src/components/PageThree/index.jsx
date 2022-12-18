@@ -14,6 +14,7 @@ export default function PageThree() {
       .post("/checkout/plan-checkout-session", {
         lookup_keys: plans[index].lookup_key,
         price: plans[index].priceID,
+        userID: localStorage.getItem("userID"),
       })
       .then((res) => {
         window.location.href = res.data.url;

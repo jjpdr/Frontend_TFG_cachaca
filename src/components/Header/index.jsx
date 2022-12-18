@@ -67,7 +67,7 @@ export default function Header() {
                 <img
                   alt="user"
                   src={
-                    localStorage.getItem("picture") || user?.image !== undefined
+                    user?.image !== undefined
                       ? `${BACKEND_URL}/users/image/${user.image}`
                       : userIcon
                   }

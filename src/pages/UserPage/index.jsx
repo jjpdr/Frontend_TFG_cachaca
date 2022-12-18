@@ -29,6 +29,7 @@ export default function UserPage() {
   const token = JSON.parse(localStorage.getItem("token"));
   const { id } = useParams();
   const [user, setUser] = useState({});
+  const [plan, setPlan] = useState({});
   const [modalCCShow, setModalCCShow] = useState(false);
   const [modalAddressShow, setModalAddressShow] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -92,6 +93,18 @@ export default function UserPage() {
       .catch((err) => {});
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    if (user.planID !== undefined)
+      api
+        .get(`/plans/${user.planID}`)
+        .then((res) => {
+          setPlan(res.data.plan);
+        })
+        .catch((err) => {});
+    //eslint-disable-next-line;
+  }, [user.planID]);
+
   return (
     <>
       <Header />
@@ -109,13 +122,16 @@ export default function UserPage() {
                 <MDBCardBody className="text-center">
                   <MDBCardImage
                     src={
-                      localStorage.getItem("picture") || user.image
+                      user.image
                         ? `${BACKEND_URL}/users/image/${user.image}`
                         : userIcon
                     }
                     alt="avatar"
-                    className="rounded-circle"
-                    style={{ width: "150px" }}
+                    style={{
+                      height: "150px",
+                      width: "150px",
+                      borderRadius: "50%",
+                    }}
                     fluid
                   />
                   {isLoading ? (
@@ -250,7 +266,7 @@ export default function UserPage() {
                     </MDBCol>
                     <MDBCol sm="9">
                       <MDBCardText className="text-muted">
-                        {user.plan}
+                        {plan?.name || ""}
                       </MDBCardText>
                     </MDBCol>
                   </MDBRow>
