@@ -10,18 +10,22 @@ export default function PageThree() {
   const [plans, setPlans] = useState([]);
 
   const handleSubscribe = (e, index) => {
-    api
-      .post("/checkout/plan-checkout-session", {
-        lookup_keys: plans[index].lookup_key,
-        price: plans[index].priceID,
-        userID: localStorage.getItem("userID"),
-      })
-      .then((res) => {
-        window.location.href = res.data.url;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const userID = localStorage.getItem("userID");
+    userID
+      ? api
+          .post("/checkout/plan-checkout-session", {
+            lookup_keys: plans[index].lookup_key,
+            price: plans[index].priceID,
+            userID: localStorage.getItem("userID"),
+          })
+          .then((res) => {
+            window.location.href = res.data.url;
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+      : window.alert("É necessário estar autenticado!");
+    window.location.href = "/login";
   };
 
   useEffect(() => {
